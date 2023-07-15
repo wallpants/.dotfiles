@@ -1,0 +1,51 @@
+plugins=(git)
+
+ZSH_THEME=Chicago95
+source  ~/.oh-my-zsh/oh-my-zsh.sh
+
+echo ""
+echo ""
+echo "Microsoft(R) Windows 95"
+echo "   (C)Copyright Microsoft Corp 1981-1996."
+echo ""
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# vim keymaps
+set -o vi
+
+# ALIAS
+alias vi="nvim"
+alias vim="vim"
+alias lzg="lazygit"
+alias :q="exit"
+alias :Q="exit"
+alias dotfiles="cd ~/.dotfiles"
+
+# remap Ctrl+L to both scroll the current screen contents into the scrollback buffer
+# and clear the screen, instead of just clearing the screen
+scroll-and-clear-screen() {
+    printf '\n%.0s' {1..$LINES}
+    zle clear-screen
+}
+zle -N scroll-and-clear-screen
+bindkey '^L' scroll-and-clear-screen
+bindkey "^N" down-line-or-beginning-search
+bindkey "^P" up-line-or-beginning-search
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# pnpm
+export PNPM_HOME="/Users/gualcasas/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+source ~/.dotfiles/zsh/os_specific.zsh
+source ~/.dotfiles/zsh/doctl-completion.zsh
