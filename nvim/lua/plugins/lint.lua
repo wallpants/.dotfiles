@@ -22,16 +22,6 @@ return {
         },
       })
 
-      -- override eslint_d to lint stdin
-      lint.linters.eslint_d.stdin = true
-      lint.linters.eslint_d.args = {
-        "--stdin",
-        "--stdin-filename",
-        function()
-          return vim.api.nvim_buf_get_name(0)
-        end,
-      }
-
       Utils.ensure_mason_install("eslint_d")
       local jsts_filetype = {
         "eslint_d",
