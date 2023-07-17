@@ -1,1 +1,2 @@
-export ANDROID_HOME="/home/gualcasas/Android/Sdk"
+# brew
+export PATH="/usr/local/sbin:$PATH"

@@ -1,5 +1,21 @@
 #! /bin/bash
 
+# Ensure brew is installed
+if ! command -v brew &> /dev/null; then
+    echo "Homebrew is not installed. Installing..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo "Homebrew is already installed."
+fi
+
+# Install viu
+if ! command -v viu &> /dev/null; then
+    echo "Viu is not installed. Installing..."
+    brew install viu
+else
+    echo "Viu is already installed."
+fi
+
 # # # # # # # # # # # # # # # #
 #                             #
 #          Neovim             #
