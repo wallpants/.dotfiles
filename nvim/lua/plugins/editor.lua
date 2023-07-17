@@ -2,6 +2,15 @@ local Utils = require("gual.utils")
 
 return {
   {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    ft = { "markdown" },
+    config = function()
+      Utils.map("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
+    end,
+  },
+
+  {
     "NvChad/nvim-colorizer.lua",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
