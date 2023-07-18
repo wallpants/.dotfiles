@@ -4,6 +4,7 @@ local jsonls = require("plugins.lsp.jsonls")
 local lua_ls = require("plugins.lsp.lua_ls")
 local tailwindcss = require("plugins.lsp.tailwindcss")
 local tsserver = require("plugins.lsp.tsserver")
+local eslint = require("plugins.lsp.eslint")
 
 return {
   {
@@ -24,6 +25,19 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      vim.diagnostic.config({
+        severity_sort = true,
+        virtual_text = {
+          source = "always",
+        },
+        float = {
+          border = Utils.setup_border("single", "DiagnosticsBorder"),
+          severity_sort = true,
+          source = "always",
+          max_width = 85,
+        },
+      })
 
       lspconfig.util.default_config = vim.tbl_deep_extend("force", lspconfig.util.default_config, {
         capabilities = capabilities,
@@ -47,6 +61,7 @@ return {
       lua_ls(lspconfig)
       tailwindcss(lspconfig)
       tsserver(lspconfig)
+      eslint(lspconfig)
     end,
   },
 }
