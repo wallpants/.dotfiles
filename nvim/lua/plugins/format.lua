@@ -1,5 +1,20 @@
 local format_on_save = true
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = {
+    "*.js",
+    "*.jsx",
+    "*.ts",
+    "*.tsx",
+    "*.cjs",
+    "*.mjs",
+  },
+  callback = function()
+    vim.cmd("EslintFixAll")
+    vim.cmd("write")
+  end,
+})
+
 return {
   {
     "mhartington/formatter.nvim",
