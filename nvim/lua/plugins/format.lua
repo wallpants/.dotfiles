@@ -7,7 +7,7 @@ return {
     opts = function()
       local Utils = require("gual.utils")
       Utils.ensure_mason_install("prettierd")
-      Utils.ensure_mason_install("eslint_d")
+      -- Utils.ensure_mason_install("eslint_d")
       Utils.ensure_mason_install("stylua")
 
       if format_on_save then
@@ -21,7 +21,7 @@ return {
       end
 
       local jsts_filetype = {
-        require("formatter.filetypes.javascript").eslint_d,
+        -- require("formatter.filetypes.javascript").eslint_d,
         require("formatter.filetypes.javascript").prettierd,
       }
 
