@@ -14,15 +14,15 @@ return {
     },
   },
 
-  {
-    "github/copilot.vim",
-    config = function()
-      -- default for accept is <Tab> which is equal to <C-i>
-      Utils.map("i", "<C-l>", "<Plug>(copilot-dismiss)", { desc = "Dismiss copilot suggestion" })
-      Utils.map("i", "<C-j>", "<Plug>(copilot-next)", { desc = "Next copilot suggestion" })
-      Utils.map("i", "<C-h>", "<Plug>(copilot-previous)", { desc = "Previous copilot suggestion" })
-    end,
-  },
+  -- {
+  --   "github/copilot.vim",
+  --   config = function()
+  --     -- default for accept is <Tab> which is equal to <C-i>
+  --     Utils.map("i", "<C-l>", "<Plug>(copilot-dismiss)", { desc = "Dismiss copilot suggestion" })
+  --     Utils.map("i", "<C-j>", "<Plug>(copilot-next)", { desc = "Next copilot suggestion" })
+  --     Utils.map("i", "<C-h>", "<Plug>(copilot-previous)", { desc = "Previous copilot suggestion" })
+  --   end,
+  -- },
 
   -- {
   --   "zbirenbaum/copilot-cmp",
