@@ -8,25 +8,35 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { "<tab>", function() return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end, expr = true, silent = true, mode = "i" },
-      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+      { "<s-tab>", function() return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<s-tab>" end, expr = true, silent = true, mode = "i" },
+      { "<s-tab>", function() require("luasnip").jump(1) end, mode = "s" },
+      -- { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
   },
 
   {
-    "zbirenbaum/copilot-cmp",
-    lazy = true,
-    dependencies = {
-      {
-        "zbirenbaum/copilot.lua",
-        opts = {
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-        },
-      },
-    },
+    "github/copilot.vim",
+    config = function()
+      -- default for accept is <Tab> which is equal to <C-i>
+      Utils.map("i", "<C-l>", "<Plug>(copilot-dismiss)", { desc = "Dismiss copilot suggestion" })
+      Utils.map("i", "<C-j>", "<Plug>(copilot-next)", { desc = "Next copilot suggestion" })
+      Utils.map("i", "<C-h>", "<Plug>(copilot-previous)", { desc = "Previous copilot suggestion" })
+    end,
   },
+
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   lazy = true,
+  --   dependencies = {
+  --     {
+  --       "zbirenbaum/copilot.lua",
+  --       opts = {
+  --         suggestion = { enabled = false },
+  --         panel = { enabled = false },
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     "hrsh7th/nvim-cmp",
@@ -38,7 +48,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      "zbirenbaum/copilot-cmp",
+      -- "zbirenbaum/copilot-cmp",
       "roobert/tailwindcss-colorizer-cmp.nvim",
     },
     opts = function()
@@ -74,6 +84,7 @@ return {
                 config = {
                   sources = {
                     { name = "nvim_lsp" },
+                    -- { name = "copilot" },
                   },
                 },
               })
@@ -89,7 +100,7 @@ return {
           { name = "path" },
         }, {
           { name = "luasnip" },
-          { name = "copilot" },
+          -- { name = "copilot" },
         }, {
           { name = "buffer", keyword_length = 5 },
         }),
