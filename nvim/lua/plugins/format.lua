@@ -1,19 +1,19 @@
 local format_on_save = true
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {
-    "*.js",
-    "*.jsx",
-    "*.ts",
-    "*.tsx",
-    "*.cjs",
-    "*.mjs",
-  },
-  callback = function()
-    vim.cmd("EslintFixAll")
-    vim.cmd("write")
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = {
+--     "*.js",
+--     "*.jsx",
+--     "*.ts",
+--     "*.tsx",
+--     "*.cjs",
+--     "*.mjs",
+--   },
+--   callback = function()
+--     vim.cmd("EslintFixAll")
+--     vim.cmd("write")
+--   end,
+-- })
 
 return {
   {
@@ -22,7 +22,7 @@ return {
     opts = function()
       local Utils = require("gual.utils")
       Utils.ensure_mason_install("prettierd")
-      -- Utils.ensure_mason_install("eslint_d")
+      Utils.ensure_mason_install("eslint_d")
       Utils.ensure_mason_install("stylua")
 
       if format_on_save then
@@ -36,7 +36,7 @@ return {
       end
 
       local jsts_filetype = {
-        -- require("formatter.filetypes.javascript").eslint_d,
+        require("formatter.filetypes.javascript").eslint_d,
         require("formatter.filetypes.javascript").prettierd,
       }
 
