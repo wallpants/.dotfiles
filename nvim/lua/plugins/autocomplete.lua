@@ -14,30 +14,6 @@ return {
     },
   },
 
-  -- {
-  --   "github/copilot.vim",
-  --   config = function()
-  --     -- default for accept is <Tab> which is equal to <C-i>
-  --     Utils.map("i", "<C-l>", "<Plug>(copilot-dismiss)", { desc = "Dismiss copilot suggestion" })
-  --     Utils.map("i", "<C-j>", "<Plug>(copilot-next)", { desc = "Next copilot suggestion" })
-  --     Utils.map("i", "<C-h>", "<Plug>(copilot-previous)", { desc = "Previous copilot suggestion" })
-  --   end,
-  -- },
-
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   lazy = true,
-  --   dependencies = {
-  --     {
-  --       "zbirenbaum/copilot.lua",
-  --       opts = {
-  --         suggestion = { enabled = false },
-  --         panel = { enabled = false },
-  --       },
-  --     },
-  --   },
-  -- },
-
   {
     "hrsh7th/nvim-cmp",
     version = false, -- last release is way too old
@@ -48,7 +24,6 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      -- "zbirenbaum/copilot-cmp",
       "roobert/tailwindcss-colorizer-cmp.nvim",
     },
     opts = function()
@@ -84,7 +59,6 @@ return {
                 config = {
                   sources = {
                     { name = "nvim_lsp" },
-                    -- { name = "copilot" },
                   },
                 },
               })
@@ -100,7 +74,6 @@ return {
           { name = "path" },
         }, {
           { name = "luasnip" },
-          -- { name = "copilot" },
         }, {
           { name = "buffer", keyword_length = 5 },
         }),
