@@ -1,3 +1,34 @@
+local function set_background_transparent()
+  local hl_groups = {
+    "Normal",
+    "NormalNC",
+    "Comment",
+    "Constant",
+    "Special",
+    "Identifier",
+    "Statement",
+    "PreProc",
+    "Type",
+    "Underlined",
+    "Todo",
+    "String",
+    "Function",
+    "Conditional",
+    "Repeat",
+    "Operator",
+    "Structure",
+    "LineNr",
+    "NonText",
+    "SignColumn",
+    "CursorLineNr",
+    "EndOfBuffer",
+  }
+
+  for idx, hl_group in ipairs(hl_groups) do
+    vim.api.nvim_set_hl(0, hl_group, { bg = "none" })
+  end
+end
+
 return {
   {
     "folke/tokyonight.nvim",
@@ -31,6 +62,8 @@ return {
       for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
         vim.api.nvim_set_hl(0, group, {})
       end
+
+      set_background_transparent()
     end,
   },
 }
