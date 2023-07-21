@@ -69,10 +69,13 @@ return {
       { "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
       { "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
       { "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
+      { "<leader>b,", "<Cmd>BufferLineMovePrev<CR>", desc = "Move buffer left (bufferline)" },
+      { "<leader>b.", "<Cmd>BufferLineMoveNext<CR>", desc = "Move buffer right (bufferline)" },
     },
     opts = {
       options = {
         show_close_icon = false,
+        numbers = "ordinal",
         close_command = function(n)
           require("mini.bufremove").delete(n, false)
         end,
