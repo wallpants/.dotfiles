@@ -45,9 +45,13 @@ return {
         api.config.mappings.default_on_attach(bufnr)
         local opts = { buffer = bufnr, silent = true, nowait = true }
         -- custom mappings
-        Utils.map("n", "s", api.node.open.vertical, opts)
         Utils.map("n", "i", api.node.open.horizontal, opts)
         Utils.map("n", "o", api.node.run.system, opts)
+        Utils.map("n", "s", api.node.open.vertical, opts)
+        Utils.map("n", "y", api.fs.copy.node, opts)
+        Utils.map("n", "G", api.tree.toggle_git_clean_filter, opts)
+        Utils.map("n", "<C-j>", api.tree.change_root_to_node, opts)
+        Utils.map("n", "<C-k>", api.tree.change_root_to_parent, opts)
       end,
     },
   },
