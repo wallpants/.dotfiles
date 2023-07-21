@@ -67,7 +67,10 @@ return {
           ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
-          ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+          ["<CR>"] = cmp.mapping.confirm({
+            select = true,
+            -- behavior = cmp.ConfirmBehavior.Replace
+          }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
@@ -75,7 +78,7 @@ return {
         }, {
           { name = "luasnip" },
         }, {
-          { name = "buffer", keyword_length = 5 },
+          { name = "buffer" },
         }),
         experimental = {
           ghost_text = {
