@@ -1,0 +1,12 @@
+{
+  "name": "CustomScript",
+  "version": "0.0.0.1",
+  "manifest_version": 3,
+  "description": "An extension to display the NASA picture of the day.",
+  "icons": {
+    "128": "icons/pingus-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}
