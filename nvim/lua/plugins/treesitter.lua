@@ -2,6 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
+      "tpope/vim-commentary",
       "JoosepAlviste/nvim-ts-context-commentstring",
     },
     version = false,
@@ -11,10 +12,7 @@ return {
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
+      context_commentstring = { enable = true },
       ensure_installed = {
         "bash",
         "c",

@@ -29,7 +29,8 @@ return {
     keys = {
       { "<leader>e", "<cmd>NvimTreeToggle<CR>", noremap = true, desc = "NvimTree Toggle" },
       { "<leader>fe", "<cmd>NvimTreeFocus<CR>", noremap = true, desc = "NvimTree Focus" },
-      { "<leader>ff", "<cmd>NvimTreeFindFile!<CR>", noremap = true, desc = "NvimTree FindFile change root (!)" },
+      { "<leader>ff", "<cmd>NvimTreeFindFile<CR>", noremap = true, desc = "NvimTree FindFile" },
+      { "<leader>fF", "<cmd>NvimTreeFindFile!<CR>", noremap = true, desc = "NvimTree FindFile change root (!)" },
     },
     opts = {
       actions = {
