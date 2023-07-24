@@ -44,6 +44,7 @@ return {
         logging = true,
         log_level = vim.log.levels.WARN,
         filetype = {
+          css = { require("formatter.filetypes.css").prettierd },
           html = { require("formatter.filetypes.html").prettierd },
           json = { require("formatter.filetypes.json").prettierd },
           lua = { require("formatter.filetypes.lua").stylua },
