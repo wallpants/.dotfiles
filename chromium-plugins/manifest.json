@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/chrome-manifest",
   "name": "CustomScript",
   "version": "0.0.0.1",
   "manifest_version": 3,
@@ -7,6 +8,17 @@
     "128": "icons/pingus-128.png"
   },
   "action": {
-    "default_popup": "popup/popup.html"
-  }
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "css": ["youtube/styles.css"],
+      "js": ["youtube/script.js"]
+    },
+    {
+      "matches": ["https://play.hbomax.com/*"],
+      "js": ["hbomax/script.js"]
+    }
+  ]
 }
