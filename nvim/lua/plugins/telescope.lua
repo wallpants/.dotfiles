@@ -51,7 +51,7 @@ return {
 			Utils.map("n", "<leader>sk", builtin.keymaps, { desc = "Search keymaps" })
       Utils.map("n", "<leader>ag", builtin.lsp_definitions, { desc = "Lsp definitions"})
       Utils.map("n", "<leader>ai", builtin.lsp_implementations, { desc = "Lsp implementations"})
-      Utils.map("n", "<leader>ar", builtin.lsp_references, { desc = "Lsp references"})
+      Utils.map("n", "<leader>ar", function () builtin.lsp_references({ show_line = false }) end, { desc = "Lsp references"})
       Utils.map("n", "<leader>ad", builtin.lsp_type_definitions, { desc = "Lsp type definition"})
       Utils.map("n", "<leader>sp", builtin.spell_suggest, { desc = "Spelling suggestions suggest"})
       -- stylua: ignore end
