@@ -2,6 +2,19 @@ local Utils = require("gual.utils")
 
 return {
   {
+    "nvim-tree/nvim-web-devicons",
+    opts = {
+      default = true,
+      override = {
+        tsx = {
+          icon = "",
+          name = "Zsh",
+        },
+      },
+    },
+  },
+
+  {
     "subnut/nvim-ghost.nvim",
     event = "VeryLazy",
     config = function()
@@ -45,9 +58,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     version = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
+    dependencies = {},
     keys = {
       { "<leader>e", "<cmd>NvimTreeToggle<CR>", noremap = true, desc = "NvimTree Toggle" },
       { "<leader>fe", "<cmd>NvimTreeFocus<CR>", noremap = true, desc = "NvimTree Focus" },
@@ -81,7 +92,6 @@ return {
 
   {
     "akinsho/bufferline.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     event = { "BufReadPost", "BufNewFile" },
     keys = {
       { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
