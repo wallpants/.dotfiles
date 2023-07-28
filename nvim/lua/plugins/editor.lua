@@ -16,8 +16,7 @@ return {
 
   {
     "subnut/nvim-ghost.nvim",
-    event = "VeryLazy",
-    init = function()
+    config = function()
       -- Define a function to set the filetype to markdown for specific URLs
       local function set_filetype(urls, filetype)
         local autocmd = "autocmd User " .. table.concat(urls, ",") .. " setfiletype " .. filetype
