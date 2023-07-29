@@ -23,9 +23,8 @@ return {
       })
 
       Utils.ensure_mason_install("eslint_d")
-      local jsts_filetype = {
-        "eslint_d",
-      }
+
+      local jsts_filetype = { "eslint_d" }
 
       lint.linters_by_ft = {
         javascript = jsts_filetype,

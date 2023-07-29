@@ -1,19 +1,14 @@
 local format_on_save = true
 
--- vim.api.nvim_create_autocmd("BufWritePre", {
---   pattern = {
---     "*.js",
---     "*.jsx",
---     "*.ts",
---     "*.tsx",
---     "*.cjs",
---     "*.mjs",
---   },
---   callback = function()
---     vim.cmd("EslintFixAll")
---     vim.cmd("write")
---   end,
--- })
+local function sql_formatter()
+  return {
+    exe = "sql-formatter",
+    args = {
+      "-l postgresql",
+    },
+    stdin = true,
+  }
+end
 
 return {
   {
@@ -21,6 +16,7 @@ return {
     event = { "VeryLazy" },
     opts = function()
       local Utils = require("gual.utils")
+      Utils.ensure_mason_install("sql-formatter")
       Utils.ensure_mason_install("prettierd")
       Utils.ensure_mason_install("eslint_d")
       Utils.ensure_mason_install("stylua")
@@ -36,19 +32,20 @@ return {
       end
 
       local jsts_filetype = {
-        require("formatter.filetypes.javascript").eslint_d,
-        require("formatter.filetypes.javascript").prettierd,
+        require("formatter.defaults").eslint_d,
+        require("formatter.defaults").prettierd,
       }
 
       return {
         logging = true,
         log_level = vim.log.levels.WARN,
         filetype = {
-          css = { require("formatter.filetypes.css").prettierd },
-          html = { require("formatter.filetypes.html").prettierd },
-          json = { require("formatter.filetypes.json").prettierd },
           lua = { require("formatter.filetypes.lua").stylua },
-          yaml = { require("formatter.filetypes.yaml").prettierd },
+          sql = { sql_formatter },
+          css = { require("formatter.defaults").prettierd },
+          html = { require("formatter.defaults").prettierd },
+          json = { require("formatter.defaults").prettierd },
+          yaml = { require("formatter.defaults").prettierd },
           javascript = jsts_filetype,
           javascriptreact = jsts_filetype,
           typescript = jsts_filetype,
