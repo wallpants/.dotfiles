@@ -1,22 +1,11 @@
 local format_on_save = true
 
-local function sql_formatter()
-  return {
-    exe = "sql-formatter",
-    args = {
-      "-l postgresql",
-    },
-    stdin = true,
-  }
-end
-
 return {
   {
     "mhartington/formatter.nvim",
     event = { "VeryLazy" },
     opts = function()
       local Utils = require("gual.utils")
-      Utils.ensure_mason_install("sql-formatter")
       Utils.ensure_mason_install("prettierd")
       Utils.ensure_mason_install("eslint_d")
       Utils.ensure_mason_install("stylua")
@@ -41,7 +30,6 @@ return {
         log_level = vim.log.levels.WARN,
         filetype = {
           lua = { require("formatter.filetypes.lua").stylua },
-          sql = { sql_formatter },
           css = { require("formatter.defaults").prettierd },
           html = { require("formatter.defaults").prettierd },
           json = { require("formatter.defaults").prettierd },
