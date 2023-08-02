@@ -7,18 +7,30 @@
   "icons": {
     "128": "icons/pingus-128.png"
   },
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "random_tab_switch": {
+      "suggested_key": {
+        "default": "Alt+R"
+      },
+      "description": "Switch to a random tab"
+    }
+  },
   "action": {
     "default_popup": "popup.html"
   },
   "content_scripts": [
     {
-      "matches": ["https://*.youtube.com/*"],
-      "css": ["youtube/styles.css"],
-      "js": ["youtube/script.js"]
-    },
-    {
       "matches": ["https://play.hbomax.com/*"],
       "js": ["hbomax/script.js"]
+    },
+    {
+      "matches": ["https://i.imgur.com/*.gifv"],
+      "css": ["imgur/styles.css"],
+      "js": ["imgur/script.js"]
     }
   ]
 }

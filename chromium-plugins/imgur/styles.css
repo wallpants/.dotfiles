@@ -1,0 +1,10 @@
+body {
+  overflow: hidden;
+}
+
+video {
+  height: 100vh !important;
+  width: 100vw !important;
+  max-height: 100vh !important;
+  max-width: 100vw !important;
+}
