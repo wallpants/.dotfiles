@@ -1,0 +1,29 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+export EDITOR="vi"
+export VISUAL="vi"
+
+set - vi
+
+alias lzg="lazygit"
+alias :q="exit"
+alias :Q="exit"
+alias dotfiles="cd ~/.dotfiles"
+
+# remap Ctrl+L to both scroll the current screen contents into the scrollback buffer
+# and clear the screen, instead of just clearing the screen
+scroll-and-clear-screen() {
+    printf '\n%.0s' {1..$LINES}
+    zle clear-screen
+}
+zle -N scroll-and-clear-screen
+bindkey '^L' scroll-and-clear-screen
+bindkey "^N" down-line-or-beginning-search
+bindkey "^P" up-line-or-beginning-search
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

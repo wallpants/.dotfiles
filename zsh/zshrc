@@ -22,6 +22,7 @@ alias lzg="lazygit"
 alias :q="exit"
 alias :Q="exit"
 alias dotfiles="cd ~/.dotfiles"
+alias ssh="kitty +kitten ssh"
 
 # remap Ctrl+L to both scroll the current screen contents into the scrollback buffer
 # and clear the screen, instead of just clearing the screen
