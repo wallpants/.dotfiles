@@ -1,11 +1,15 @@
 plugins=(git)
 
-ZSH_THEME=Chicago95
-# ZSH_THEME=af-magic
+ZSH_THEME=leite
 source  ~/.oh-my-zsh/oh-my-zsh.sh
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# pnpm
+export PNPM_HOME="$HOME/.pnpm-home"
+export PATH="$PNPM_HOME:$PATH"
+
 
 # vim keymaps
 set -o vi
@@ -30,17 +34,10 @@ bindkey '^L' scroll-and-clear-screen
 bindkey "^N" down-line-or-beginning-search
 bindkey "^P" up-line-or-beginning-search
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# pnpm
-export PNPM_HOME="/Users/gualcasas/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 source ~/.dotfiles/zsh/os_specific.zsh
-source ~/.dotfiles/zsh/doctl-completion.zsh
+
+echo ""
+echo ""
+echo "Microsoft(R) Windows 95"
+echo "   (C)Copyright Microsoft Corp 1981-1996."
+echo ""

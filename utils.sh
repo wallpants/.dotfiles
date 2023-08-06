@@ -13,7 +13,7 @@ eval_if_os() {
 # usage: brew_ensure_installed "viu"
 brew_ensure_installed() {
     local package=$1
-    local custom_install_cmd=$3
+    local custom_install_cmd=$2
     # check if the package is installed
     if ! command -v "$package" &> /dev/null; then
         echo "$package is not installed. Installing..."
