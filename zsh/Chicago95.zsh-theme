@@ -12,7 +12,9 @@ function __get_prefix_chicago95_zsh() {
 	fi
 }
 
-PROMPT='$(__get_prefix_chicago95_zsh):$(git_prompt_info)$(__msdos_pwd)>'
+PROMPT='
+%B%F{blue}%M::%{$reset_color%}$(__get_prefix_chicago95_zsh):$(git_prompt_info)$(__msdos_pwd)> ⌚ %{$fg_bold[red]%}%*%{$reset_color%}
+$ '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="\\%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"

@@ -1,6 +1,7 @@
 plugins=(git)
 
 ZSH_THEME=Chicago95
+# ZSH_THEME=af-magic
 source  ~/.oh-my-zsh/oh-my-zsh.sh
 
 export EDITOR="nvim"
