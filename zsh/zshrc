@@ -3,12 +3,6 @@ plugins=(git)
 ZSH_THEME=Chicago95
 source  ~/.oh-my-zsh/oh-my-zsh.sh
 
-echo ""
-echo ""
-echo "Microsoft(R) Windows 95"
-echo "   (C)Copyright Microsoft Corp 1981-1996."
-echo ""
-
 export EDITOR="nvim"
 export VISUAL="nvim"
 
