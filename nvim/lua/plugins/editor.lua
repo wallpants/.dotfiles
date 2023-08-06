@@ -7,8 +7,8 @@ return {
       default = true,
       override = {
         tsx = {
-          icon = "",
-          name = "Zsh",
+          icon = "",
+          name = "Zsh", -- changes color to lightgreen
         },
       },
     },

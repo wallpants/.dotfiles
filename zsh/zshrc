@@ -15,6 +15,7 @@ export PATH="$PNPM_HOME:$PATH"
 set -o vi
 
 # ALIAS
+alias python="python3"
 alias vi="nvim"
 alias vim="vim"
 alias lzg="lazygit"
