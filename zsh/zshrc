@@ -27,13 +27,9 @@ alias :q="exit"
 alias :Q="exit"
 alias dotfiles="cd ~/.dotfiles"
 alias ssh="nohup lemonade server > /dev/null 2>&1 &! kitty +kitten ssh"
-# g = like -l but no list groupinfo
-# s = size
-# S = sort by size
-# A = almost all
-# h = human readable sizes
-# p = append / to dirs
-alias la="ls -osSAhp"
+alias l="ls -1"
+alias la="ls -oAh"
+
 
 # remap Ctrl+L to both scroll the current screen contents into the scrollback buffer
 # and clear the screen, instead of just clearing the screen
