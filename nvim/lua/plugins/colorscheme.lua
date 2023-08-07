@@ -44,7 +44,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.opt.background = "dark"
+      -- vim.opt.background = "light"
       vim.cmd([[colorscheme oxocarbon]])
       vim.api.nvim_set_hl(0, "@keyword", { fg = "#ee5396" })
       vim.api.nvim_set_hl(0, "@include", { fg = "#82cfff" })
