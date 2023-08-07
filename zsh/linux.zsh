@@ -2,7 +2,9 @@ alias open="xdg-open"
 
 export DOCKER_HOST="unix:///home/gualcasas/.docker/desktop/docker.sock"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export BREW_PREFIX="/home/linuxbrew/.linuxbrew"
+eval "$($BREW_PREFIX/bin/brew shellenv)" # load brew
+FPATH="$BREW_PREFIX/share/zsh/site-functions:${FPATH}" # load brew completions
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
