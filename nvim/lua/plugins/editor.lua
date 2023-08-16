@@ -15,6 +15,14 @@ return {
   },
 
   {
+    "gualcasas/nvim-area",
+    dev = true,
+    opts = {
+      something = "a value",
+    },
+  },
+
+  {
     "subnut/nvim-ghost.nvim",
     config = function()
       -- Define a function to set the filetype to markdown for specific URLs
