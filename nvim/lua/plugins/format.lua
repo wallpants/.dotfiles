@@ -20,7 +20,7 @@ return {
         vim.cmd("command NoFormat autocmd! gual_format")
       end
 
-      local jsts_filetype = {
+      local js_ts_filetype = {
         require("formatter.defaults").eslint_d,
         require("formatter.defaults").prettierd,
       }
@@ -34,10 +34,10 @@ return {
           html = { require("formatter.defaults").prettierd },
           json = { require("formatter.defaults").prettierd },
           yaml = { require("formatter.defaults").prettierd },
-          javascript = jsts_filetype,
-          javascriptreact = jsts_filetype,
-          typescript = jsts_filetype,
-          typescriptreact = jsts_filetype,
+          javascript = js_ts_filetype,
+          javascriptreact = js_ts_filetype,
+          typescript = js_ts_filetype,
+          typescriptreact = js_ts_filetype,
         },
       }
     end,

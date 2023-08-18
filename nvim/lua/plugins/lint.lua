@@ -24,13 +24,13 @@ return {
 
       Utils.ensure_mason_install("eslint_d")
 
-      local jsts_filetype = { "eslint_d" }
+      local js_ts_filetype = { "eslint_d" }
 
       lint.linters_by_ft = {
-        javascript = jsts_filetype,
-        javascriptreact = jsts_filetype,
-        typescript = jsts_filetype,
-        typescriptreact = jsts_filetype,
+        javascript = js_ts_filetype,
+        javascriptreact = js_ts_filetype,
+        typescript = js_ts_filetype,
+        typescriptreact = js_ts_filetype,
       }
 
       vim.api.nvim_create_autocmd({ "BufReadPost", "TextChanged", "InsertLeave" }, {
