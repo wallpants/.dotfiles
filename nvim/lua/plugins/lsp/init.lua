@@ -4,6 +4,7 @@ local jsonls = require("plugins.lsp.jsonls")
 local lua_ls = require("plugins.lsp.lua_ls")
 local tailwindcss = require("plugins.lsp.tailwindcss")
 local tsserver = require("plugins.lsp.tsserver")
+local gopls = require("plugins.lsp.gopls")
 
 return {
   {
@@ -47,6 +48,7 @@ return {
       lua_ls(lspconfig)
       tailwindcss(lspconfig)
       tsserver(lspconfig)
+      gopls(lspconfig)
     end,
   },
 }
