@@ -15,33 +15,29 @@ return {
   },
 
   {
-    "gualcasas/nvim-area",
-    dev = true,
-    opts = {
-      something = "a value",
-    },
+    "gualcasas/ghost-text.nvim",
   },
 
-  {
-    "subnut/nvim-ghost.nvim",
-    config = function()
-      -- Define a function to set the filetype to markdown for specific URLs
-      local function set_filetype(urls, filetype)
-        local autocmd = "autocmd User " .. table.concat(urls, ",") .. " setfiletype " .. filetype
-        vim.api.nvim_command(autocmd)
-      end
+  -- {
+  --   "subnut/nvim-ghost.nvim",
+  --   config = function()
+  --     -- Define a function to set the filetype to markdown for specific URLs
+  --     local function set_filetype(urls, filetype)
+  --       local autocmd = "autocmd User " .. table.concat(urls, ",") .. " setfiletype " .. filetype
+  --       vim.api.nvim_command(autocmd)
+  --     end
 
-      -- Define the autocommand group
-      vim.cmd("augroup nvim_ghost_user_autocommands")
-      vim.cmd("autocmd!")
+  --     -- Define the autocommand group
+  --     vim.cmd("augroup nvim_ghost_user_autocommands")
+  --     vim.cmd("autocmd!")
 
-      -- Set filetypes for specific URLs
-      set_filetype({ "www.reddit.com", "www.github.com" }, "markdown")
+  --     -- Set filetypes for specific URLs
+  --     set_filetype({ "www.reddit.com", "www.github.com" }, "markdown")
 
-      -- End the autocommand group
-      vim.cmd("augroup END")
-    end,
-  },
+  --     -- End the autocommand group
+  --     vim.cmd("augroup END")
+  --   end,
+  -- },
 
   {
     "iamcco/markdown-preview.nvim",

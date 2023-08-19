@@ -15,7 +15,4 @@ require("lazy").setup("plugins", {
   change_detection = {
     enabled = false,
   },
-  dev = {
-    path = "~/.config/nvim/lua/gual/dev",
-  },
 })
