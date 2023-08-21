@@ -16,6 +16,7 @@ return {
 
   {
     "gualcasas/ghost-text.nvim",
+    dev = true,
     branch = "dev",
     opts = {
       log_output = "none",
@@ -24,6 +25,7 @@ return {
 
   {
     "gualcasas/markdown-preview.nvim",
+    dev = true,
     branch = "dev",
     keys = {
       { "<leader>mp", "<cmd>MarkdownPreview<cr>" },
