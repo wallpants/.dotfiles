@@ -17,10 +17,7 @@ return {
   {
     "gualcasas/ghost-text.nvim",
     branch = "dev",
-    cmd = "GhostTextStart",
-    config = {
-      autostart = false,
-    },
+    config = true,
   },
 
   {
