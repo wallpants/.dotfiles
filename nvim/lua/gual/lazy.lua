@@ -22,6 +22,6 @@ require("lazy").setup("plugins", {
     -- instead of being fetched from GitHub
     ---@type string[]
     patterns = { "gualcasas" }, -- For example {"folke"}
-    fallback = false, -- Fallback to git when local plugin doesn't exist
+    fallback = true, -- Fallback to git when local plugin doesn't exist
   },
 })
