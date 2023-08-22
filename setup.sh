@@ -1,5 +1,6 @@
 #! /bin/bash
 
+source ./zsh/os_specific.zsh
 source utils.sh
 
 # Ensure brew is installed
@@ -17,16 +18,12 @@ brew_ensure_installed "doctl"
 brew_ensure_installed "frpc"
 brew_ensure_installed "kitty"
 brew_ensure_installed "pnpm"
+brew_ensure_installed "nvm"
+brew_ensure_installed "node" "nvm install 18"
 brew_ensure_installed "rg" "brew install ripgrep"
 eval_if_os "darwin" "brew_ensure_installed 'gsed' 'brew install gnu-sed'"
 
 brew_ensure_installed "supabase" "brew install supabase/tap/supabase"
-
-# brew_ensure_installed doesn't detect nvm
-if [ ! -d ~/.nvm ]; then
-    brew_ensure_installed "nvm" "brew install nvm"
-    mkdir ~/.nvm
-fi
 
 # # # # # # # # # # # # # # # #
 #                             #
