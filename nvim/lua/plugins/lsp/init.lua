@@ -6,6 +6,7 @@ local tailwindcss = require("plugins.lsp.tailwindcss")
 local tsserver = require("plugins.lsp.tsserver")
 local gopls = require("plugins.lsp.gopls")
 local html = require("plugins.lsp.html")
+local css = require("plugins.lsp.css")
 
 return {
   {
@@ -51,6 +52,7 @@ return {
       tsserver(lspconfig)
       gopls(lspconfig)
       html(lspconfig)
+      css(lspconfig)
     end,
   },
 }
