@@ -13,18 +13,21 @@ eval_if_os "macos" "source zsh/mac.zsh"
 if ! command -v brew &> /dev/null; then
 	eval_if_os "fedora" "sudo dnf update"
 	eval_if_os "fedora" "sudo dnf groupinstall 'Development Tools' -y"
+  eval_if_os "fedora" "sudo dnf install zsh"
 
 	eval_if_os "ubuntu" "sudo apt update"
 	eval_if_os "ubuntu" "sudo apt install build-essential -y"
+  eval_if_os "ubuntu" "sudo apt install zsh"
 
 	echo "Homebrew is not installed. Installing..."
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 	# source .zsh files again to load brew if newly installed
 	eval_if_os "linux" "source zsh/linux.zsh"
 	eval_if_os "macos" "source zsh/mac.zsh"
 fi
 
-brew_ensure_installed "zsh"
+
 brew_ensure_installed "go"
 brew_ensure_installed "viu"
 brew_ensure_installed "lazygit"
