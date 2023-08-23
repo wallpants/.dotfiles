@@ -10,23 +10,22 @@ eval_if_os "linux" "source zsh/linux.zsh"
 eval_if_os "macos" "source zsh/mac.zsh"
 
 # Ensure brew is installed
-if ! command -v brew &> /dev/null; then
-	eval_if_os "fedora" "sudo dnf update"
-	eval_if_os "fedora" "sudo dnf groupinstall 'Development Tools' -y"
+if ! command -v brew &>/dev/null; then
+  eval_if_os "fedora" "sudo dnf update"
+  eval_if_os "fedora" "sudo dnf groupinstall 'Development Tools' -y"
   eval_if_os "fedora" "sudo dnf install zsh"
 
-	eval_if_os "ubuntu" "sudo apt update"
-	eval_if_os "ubuntu" "sudo apt install build-essential -y"
+  eval_if_os "ubuntu" "sudo apt update"
+  eval_if_os "ubuntu" "sudo apt install build-essential -y"
   eval_if_os "ubuntu" "sudo apt install zsh"
 
-	echo "Homebrew is not installed. Installing..."
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Homebrew is not installed. Installing..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-	# source .zsh files again to load brew if newly installed
-	eval_if_os "linux" "source zsh/linux.zsh"
-	eval_if_os "macos" "source zsh/mac.zsh"
+  # source .zsh files again to load brew if newly installed
+  eval_if_os "linux" "source zsh/linux.zsh"
+  eval_if_os "macos" "source zsh/mac.zsh"
 fi
-
 
 brew_ensure_installed "go"
 brew_ensure_installed "viu"
@@ -46,7 +45,6 @@ brew_ensure_installed "nvm"
 eval_if_os "linux" "source zsh/linux.zsh"
 eval_if_os "macos" "source zsh/mac.zsh"
 brew_ensure_installed "node" "nvm install 18"
-
 
 # # # # # # # # # # # # # # # #
 #                             #
@@ -71,7 +69,6 @@ rm ~/.dotfiles/kitty/os_specific.conf
 eval_if_os "linux" "ln -s ~/.dotfiles/kitty/linux.conf ~/.dotfiles/kitty/os_specific.conf"
 eval_if_os "macos" "ln -s ~/.dotfiles/kitty/mac.conf ~/.dotfiles/kitty/os_specific.conf"
 
-
 # # # # # # # # # # # # # # # #
 #                             #
 #             Zsh             #
@@ -80,8 +77,8 @@ eval_if_os "macos" "ln -s ~/.dotfiles/kitty/mac.conf ~/.dotfiles/kitty/os_specif
 
 # Ensure oh-my-zsh is installed
 if [ ! -d ~/.oh-my-zsh ]; then
-	echo "Oh my zsh is not installed. Installing..."
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "Oh my zsh is not installed. Installing..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 echo "linking ~/.zshrc"

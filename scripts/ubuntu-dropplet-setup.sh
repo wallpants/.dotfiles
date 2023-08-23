@@ -12,9 +12,9 @@ sudo apt upgrade
 sudo apt install build-essential procps curl file zsh
 
 # Ensure brew is installed
-if ! command -v brew &> /dev/null; then
-    echo "Homebrew is not installed. Installing..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command -v brew &>/dev/null; then
+  echo "Homebrew is not installed. Installing..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # make brew available in current session
@@ -27,9 +27,9 @@ brew_ensure_installed "pnpm"
 brew_ensure_installed "node"
 
 # ensure oh-my-zsh is installed
-if ! command -v omz &> /dev/null; then
-    echo "Oh-my-zsh is not installed. Installing..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if ! command -v omz &>/dev/null; then
+  echo "Oh-my-zsh is not installed. Installing..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 echo "linking ~/.zshrc"

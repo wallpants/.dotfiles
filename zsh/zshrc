@@ -3,7 +3,7 @@ source ~/.dotfiles/zsh/os_specific.zsh
 plugins=(git)
 
 ZSH_THEME=leite
-source  ~/.oh-my-zsh/oh-my-zsh.sh
+source ~/.oh-my-zsh/oh-my-zsh.sh
 
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -30,18 +30,16 @@ alias ssh="nohup lemonade server > /dev/null 2>&1 &! kitty +kitten ssh -R 2489:1
 alias l="ls -1"
 alias la="ls -oAh"
 
-
 # remap Ctrl+L to both scroll the current screen contents into the scrollback buffer
 # and clear the screen, instead of just clearing the screen
 scroll-and-clear-screen() {
-    printf '\n%.0s' {1..$LINES}
-    zle clear-screen
+  printf '\n%.0s' {1..$LINES}
+  zle clear-screen
 }
 zle -N scroll-and-clear-screen
 bindkey '^L' scroll-and-clear-screen
 bindkey "^N" down-line-or-beginning-search
 bindkey "^P" up-line-or-beginning-search
-
 
 echo ""
 echo ""

@@ -10,6 +10,7 @@ return {
       Utils.ensure_mason_install("eslint_d")
       Utils.ensure_mason_install("stylua")
       Utils.ensure_mason_install("goimports")
+      Utils.ensure_mason_install("shfmt")
 
       if format_on_save then
         vim.api.nvim_create_autocmd("BufWritePost", {
@@ -30,6 +31,8 @@ return {
         logging = true,
         log_level = vim.log.levels.WARN,
         filetype = {
+          zsh = { require("formatter.filetypes.sh").shfmt },
+          sh = { require("formatter.filetypes.sh").shfmt },
           go = { require("formatter.filetypes.go").goimports },
           lua = { require("formatter.filetypes.lua").stylua },
           css = { require("formatter.defaults").prettierd },
