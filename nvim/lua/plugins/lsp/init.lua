@@ -7,6 +7,7 @@ local tsserver = require("plugins.lsp.tsserver")
 local gopls = require("plugins.lsp.gopls")
 local html = require("plugins.lsp.html")
 local css = require("plugins.lsp.css")
+local bash = require("plugins.lsp.bash")
 
 return {
   {
@@ -53,6 +54,7 @@ return {
       gopls(lspconfig)
       html(lspconfig)
       css(lspconfig)
+      bash(lspconfig)
     end,
   },
 }
