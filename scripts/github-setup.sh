@@ -4,7 +4,7 @@ GIT_USERNAME=""
 if [ ! -e ~/.ssh/id_ed25519.pub ]; then
   # Check if the vars are empty
   if [[ -z "$EMAIL" || -z "$GIT_USERNAME" ]]; then
-    echo "EMAIL or USERNAME not set"
+    echo "EMAIL or USERNAME not set in 'scripts/github-setup.sh'"
     exit 1
   fi
 

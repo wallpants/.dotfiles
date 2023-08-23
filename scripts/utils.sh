@@ -1,6 +1,8 @@
-#! /bin/bash
-
-# get curret os
+# get curret os:
+# "ubuntu"
+# "fedora"
+# "macos"
+# "unknown"
 get_current_os() {
   if [ -f "/etc/os-release" ]; then
     source /etc/os-release
@@ -22,10 +24,15 @@ get_current_os() {
   fi
 }
 
-# execute cmd if matching OS, "linux" matches both "ubuntu" and "fedora"
-# usage: eval_if_os "macos" "echo 'hello from mac'"
+# eval_if_os "{os}" "{command}"
+#
+# execute {command} if current os matches {os}
+# * "fedora"
+# * "ubuntu"
+# * "macos"
+# * "linux" - this targets both "fedora" and "ubuntu"
 eval_if_os() {
-  local os="$1" # "fedora" | "ubuntu" | "macos" | "linux"
+  local os="$1"
   local operation="$2"
   local current_os=$(get_current_os)
 
@@ -40,8 +47,10 @@ eval_if_os() {
   eval "$operation"
 }
 
-# install package if not found
-# usage: brew_ensure_installed "viu"
+# brew_ensure_installed "{cmd}" "{custom_install_cmd}"
+#
+# install {cmd} with 'brew install {cmd}' if {cmd} not found.
+# if {custom_install_cmd} provided, use that command instead of 'brew install'
 brew_ensure_installed() {
   local package=$1
   local custom_install_cmd=$2
