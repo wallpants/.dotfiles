@@ -19,7 +19,7 @@ return {
     dev = true,
     branch = "dev",
     opts = {
-      log_output = "none",
+      log_output = "file",
     },
   },
 
@@ -31,7 +31,7 @@ return {
       { "<leader>mp", "<cmd>MarkdownPreview<cr>" },
     },
     opts = {
-      log_output = "none",
+      log_output = "file",
     },
   },
 
