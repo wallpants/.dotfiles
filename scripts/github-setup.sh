@@ -1,17 +1,15 @@
-EMAIL=""
-GIT_USERNAME=""
-
 if [ ! -e ~/.ssh/id_ed25519.pub ]; then
   # Check if the vars are empty
-  if [[ -z "$EMAIL" || -z "$GIT_USERNAME" ]]; then
-    echo "EMAIL or USERNAME not set in 'scripts/github-setup.sh'"
-    exit 1
-  fi
+  echo "Please enter your Name:"
+  read USER_NAME
 
-  git config --global user.name "$GIT_USERNAME"
-  git config --global user.email "$EMAIL"
+  echo "Please enter your Email:"
+  read USER_EMAIL
 
-  ssh-keygen -t ed25519 -C "$EMAIL"
+  git config --global user.name "$USER_NAME"
+  git config --global user.email "$USER_EMAIL"
+
+  ssh-keygen -t ed25519 -C "$USER_EMAIL"
 
   cat ~/.ssh/id_ed25519.pub
 fi
