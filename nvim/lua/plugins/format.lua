@@ -38,6 +38,7 @@ return {
           css = { require("formatter.defaults").prettierd },
           html = { require("formatter.defaults").prettierd },
           json = { require("formatter.defaults").prettierd },
+          jsonc = { require("formatter.defaults").prettierd },
           yaml = { require("formatter.defaults").prettierd },
           javascript = js_ts_filetype,
           javascriptreact = js_ts_filetype,
