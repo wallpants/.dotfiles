@@ -12,9 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-  change_detection = {
-    enabled = false,
-  },
+  -- change_detection = {
+  --   enabled = false,
+  -- },
   dev = {
     -- directory where you store your local plugin projects
     path = "~/Projects/nvim-plugins",
