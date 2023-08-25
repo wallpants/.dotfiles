@@ -117,6 +117,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       on_attach = function()
+        ---@type any
         local gs = package.loaded.gitsigns
         Utils.map("n", "gn", gs.next_hunk, { desc = "Git Next Hunk" })
         Utils.map("n", "gp", gs.prev_hunk, { desc = "Git Prev Hunk" })

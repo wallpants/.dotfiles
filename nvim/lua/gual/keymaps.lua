@@ -34,7 +34,9 @@ Utils.map("n", "<leader>hg", function()
 end, { silent = true })
 
 Utils.map("n", "<LeftMouse>", function()
+  ---@type number
   local winid_under_mouse = vim.api.nvim_call_function("getmousepos", {}).winid
+  ---@type number
   local current_winid = vim.api.nvim_call_function("win_getid", {})
   -- if we clicked on an unfocused window, focus it
   if winid_under_mouse ~= current_winid then

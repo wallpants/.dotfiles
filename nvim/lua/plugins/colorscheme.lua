@@ -24,7 +24,7 @@ local function set_background_transparent()
     -- "EndOfBuffer",
   }
 
-  for idx, hl_group in ipairs(hl_groups) do
+  for _, hl_group in ipairs(hl_groups) do
     vim.api.nvim_set_hl(0, hl_group, { bg = "none" })
   end
 end

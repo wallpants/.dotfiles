@@ -26,8 +26,10 @@ vim.api.nvim_create_autocmd("FileType", {
     "checkhealth",
   },
   callback = function(event)
+    ---@type number
+    local buffer = event.buf
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = buffer, silent = true })
   end,
 })
 
