@@ -31,8 +31,8 @@ local function markdown_code()
   local lang = vim.fn.input("code block: ")
   local buffer = vim.api.nvim_get_current_buf()
   local current_line = vim.fn.line(".")
-  vim.api.nvim_buf_set_lines(buffer, current_line - 1, current_line, false, { "```" .. lang, "", "```" })
-  vim.fn.feedkeys("ji")
+  vim.api.nvim_buf_set_lines(buffer, current_line - 1, current_line - 1, false, { "```" .. lang, "```" })
+  vim.fn.feedkeys("kk")
 end
 
 Utils.map("n", "<leader>mc", markdown_code)

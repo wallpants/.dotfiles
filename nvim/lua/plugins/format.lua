@@ -40,6 +40,7 @@ return {
           json = { require("formatter.defaults").prettierd },
           jsonc = { require("formatter.defaults").prettierd },
           yaml = { require("formatter.defaults").prettierd },
+          markdown = { require("formatter.defaults").prettierd },
           javascript = js_ts_filetype,
           javascriptreact = js_ts_filetype,
           typescript = js_ts_filetype,
