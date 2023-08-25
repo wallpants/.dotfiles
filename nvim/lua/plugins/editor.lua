@@ -20,6 +20,9 @@ return {
     branch = "dev",
     opts = {
       log_output = "file",
+      filetype_domains = {
+        markdown = { "*.openai.com*" },
+      },
     },
   },
 

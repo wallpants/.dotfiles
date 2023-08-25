@@ -29,6 +29,7 @@ return {
       markdownlint.stdin = true
       markdownlint.args = {
         "--stdin",
+        "--disable MD041",
       }
 
       local js_ts_filetype = { "eslint_d" }
