@@ -19,7 +19,6 @@ Utils.map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear
 Utils.map({ "v" }, "<leader>c", '"+y', { desc = "Copy to clipboard" })
 
 Utils.map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
--- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 Utils.map({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
 Utils.map({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
@@ -27,6 +26,16 @@ Utils.map("n", "<leader>wt", "<cmd>resize +8<CR>") -- resize window TALLER
 Utils.map("n", "<leader>ws", "<cmd>resize -8<CR>") -- resize window SHORTER
 Utils.map("n", "<leader>ww", "<cmd>vertical resize +15<CR>") -- resize window WIDER
 Utils.map("n", "<leader>wn", "<cmd>vertical resize -15<CR>") -- resize window NARROWER
+
+local function markdown_code()
+  local lang = vim.fn.input("code block: ")
+  local buffer = vim.api.nvim_get_current_buf()
+  local current_line = vim.fn.line(".")
+  vim.api.nvim_buf_set_lines(buffer, current_line - 1, current_line, false, { "```" .. lang, "", "```" })
+  vim.fn.feedkeys("ji")
+end
+
+Utils.map("n", "<leader>mc", markdown_code)
 
 Utils.map("n", "<leader>hg", function()
   local result = vim.treesitter.get_captures_at_cursor(0)
