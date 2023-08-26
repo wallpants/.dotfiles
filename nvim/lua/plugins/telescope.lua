@@ -9,6 +9,7 @@ return {
     version = false,
     opts = {
       defaults = {
+        file_ignore_patterns = { "dist" },
         path_display = {
           truncate = 10, -- number: padding to the right
         },
