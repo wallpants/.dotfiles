@@ -27,11 +27,11 @@ return {
   },
 
   {
-    "gualcasas/markdown-preview.nvim",
+    "gualcasas/github-preview.nvim",
     dev = true,
     branch = "dev",
     keys = {
-      { "<leader>mp", "<cmd>MarkdownPreview<cr>" },
+      { "<leader>mp", "<cmd>GithubPreview<cr>" },
     },
     opts = {
       log_output = "file",
