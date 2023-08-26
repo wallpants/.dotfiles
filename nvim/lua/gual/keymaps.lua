@@ -1,4 +1,5 @@
 local Utils = require("gual.utils")
+local Fn = require("gual.functions")
 
 local cmd = vim.cmd
 cmd("command Vs vs")
@@ -16,7 +17,7 @@ Utils.map("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
 -- Clear search with <esc>
 Utils.map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
-Utils.map({ "v" }, "<leader>c", '"+y', { desc = "Copy to clipboard" })
+Utils.map("v", "<leader>c", '"+y', { desc = "Copy to clipboard" })
 
 Utils.map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 Utils.map({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -27,31 +28,7 @@ Utils.map("n", "<leader>ws", "<cmd>resize -8<CR>") -- resize window SHORTER
 Utils.map("n", "<leader>ww", "<cmd>vertical resize +15<CR>") -- resize window WIDER
 Utils.map("n", "<leader>wn", "<cmd>vertical resize -15<CR>") -- resize window NARROWER
 
-local function markdown_code()
-  local lang = vim.fn.input("code block: ")
-  local buffer = vim.api.nvim_get_current_buf()
-  local current_line = vim.fn.line(".")
-  vim.api.nvim_buf_set_lines(buffer, current_line - 1, current_line - 1, false, { "```" .. lang, "```" })
-  vim.fn.feedkeys("kk")
-end
-
-Utils.map("n", "<leader>mc", markdown_code)
-
-Utils.map("n", "<leader>hg", function()
-  local result = vim.treesitter.get_captures_at_cursor(0)
-  print(vim.inspect(result))
-end, { silent = true })
-
-Utils.map("n", "<LeftMouse>", function()
-  ---@type number
-  local winid_under_mouse = vim.api.nvim_call_function("getmousepos", {}).winid
-  ---@type number
-  local current_winid = vim.api.nvim_call_function("win_getid", {})
-  -- if we clicked on an unfocused window, focus it
-  if winid_under_mouse ~= current_winid then
-    vim.api.nvim_call_function("win_gotoid", { winid_under_mouse })
-  else
-    -- Fallback to default behavior
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<LeftMouse>", true, false, true), "n", true)
-  end
-end)
+Utils.map("n", "<leader>mc", Fn.insert_markdown_code_block)
+Utils.map("n", "<leader>hg", Fn.get_highlight_group_under_cursor, { silent = true })
+Utils.map("n", "<LeftMouse>", Fn.mouse_click_focus)
+Utils.map("n", "<leader>sc", Fn.copy_socket_to_clipboard_reg)
