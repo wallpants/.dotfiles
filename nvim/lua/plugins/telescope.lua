@@ -9,7 +9,7 @@ return {
     version = false,
     opts = {
       defaults = {
-        file_ignore_patterns = { "dist" },
+        file_ignore_patterns = { "dist", "pnpm-lock.yaml" },
         path_display = {
           truncate = 10, -- number: padding to the right
         },

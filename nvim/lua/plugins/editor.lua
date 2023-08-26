@@ -4,11 +4,11 @@ return {
   {
     "nvim-tree/nvim-web-devicons",
     opts = {
-      default = true,
-      override = {
-        tsx = {
-          icon = "",
-          name = "Zsh", -- changes color to lightgreen
+      strict = true,
+      override_by_filename = {
+        [".env.dev"] = {
+          icon = "",
+          name = "Env",
         },
       },
     },
