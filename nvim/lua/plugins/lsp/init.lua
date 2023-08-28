@@ -1,13 +1,16 @@
 local Utils = require("gual.utils")
 
-local jsonls = require("plugins.lsp.jsonls")
-local lua_ls = require("plugins.lsp.lua_ls")
-local tailwindcss = require("plugins.lsp.tailwindcss")
-local tsserver = require("plugins.lsp.tsserver")
-local gopls = require("plugins.lsp.gopls")
-local html = require("plugins.lsp.html")
-local css = require("plugins.lsp.css")
-local bash = require("plugins.lsp.bash")
+local lspconfigs = {
+  require("plugins.lsp.jsonls"),
+  require("plugins.lsp.lua_ls"),
+  require("plugins.lsp.tailwindcss"),
+  require("plugins.lsp.tsserver"),
+  require("plugins.lsp.gopls"),
+  require("plugins.lsp.html"),
+  require("plugins.lsp.css"),
+  require("plugins.lsp.bash"),
+  require("plugins.lsp.marksman"),
+}
 
 return {
   {
@@ -47,14 +50,9 @@ return {
       Utils.map("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Signature help" })
       Utils.map("n", "<leader>rb", vim.lsp.buf.rename, { desc = "Replace in buffer" })
 
-      jsonls(lspconfig)
-      lua_ls(lspconfig)
-      tailwindcss(lspconfig)
-      tsserver(lspconfig)
-      gopls(lspconfig)
-      html(lspconfig)
-      css(lspconfig)
-      bash(lspconfig)
+      for _, config in pairs(lspconfigs) do
+        config(lspconfig)
+      end
     end,
   },
 }
