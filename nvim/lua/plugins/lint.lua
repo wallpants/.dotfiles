@@ -5,6 +5,7 @@ return {
   {
     "mfussenegger/nvim-lint",
     event = { "BufReadPre", "BufNewFile" },
+    dev = true,
     dependencies = {
       "williamboman/mason.nvim",
     },
@@ -30,15 +31,7 @@ return {
       Utils.ensure_mason_install("cspell")
 
       local markdownlint = require("lint").linters.markdownlint
-      markdownlint.stdin = true
-      markdownlint.args = {
-        "--stdin",
-        "--disable MD041",
-      }
-
-      local cspell = require("lint").linters.cspell
-      cspell.stdin = true
-      table.insert(cspell.args, "stdin")
+      table.insert(markdownlint.args, "--disable MD041")
 
       lint.linters_by_ft = {
         json = {},
@@ -59,7 +52,7 @@ return {
         end
       end
 
-      vim.api.nvim_create_autocmd({ "BufReadPost", "TextChanged", "InsertLeave" }, {
+      vim.api.nvim_create_autocmd({ "BufReadPost", "BufEnter", "TextChanged", "InsertLeave" }, {
         callback = function()
           require("lint").try_lint()
         end,

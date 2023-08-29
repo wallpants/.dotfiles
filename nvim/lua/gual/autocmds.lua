@@ -1,4 +1,4 @@
--- cspell:ignore lspinfo checkhealth buflisted dotenv
+-- cspell:ignore lspinfo checkhealth buflisted dotenv pcall
 local Utils = require("gual.utils")
 
 -- go to last loc when opening a buffer
@@ -35,14 +35,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Set filetype of .env* files to bash
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPre" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
   group = Utils.augroup("set_dotenv_filetype"),
   pattern = { ".env*" },
   command = "set filetype=sh",
 })
 
 -- set 4 space indentation for web
-vim.api.nvim_create_autocmd("BufReadPre", {
+vim.api.nvim_create_autocmd("BufEnter", {
   group = Utils.augroup("set_web_indentation"),
   pattern = {
     "*.js",

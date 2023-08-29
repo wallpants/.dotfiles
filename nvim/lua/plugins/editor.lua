@@ -2,7 +2,7 @@ local Utils = require("gual.utils")
 
 return {
   {
-    "nvim-tree/nvim-web-devicons",
+    "nvim-tree/nvim-web-devicons", -- cspell:disable-line
     opts = {
       strict = true,
       override_by_filename = {
@@ -21,7 +21,7 @@ return {
     opts = {
       log_output = "file",
       filetype_domains = {
-        markdown = { "*.openai.com*" },
+        markdown = { "*.openai.com*" }, -- cspell:disable-line
       },
     },
   },
@@ -66,11 +66,11 @@ return {
           },
         },
       },
-      on_attach = function(bufnr)
+      on_attach = function(buffer_id)
         local api = require("nvim-tree.api")
         -- default mappings
-        api.config.mappings.default_on_attach(bufnr)
-        local opts = { buffer = bufnr, silent = true, nowait = true }
+        api.config.mappings.default_on_attach(buffer_id)
+        local opts = { buffer = buffer_id, silent = true, nowait = true }
         -- custom mappings
         Utils.map("n", "i", api.node.open.horizontal, opts)
         Utils.map("n", "o", api.node.run.system, opts)
@@ -84,6 +84,7 @@ return {
   },
 
   {
+    -- cspell:ignore bufferline akinsho
     "akinsho/bufferline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     keys = {
@@ -99,8 +100,8 @@ return {
       { "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
       { "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
       { "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
-      { "<leader>b,", "<Cmd>BufferLineMovePrev<CR>", desc = "Move buffer left (bufferline)" },
-      { "<leader>b.", "<Cmd>BufferLineMoveNext<CR>", desc = "Move buffer right (bufferline)" },
+      { "<leader>,", "<Cmd>BufferLineMovePrev<CR>", desc = "Move buffer left (bufferline)" },
+      { "<leader>.", "<Cmd>BufferLineMoveNext<CR>", desc = "Move buffer right (bufferline)" },
     },
     opts = {
       options = {
@@ -110,12 +111,14 @@ return {
           require("mini.bufremove").delete(n, false)
         end,
         diagnostics = "nvim_lsp",
+        -- cspell:disable-next-line
         always_show_bufferline = false,
       },
     },
   },
 
   {
+    -- cspell:ignore gitsigns
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
@@ -129,6 +132,7 @@ return {
   },
 
   {
+    -- cspell:disable-next-line
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
@@ -152,6 +156,7 @@ return {
   },
 
   {
+    -- cspell:ignore bufremove echasnovski
     "echasnovski/mini.bufremove",
     -- stylua: ignore
     keys = {
@@ -161,6 +166,7 @@ return {
   },
 
   {
+    -- cspell:disable-next-line
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
@@ -175,15 +181,16 @@ return {
         "lazy",
         "mason",
         "notify",
-        "toggleterm",
-        "lazyterm",
+        "toggleterm", -- cspell:disable-line
+        "lazyterm", -- cspell:disable-line
       },
-      show_trailing_blankline_indent = false,
+      show_trailing_blankline_indent = false, -- cspell:disable-line
       show_current_context = false,
     },
   },
 
   {
+    -- cspell:disable-next-line
     "echasnovski/mini.indentscope",
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = { "BufReadPre", "BufNewFile" },
@@ -203,11 +210,13 @@ return {
           "lazy",
           "mason",
           "notify",
+          -- cspell:disable-next-line
           "toggleterm",
+          -- cspell:disable-next-line
           "lazyterm",
         },
         callback = function()
-          vim.b.miniindentscope_disable = true
+          vim.b.miniindentscope_disable = true -- cspell:disable-line
         end,
       })
     end,
@@ -216,7 +225,7 @@ return {
   {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
-    opts = { open_cmd = "noswapfile vnew" },
+    opts = { open_cmd = "noswapfile vnew" }, -- cspell:disable-line
     -- stylua: ignore
     keys = {
       { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },

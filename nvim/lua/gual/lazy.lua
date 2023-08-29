@@ -1,3 +1,4 @@
+-- cspell:ignore lazypath stdpath
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -17,8 +18,8 @@ require("lazy").setup("plugins", {
   },
   dev = {
     path = "~/Projects/nvim-plugins",
-    ---@type string[]
-    patterns = { "gualcasas" },
+    -----@type string[]
+    --patterns = { "gualcasas", "nvim-lint" },
     fallback = true,
   },
 })

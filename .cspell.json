@@ -6,11 +6,14 @@
     "autocommands",
     "augroup",
     "gual",
+    "gualcasas",
     "keymap",
+    "nowait",
     "lspconfig",
     "noremap",
     "nvim",
     "opts",
+    "shiftwidth",
     "stylua"
   ]
 }
