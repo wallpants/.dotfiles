@@ -1,3 +1,4 @@
+-- cspell:ignore cspell tailwindcss jsonls gopls lspconfigs
 local Utils = require("gual.utils")
 
 local lspconfigs = {

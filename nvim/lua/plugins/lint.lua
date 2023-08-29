@@ -1,4 +1,6 @@
 -- cspell:ignore mfussenegger williamboman markdownlint
+local Utils = require("gual.utils")
+
 return {
   {
     "mfussenegger/nvim-lint",
@@ -8,7 +10,7 @@ return {
     },
     config = function()
       local lint = require("lint")
-      local Utils = require("gual.utils")
+      local lspconfig_util = require("lspconfig.util")
 
       vim.diagnostic.config({
         severity_sort = true,
@@ -34,19 +36,28 @@ return {
         "--disable MD041",
       }
 
-      local js_ts_filetype = { "eslint_d", "cspell" }
+      local cspell = require("lint").linters.cspell
+      cspell.stdin = true
+      table.insert(cspell.args, "stdin")
 
       lint.linters_by_ft = {
-        json = { "cspell" },
-        text = { "cspell" },
-        css = { "cspell" },
-        lua = { "cspell" },
-        markdown = { "markdownlint", "cspell" },
-        javascript = js_ts_filetype,
-        javascriptreact = js_ts_filetype,
-        typescript = js_ts_filetype,
-        typescriptreact = js_ts_filetype,
+        json = {},
+        text = {},
+        css = {},
+        lua = {},
+        markdown = { "markdownlint" },
+        javascript = { "eslint_d" },
+        javascriptreact = { "eslint_d" },
+        typescript = { "eslint_d" },
+        typescriptreact = { "eslint_d" },
       }
+
+      local cspell_config_path = lspconfig_util.root_pattern(".cspell.json")(vim.api.nvim_buf_get_name(0))
+      if cspell_config_path ~= nil then
+        for ft in pairs(lint.linters_by_ft) do
+          table.insert(lint.linters_by_ft[ft], "cspell")
+        end
+      end
 
       vim.api.nvim_create_autocmd({ "BufReadPost", "TextChanged", "InsertLeave" }, {
         callback = function()

@@ -1,3 +1,4 @@
+-- cspell:ignore lspinfo checkhealth buflisted dotenv
 local Utils = require("gual.utils")
 
 -- go to last loc when opening a buffer
@@ -5,8 +6,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   group = Utils.augroup("last_loc"),
   callback = function()
     local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
+    local line_count = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= line_count then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
@@ -40,9 +41,9 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPre" }, {
   command = "set filetype=sh",
 })
 
--- set 4 space identation for web
+-- set 4 space indentation for web
 vim.api.nvim_create_autocmd("BufReadPre", {
-  group = Utils.augroup("set_web_identation"),
+  group = Utils.augroup("set_web_indentation"),
   pattern = {
     "*.js",
     "*.jsx",

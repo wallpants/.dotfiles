@@ -1,5 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
-  "ignoreWords": ["autocommands", "gual", "keymaps", "nvim", "stylua"]
+  "ignoreWords": [
+    "autocmd",
+    "autocommands",
+    "augroup",
+    "gual",
+    "keymap",
+    "lspconfig",
+    "noremap",
+    "nvim",
+    "opts",
+    "stylua"
+  ]
 }
