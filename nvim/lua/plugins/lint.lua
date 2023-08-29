@@ -1,3 +1,4 @@
+-- cspell:ignore mfussenegger williamboman markdownlint
 return {
   {
     "mfussenegger/nvim-lint",
@@ -36,8 +37,10 @@ return {
       local js_ts_filetype = { "eslint_d", "cspell" }
 
       lint.linters_by_ft = {
-        lua = { "cspell" },
         json = { "cspell" },
+        text = { "cspell" },
+        css = { "cspell" },
+        lua = { "cspell" },
         markdown = { "markdownlint", "cspell" },
         javascript = js_ts_filetype,
         javascriptreact = js_ts_filetype,
