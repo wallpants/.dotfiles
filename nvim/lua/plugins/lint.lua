@@ -1,4 +1,3 @@
--- cspell:ignore mfussenegger williamboman markdownlint
 local Utils = require("gual.utils")
 
 return {

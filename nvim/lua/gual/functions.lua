@@ -1,4 +1,3 @@
--- cspell:disable
 local M = {}
 
 M.insert_markdown_code_block = function()

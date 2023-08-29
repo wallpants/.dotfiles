@@ -2,7 +2,7 @@ local Utils = require("gual.utils")
 
 return {
   {
-    "nvim-tree/nvim-web-devicons", -- cspell:disable-line
+    "nvim-tree/nvim-web-devicons",
     opts = {
       strict = true,
       override_by_filename = {
@@ -21,7 +21,7 @@ return {
     opts = {
       log_output = "file",
       filetype_domains = {
-        markdown = { "*.openai.com*" }, -- cspell:disable-line
+        markdown = { "*.openai.com*" },
       },
     },
   },
@@ -84,7 +84,6 @@ return {
   },
 
   {
-    -- cspell:ignore bufferline akinsho
     "akinsho/bufferline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     keys = {
@@ -111,14 +110,12 @@ return {
           require("mini.bufremove").delete(n, false)
         end,
         diagnostics = "nvim_lsp",
-        -- cspell:disable-next-line
         always_show_bufferline = false,
       },
     },
   },
 
   {
-    -- cspell:ignore gitsigns
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
@@ -132,7 +129,6 @@ return {
   },
 
   {
-    -- cspell:disable-next-line
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
@@ -156,7 +152,6 @@ return {
   },
 
   {
-    -- cspell:ignore bufremove echasnovski
     "echasnovski/mini.bufremove",
     -- stylua: ignore
     keys = {
@@ -166,7 +161,6 @@ return {
   },
 
   {
-    -- cspell:disable-next-line
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
@@ -181,16 +175,15 @@ return {
         "lazy",
         "mason",
         "notify",
-        "toggleterm", -- cspell:disable-line
-        "lazyterm", -- cspell:disable-line
+        "toggleterm",
+        "lazyterm",
       },
-      show_trailing_blankline_indent = false, -- cspell:disable-line
+      show_trailing_blankline_indent = false,
       show_current_context = false,
     },
   },
 
   {
-    -- cspell:disable-next-line
     "echasnovski/mini.indentscope",
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = { "BufReadPre", "BufNewFile" },
@@ -210,13 +203,11 @@ return {
           "lazy",
           "mason",
           "notify",
-          -- cspell:disable-next-line
           "toggleterm",
-          -- cspell:disable-next-line
           "lazyterm",
         },
         callback = function()
-          vim.b.miniindentscope_disable = true -- cspell:disable-line
+          vim.b.miniindentscope_disable = true
         end,
       })
     end,
@@ -225,7 +216,7 @@ return {
   {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
-    opts = { open_cmd = "noswapfile vnew" }, -- cspell:disable-line
+    opts = { open_cmd = "noswapfile vnew" },
     -- stylua: ignore
     keys = {
       { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },

@@ -1,4 +1,3 @@
--- cspell:ignore gbprod yanky vsplit oldfiles
 local Utils = require("gual.utils")
 
 return {

@@ -1,4 +1,3 @@
--- cspell:ignore echasnovski alvan tpope
 return {
   {
     "alvan/vim-closetag",
