@@ -24,6 +24,7 @@ return {
 
       Utils.ensure_mason_install("eslint_d")
       Utils.ensure_mason_install("markdownlint")
+      Utils.ensure_mason_install("cspell")
 
       local markdownlint = require("lint").linters.markdownlint
       markdownlint.stdin = true
@@ -32,10 +33,12 @@ return {
         "--disable MD041",
       }
 
-      local js_ts_filetype = { "eslint_d" }
+      local js_ts_filetype = { "eslint_d", "cspell" }
 
       lint.linters_by_ft = {
-        markdown = { "markdownlint" },
+        lua = { "cspell" },
+        json = { "cspell" },
+        markdown = { "markdownlint", "cspell" },
         javascript = js_ts_filetype,
         javascriptreact = js_ts_filetype,
         typescript = js_ts_filetype,
