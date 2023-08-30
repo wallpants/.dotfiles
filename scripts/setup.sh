@@ -10,6 +10,7 @@ fi
 
 source ~/.dotfiles/scripts/utils.sh
 source ~/.dotfiles/scripts/github-setup.sh
+source ~/.dotfiles/scripts/install-fonts.sh
 source ~/.dotfiles/scripts/homebrew-setup.sh
 source ~/.dotfiles/scripts/neovim-setup.sh
 source ~/.dotfiles/scripts/kitty-setup.sh
