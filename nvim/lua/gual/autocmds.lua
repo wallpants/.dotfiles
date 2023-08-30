@@ -34,11 +34,11 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Set filetype of .env* files to bash
--- vim.api.nvim_create_autocmd("BufEnter", {
---   group = Utils.augroup("set_dotenv_filetype"),
---   pattern = { ".env*" },
---   command = "set filetype=sh",
--- })
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = Utils.augroup("set_dotenv_filetype"),
+  pattern = { ".env*" },
+  command = "set filetype=sh",
+})
 
 -- set 4 space indentation for web
 vim.api.nvim_create_autocmd("FileType", {
