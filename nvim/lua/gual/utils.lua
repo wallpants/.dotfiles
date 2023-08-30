@@ -18,12 +18,17 @@ M.setup_border = function(type, highlight_group)
   return result
 end
 
+---@param mode string | string[]
+---@param lhs string
+---@param rhs string
+---@param opts table
 M.map = function(mode, lhs, rhs, opts)
   opts = opts or {}
   opts.noremap = opts.noremap == nil and true or opts.noremap
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+---@param tool string
 M.ensure_mason_install = function(tool)
   local mr = require("mason-registry")
   local package = mr.get_package(tool)

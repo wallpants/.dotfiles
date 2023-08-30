@@ -1,3 +1,4 @@
+-- cspell:ignore cspell tailwindcss jsonls gopls lspconfigs
 local Utils = require("gual.utils")
 
 local lspconfigs = {
@@ -25,7 +26,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",
-      { "folke/neodev.nvim", opts = { lsp_config = false } },
+      { "folke/neodev.nvim" },
       { "b0o/SchemaStore.nvim", version = false },
     },
     config = function()
