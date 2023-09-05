@@ -44,6 +44,7 @@ return {
         typescriptreact = { "eslint_d" },
       }
 
+      ---@type string|nil
       local cspell_config_path = lspconfig_util.root_pattern(".cspell.json")(vim.api.nvim_buf_get_name(0))
       if cspell_config_path ~= nil then
         for ft in pairs(lint.linters_by_ft) do

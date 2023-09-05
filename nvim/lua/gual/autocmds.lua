@@ -40,19 +40,13 @@ vim.api.nvim_create_autocmd("BufEnter", {
   command = "set filetype=sh",
 })
 
--- set 4 space indentation for web
 vim.api.nvim_create_autocmd("FileType", {
   group = Utils.augroup("set_web_indentation"),
   pattern = {
-    "*.js",
-    "*.jsx",
-    "*.ts",
-    "*.tsx",
-    "*.cjs",
-    "*.mjs",
+    "*.json",
   },
   callback = function()
-    vim.bo.shiftwidth = 4
-    vim.bo.tabstop = 4
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
   end,
 })
