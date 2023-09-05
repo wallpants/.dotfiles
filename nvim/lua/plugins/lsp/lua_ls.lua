@@ -4,5 +4,13 @@ return function(lspconfig)
   Utils.ensure_mason_install("lua-language-server")
   require("neodev").setup({})
 
-  lspconfig.lua_ls.setup({})
+  lspconfig.lua_ls.setup({
+    settings = {
+      Lua = {
+        workspace = {
+          checkThirdParty = false,
+        },
+      },
+    },
+  })
 end
