@@ -39,8 +39,8 @@ M.cspell_ignore = function()
   vim.fn.feedkeys(keys)
 end
 
-M.cspell_disable_next_line = function()
-  local keys = vim.api.nvim_replace_termcodes("Ocspell:disable-next-line <esc>gcc", true, true, true)
+M.disable_next_line = function()
+  local keys = vim.api.nvim_replace_termcodes("Odisable-next-line <esc>gccw", true, true, true)
   vim.fn.feedkeys(keys)
 end
 

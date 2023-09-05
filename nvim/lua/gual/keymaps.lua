@@ -34,4 +34,4 @@ Utils.map("n", "<LeftMouse>", Fn.mouse_click_focus)
 Utils.map("n", "<leader>sc", Fn.copy_socket_to_clipboard_reg)
 
 Utils.map("n", "<leader>csi", Fn.cspell_ignore)
-Utils.map("n", "<leader>csd", Fn.cspell_disable_next_line)
+Utils.map("n", "<leader>dnl", Fn.disable_next_line)
