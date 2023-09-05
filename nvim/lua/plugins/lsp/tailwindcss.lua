@@ -1,7 +1,7 @@
 local Utils = require("gual.utils")
 
 return function(lspconfig)
-  Utils.ensure_mason_install("tailwindcss-language-server")
+    Utils.ensure_mason_install("tailwindcss-language-server")
 
-  lspconfig.tailwindcss.setup({})
+    lspconfig.tailwindcss.setup({})
 end

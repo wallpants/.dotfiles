@@ -1,9 +1,9 @@
 return function(lspconfig)
-  vim.lsp.set_log_level(vim.lsp.log_levels.WARN)
+    vim.lsp.set_log_level(vim.lsp.log_levels.WARN)
 
-  lspconfig.langual.setup({
-    init_options = {
-      -- gualberto = "casas",
-    },
-  })
+    lspconfig.langual.setup({
+        init_options = {
+            -- gualberto = "casas",
+        },
+    })
 end

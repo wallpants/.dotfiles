@@ -1,44 +1,44 @@
 local Utils = require("gual.utils")
 
 return {
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      { "gbprod/yanky.nvim", lazy = true, config = true },
-    },
-    version = false,
-    opts = {
-      defaults = {
-        file_ignore_patterns = { ".git/", "dist", "pnpm-lock.yaml" },
-        path_display = {
-          truncate = 10, -- number: padding to the right
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            { "gbprod/yanky.nvim", lazy = true, config = true },
         },
-        mappings = {
-          n = {
-            ["i"] = function(...)
-              return require("telescope.actions").file_split(...)
-            end,
-            ["s"] = function(...)
-              return require("telescope.actions").file_vsplit(...)
-            end,
-            ["t"] = function(...)
-              return require("trouble.providers.telescope").open_selected_with_trouble(...)
-            end,
-            ["q"] = function(...)
-              return require("telescope.actions").close(...)
-            end,
-            ["<leader>q"] = function(...)
-              return require("telescope.actions").delete_buffer(...)
-            end,
-          },
+        version = false,
+        opts = {
+            defaults = {
+                file_ignore_patterns = { ".git/", "dist", "pnpm-lock.yaml" },
+                path_display = {
+                    truncate = 10, -- number: padding to the right
+                },
+                mappings = {
+                    n = {
+                        ["i"] = function(...)
+                            return require("telescope.actions").file_split(...)
+                        end,
+                        ["s"] = function(...)
+                            return require("telescope.actions").file_vsplit(...)
+                        end,
+                        ["t"] = function(...)
+                            return require("trouble.providers.telescope").open_selected_with_trouble(...)
+                        end,
+                        ["q"] = function(...)
+                            return require("telescope.actions").close(...)
+                        end,
+                        ["<leader>q"] = function(...)
+                            return require("telescope.actions").delete_buffer(...)
+                        end,
+                    },
+                },
+            },
         },
-      },
-    },
-    config = function(_, opts)
-      require("telescope").setup(opts)
-      require("telescope").load_extension("yank_history")
-      ---@type any
-      local builtin = require("telescope.builtin")
+        config = function(_, opts)
+            require("telescope").setup(opts)
+            require("telescope").load_extension("yank_history")
+            ---@type any
+            local builtin = require("telescope.builtin")
 
       -- stylua: ignore start
 			Utils.map("n", "<leader>p", "<cmd>Telescope yank_history<cr>", { desc = "Yank history" })
@@ -58,7 +58,7 @@ return {
       Utils.map("n", "<leader>ar", function () builtin.lsp_references({ show_line = false, include_declaration = false }) end, { desc = "Lsp references"})
       Utils.map("n", "<leader>ad", builtin.lsp_type_definitions, { desc = "Lsp type definition"})
       Utils.map("n", "<leader>sp", builtin.spell_suggest, { desc = "Spelling suggestions suggest"})
-      -- stylua: ignore end
-    end,
-  },
+            -- stylua: ignore end
+        end,
+    },
 }
