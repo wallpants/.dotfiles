@@ -32,16 +32,17 @@ end
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       vim.cmd([[colorscheme tokyonight]])
+      set_background_transparent()
     end,
   },
 
   {
     "nyoom-engineering/oxocarbon.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       -- vim.opt.background = "light"
