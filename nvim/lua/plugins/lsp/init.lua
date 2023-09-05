@@ -11,6 +11,8 @@ local lspconfigs = {
   require("plugins.lsp.css"),
   require("plugins.lsp.bash"),
   require("plugins.lsp.marksman"),
+  require("plugins.lsp.python"),
+  -- require("plugins.lsp.langual"),
 }
 
 return {

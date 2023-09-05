@@ -33,9 +33,6 @@ return {
     keys = {
       { "<leader>mp", "<cmd>GithubPreview<cr>" },
     },
-    opts = {
-      log_output = "file",
-    },
   },
 
   {
@@ -59,6 +56,9 @@ return {
       { "<leader>fF", "<cmd>NvimTreeFindFile!<CR>", noremap = true, desc = "NvimTree FindFile change root (!)" },
     },
     opts = {
+      filters = {
+        dotfiles = true,
+      },
       actions = {
         open_file = {
           window_picker = {
@@ -72,6 +72,7 @@ return {
         api.config.mappings.default_on_attach(buffer_id)
         local opts = { buffer = buffer_id, silent = true, nowait = true }
         -- custom mappings
+        Utils.map("n", ".", api.tree.toggle_hidden_filter, opts)
         Utils.map("n", "i", api.node.open.horizontal, opts)
         Utils.map("n", "o", api.node.run.system, opts)
         Utils.map("n", "s", api.node.open.vertical, opts)
@@ -160,37 +161,37 @@ return {
     },
   },
 
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      char = "▏",
-      -- char = "│",
-      filetype_exclude = {
-        "help",
-        "alpha",
-        "dashboard",
-        "neo-tree",
-        "Trouble",
-        "lazy",
-        "mason",
-        "notify",
-        "toggleterm",
-        "lazyterm",
-      },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
-    },
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   event = { "BufReadPost", "BufNewFile" },
+  --   opts = {
+  --     char = "▏",
+  --     -- char = "│",
+  --     filetype_exclude = {
+  --       "help",
+  --       "alpha",
+  --       "dashboard",
+  --       "neo-tree",
+  --       "Trouble",
+  --       "lazy",
+  --       "mason",
+  --       "notify",
+  --       "toggleterm",
+  --       "lazyterm",
+  --     },
+  --     show_trailing_blankline_indent = false,
+  --     show_current_context = false,
+  --   },
+  -- },
 
   {
     "echasnovski/mini.indentscope",
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      symbol = "▏",
-      -- symbol = "│",
-      options = { try_as_border = true },
+      -- symbol = "▏",
+      symbol = "│",
+      -- options = { try_as_border = true },
     },
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
