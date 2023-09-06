@@ -36,6 +36,7 @@ return {
                     go = { require("formatter.filetypes.go").goimports },
                     lua = { require("formatter.filetypes.lua").stylua },
                     css = { require("formatter.defaults").prettierd },
+                    scss = { require("formatter.defaults").prettierd },
                     html = { require("formatter.defaults").prettierd },
                     json = { require("formatter.defaults").prettierd },
                     jsonc = { require("formatter.defaults").prettierd },
