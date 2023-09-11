@@ -32,7 +32,7 @@ end
 return {
     {
         "folke/tokyonight.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             vim.cmd([[colorscheme tokyonight]])
@@ -42,7 +42,7 @@ return {
 
     {
         "nyoom-engineering/oxocarbon.nvim",
-        lazy = true,
+        lazy = false,
         priority = 1000,
         config = function()
             -- vim.opt.background = "light"
@@ -60,9 +60,9 @@ return {
             vim.api.nvim_set_hl(0, "CursorLine", { bg = "#30233d" })
 
             -- disable semantic highlighting
-            for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-                vim.api.nvim_set_hl(0, group, {})
-            end
+            -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+            --     vim.api.nvim_set_hl(0, group, {})
+            -- end
 
             set_background_transparent()
         end,
