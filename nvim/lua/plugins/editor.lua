@@ -15,6 +15,15 @@ return {
     },
 
     {
+        "gualcasas/bunvim",
+        dev = true,
+        config = true,
+        keys = {
+            { "<leader>mp", "<cmd>GithubPreview<cr>" },
+        },
+    },
+
+    {
         "gualcasas/ghost-text.nvim",
         dev = true,
         branch = "dev",
@@ -25,15 +34,15 @@ return {
         },
     },
 
-    {
-        "gualcasas/github-preview.nvim",
-        dev = true,
-        branch = "dev",
-        config = true,
-        keys = {
-            { "<leader>mp", "<cmd>GithubPreview<cr>" },
-        },
-    },
+    -- {
+    --     "gualcasas/github-preview.nvim",
+    --     dev = true,
+    --     branch = "dev",
+    --     config = true,
+    --     keys = {
+    --         { "<leader>mp", "<cmd>GithubPreview<cr>" },
+    --     },
+    -- },
 
     {
         "NvChad/nvim-colorizer.lua",
