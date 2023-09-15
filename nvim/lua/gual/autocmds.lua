@@ -40,8 +40,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
     command = "set filetype=sh",
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    group = Utils.augroup("set_web_indentation"),
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = Utils.augroup("set_indentation"),
     pattern = {
         "*.json",
     },

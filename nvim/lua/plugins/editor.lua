@@ -18,9 +18,6 @@ return {
         "gualcasas/bunvim",
         dev = true,
         config = true,
-        keys = {
-            { "<leader>mp", "<cmd>GithubPreview<cr>" },
-        },
     },
 
     {
