@@ -5,7 +5,7 @@ M.insert_markdown_code_block = function()
     local buffer = vim.api.nvim_get_current_buf()
     local current_line = vim.fn.line(".")
     vim.api.nvim_buf_set_lines(buffer, current_line - 1, current_line - 1, false, { "```" .. lang, "```" })
-    vim.fn.feedkeys("kk")
+    vim.fn.feedkeys("ko")
 end
 
 M.get_highlight_group_under_cursor = function()
