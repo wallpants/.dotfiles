@@ -15,12 +15,6 @@ return {
     },
 
     {
-        "gualcasas/bunvim",
-        dev = true,
-        config = true,
-    },
-
-    {
         "gualcasas/ghost-text.nvim",
         dev = true,
         branch = "dev",
