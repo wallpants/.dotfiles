@@ -30,9 +30,8 @@ return {
         dev = true,
         branch = "dev",
         config = true,
-        keys = {
-            { "<leader>mp", "<cmd>GithubPreview<cr>" },
-        },
+        keys = { { "<leader>mp", "<cmd>GithubPreview<cr>" } },
+        cmd = { "GithubPreview" },
     },
 
     {
@@ -218,9 +217,9 @@ return {
         "nvim-pack/nvim-spectre",
         cmd = "Spectre",
         opts = { open_cmd = "noswapfile vnew" },
-    -- stylua: ignore
-    keys = {
-      { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-    },
+        -- stylua: ignore
+        keys = {
+        { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+        },
     },
 }
