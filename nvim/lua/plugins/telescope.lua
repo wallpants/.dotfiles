@@ -40,7 +40,7 @@ return {
             ---@type any
             local builtin = require("telescope.builtin")
 
-      -- stylua: ignore start
+            -- stylua: ignore start
 			Utils.map("n", "<leader>p", "<cmd>Telescope yank_history<cr>", { desc = "Yank history" })
 			Utils.map("n", "<C-b>", function() builtin.buffers({ ignore_current_buffer = true, }) end, { desc = "Switch buffers" })
 			Utils.map("n", "<C-p>", function() builtin.find_files({ hidden = true }) end, { desc = "Search cwd files" })
