@@ -29,9 +29,6 @@ return {
         "gualcasas/github-preview.nvim",
         dev = true,
         branch = "bun",
-        config = {
-            port = 6041,
-        },
         keys = { { "<leader>mp", "<cmd>GithubPreview<cr>" } },
         cmd = { "GithubPreview" },
     },
