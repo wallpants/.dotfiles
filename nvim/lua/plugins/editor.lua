@@ -31,6 +31,7 @@ return {
         branch = "bun",
         keys = { { "<leader>mp", "<cmd>GithubPreview<cr>" } },
         cmd = { "GithubPreview" },
+        config = true,
     },
 
     {

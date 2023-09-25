@@ -16,7 +16,7 @@ require("lazy").setup("plugins", {
         enabled = false,
     },
     dev = {
-        path = "~/Projects/nvim-plugins",
+        path = vim.fn.expand("~/Projects/nvim-plugins"),
         -----@type string[]
         --patterns = { "gualcasas", "nvim-lint" },
         fallback = true,
