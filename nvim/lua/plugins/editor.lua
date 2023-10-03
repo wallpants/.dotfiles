@@ -15,6 +15,10 @@ return {
     },
 
     {
+        "iamcco/markdown-preview.nvim",
+    },
+
+    {
         "gualcasas/ghost-text.nvim",
         dev = true,
         branch = "dev",
