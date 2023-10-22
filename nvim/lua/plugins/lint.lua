@@ -4,7 +4,6 @@ return {
     {
         "mfussenegger/nvim-lint",
         event = { "BufReadPre", "BufNewFile" },
-        dev = true,
         dependencies = {
             "williamboman/mason.nvim",
         },
@@ -26,18 +25,18 @@ return {
             })
 
             Utils.ensure_mason_install("eslint_d")
-            Utils.ensure_mason_install("markdownlint")
+            -- Utils.ensure_mason_install("markdownlint")
             Utils.ensure_mason_install("cspell")
 
-            local markdownlint = require("lint").linters.markdownlint
-            table.insert(markdownlint.args, "--disable MD041")
+            -- local markdownlint = require("lint").linters.markdownlint
+            -- table.insert(markdownlint.args, "--disable MD041")
 
             lint.linters_by_ft = {
                 json = {},
                 text = {},
                 css = {},
                 lua = {},
-                markdown = { "markdownlint" },
+                -- markdown = { "markdownlint" },
                 javascript = { "eslint_d" },
                 javascriptreact = { "eslint_d" },
                 typescript = { "eslint_d" },

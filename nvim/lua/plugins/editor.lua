@@ -33,8 +33,8 @@ return {
         "gualcasas/github-preview.nvim",
         dev = true,
         branch = "bun",
-        keys = { { "<leader>mp", "<cmd>GithubPreview<cr>" } },
-        cmd = { "GithubPreview" },
+        keys = { { "<leader>mp", "<cmd>GithubPreviewToggle<cr>" } },
+        cmd = { "GithubPreviewStart", "GithubPreviewStop", "GithubPreviewToggle" },
         config = true,
     },
 
