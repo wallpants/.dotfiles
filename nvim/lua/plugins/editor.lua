@@ -21,7 +21,6 @@ return {
     {
         "gualcasas/ghost-text.nvim",
         dev = true,
-        branch = "dev",
         opts = {
             filetype_domains = {
                 markdown = { "*.openai.com*" },
@@ -32,10 +31,9 @@ return {
     {
         "gualcasas/github-preview.nvim",
         dev = true,
-        branch = "bun",
+        opts = {},
         keys = { { "<leader>mp", "<cmd>GithubPreviewToggle<cr>" } },
         cmd = { "GithubPreviewStart", "GithubPreviewStop", "GithubPreviewToggle" },
-        config = true,
     },
 
     {
