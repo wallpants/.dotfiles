@@ -22,6 +22,7 @@ return {
         "gualcasas/ghost-text.nvim",
         dev = true,
         opts = {
+            autostart = true,
             filetype_domains = {
                 markdown = { "*.openai.com*" },
             },
