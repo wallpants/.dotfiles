@@ -31,7 +31,10 @@ return {
     {
         "gualcasas/github-preview.nvim",
         dev = true,
-        opts = {},
+        opts = {
+            dev = true,
+            log_level = "debug",
+        },
         keys = { { "<leader>mp", "<cmd>GithubPreviewToggle<cr>" } },
         cmd = { "GithubPreviewStart", "GithubPreviewStop", "GithubPreviewToggle" },
     },
