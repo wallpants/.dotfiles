@@ -35,8 +35,8 @@ return {
         lazy = true,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme tokyonight]])
-            set_background_transparent()
+            vim.cmd([[colorscheme tokyonight-day]])
+            -- set_background_transparent()
         end,
     },
 
@@ -45,7 +45,7 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            -- vim.opt.background = "light"
+            vim.opt.background = "light"
             vim.cmd([[colorscheme oxocarbon]])
             vim.api.nvim_set_hl(0, "@keyword", { fg = "#ee5396" })
             vim.api.nvim_set_hl(0, "@include", { fg = "#82cfff" })
@@ -57,14 +57,14 @@ return {
             vim.api.nvim_set_hl(0, "DiagnosticsBorder", { fg = "#FF6F00" }) -- diagnostics
             vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#82cfff" })
             vim.api.nvim_set_hl(0, "StatusLine", { fg = "#FAFAFA", bg = "#691a82", bold = true })
-            vim.api.nvim_set_hl(0, "CursorLine", { bg = "#30233d" })
+            -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#30233d" })
 
             -- disable semantic highlighting
             -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
             --     vim.api.nvim_set_hl(0, group, {})
             -- end
 
-            set_background_transparent()
+            -- set_background_transparent()
         end,
     },
 }
