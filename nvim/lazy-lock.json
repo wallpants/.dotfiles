@@ -11,6 +11,7 @@
   "lazy.nvim": { "branch": "main", "commit": "16603c6917435d8446f7357cb61095138a417085" },
   "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
   "mason.nvim": { "branch": "main", "commit": "eabf6d347fdb75be360d4c0ced1145670a171453" },
+  "material.nvim": { "branch": "main", "commit": "eb52634ec1f6cc186f85640ae4bf3ee80bb10551" },
   "mini.bufremove": { "branch": "main", "commit": "f53c7f27e36009fe61563c11cde154b94a0e5b94" },
   "mini.indentscope": { "branch": "main", "commit": "cbc07203ca8faae952ca373c1f6cc5881ce97af0" },
   "mini.pairs": { "branch": "main", "commit": "6f6bd7ed5757b40bc29c73dac0d743e4e6978124" },
