@@ -31,6 +31,30 @@ end
 
 return {
     {
+        "marko-cerovac/material.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.g.material_style = "lighter"
+            require("material").setup({
+                plugins = {
+                    "gitsigns",
+                    "illuminate",
+                    "indent-blankline",
+                    "mini",
+                    "nvim-cmp",
+                    "nvim-tree",
+                    "nvim-web-devicons",
+                    "telescope",
+                },
+                disable = { colored_cursor = true },
+                high_visibility = { lighter = true },
+            })
+            vim.cmd([[colorscheme material]])
+        end,
+    },
+
+    {
         "folke/tokyonight.nvim",
         lazy = true,
         priority = 1000,
@@ -42,7 +66,7 @@ return {
 
     {
         "nyoom-engineering/oxocarbon.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             vim.opt.background = "light"
