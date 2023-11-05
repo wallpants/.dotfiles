@@ -29,10 +29,12 @@ local function set_background_transparent()
     end
 end
 
+vim.opt.background = "light"
+
 return {
     {
         "marko-cerovac/material.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             vim.g.material_style = "lighter"
@@ -88,7 +90,7 @@ return {
             --     vim.api.nvim_set_hl(0, group, {})
             -- end
 
-            -- set_background_transparent()
+            set_background_transparent()
         end,
     },
 }
