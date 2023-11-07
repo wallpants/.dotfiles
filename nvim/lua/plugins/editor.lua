@@ -23,7 +23,7 @@ return {
         "wallpants/ghost-text.nvim",
         dev = true,
         opts = {
-            autostart = true,
+            autostart = false,
             filetype_domains = {
                 markdown = { "*.openai.com*" },
             },
@@ -33,12 +33,34 @@ return {
     {
         "wallpants/github-preview.nvim",
         dev = true,
-        keys = { { "<leader>mp", "<cmd>GithubPreviewToggle<cr>" } },
-        cmd = { "GithubPreviewStart", "GithubPreviewToggle" },
+        keys = { "<leader>mpt" },
         ---@type github_preview_config
-        opts = {
-            log_level = "debug",
-        },
+        opts = {},
+        config = function(_, opts)
+            local gpreview = require("github-preview")
+            gpreview.setup(opts)
+
+            local fns = gpreview.fns
+            vim.keymap.set("n", "<leader>mpt", fns.toggle)
+
+            vim.api.nvim_create_user_command("GithubPreviewClearOverrides", fns.clear_overrides, {})
+
+            vim.api.nvim_create_user_command("GithubPreviewScrollToggle", fns.scroll_toggle, {})
+            vim.api.nvim_create_user_command("GithubPreviewScrollOn", fns.scroll_on, {})
+            vim.api.nvim_create_user_command("GithubPreviewScrollOff", fns.scroll_off, {})
+
+            vim.api.nvim_create_user_command("GithubPreviewCursorToggle", fns.cursorline_toggle, {})
+            vim.api.nvim_create_user_command("GithubPreviewCursorOn", fns.cursorline_on, {})
+            vim.api.nvim_create_user_command("GithubPreviewCursorOff", fns.cursorline_off, {})
+
+            vim.api.nvim_create_user_command("GithubPreviewSingleToggle", fns.single_file_toggle, {})
+            vim.api.nvim_create_user_command("GithubPreviewSingleOn", fns.single_file_on, {})
+            vim.api.nvim_create_user_command("GithubPreviewSingleOff", fns.single_file_off, {})
+
+            vim.api.nvim_create_user_command("GithubPreviewDetailsToggle", fns.details_tags_toggle, {})
+            vim.api.nvim_create_user_command("GithubPreviewDetailsOpen", fns.details_tags_open, {})
+            vim.api.nvim_create_user_command("GithubPreviewDetailsClosed", fns.details_tags_closed, {})
+        end,
     },
 
     {

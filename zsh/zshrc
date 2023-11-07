@@ -32,8 +32,8 @@ alias la="ls -oAh"
 # remap Ctrl+L to both scroll the current screen contents into the scrollback buffer
 # and clear the screen, instead of just clearing the screen
 scroll-and-clear-screen() {
-  printf '\n%.0s' {1..$LINES}
-  zle clear-screen
+    printf '\n%.0s' {1..$LINES}
+    zle clear-screen
 }
 zle -N scroll-and-clear-screen
 bindkey '^L' scroll-and-clear-screen

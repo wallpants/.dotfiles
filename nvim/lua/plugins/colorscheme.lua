@@ -15,36 +15,54 @@ end
 --     link = "Normal",
 -- })
 
+---returns true if theme should be enabled
+---@param theme string
+---@return boolean
+local function enable_theme(theme)
+    local nvim_theme = os.getenv("NVIM_THEME")
+    if not nvim_theme or not string.match(nvim_theme, theme) then
+        return false
+    end
+    return true
+end
+
+---@type LazyPluginSpec[]
 return {
     {
         "marko-cerovac/material.nvim",
-        -- enabled = false,
-        event = { "BufRead" },
-        config = function()
+        enabled = enable_theme("material"),
+        priority = 1000,
+        event = { "BufReadPost" }, -- BufReadPost or welcome message goes away
+        opts = {
+            plugins = {
+                "gitsigns",
+                "illuminate",
+                "indent-blankline",
+                "mini",
+                "nvim-cmp",
+                "nvim-tree",
+                "nvim-web-devicons",
+                "telescope",
+            },
+            disable = { colored_cursor = true },
+            high_visibility = { lighter = true },
+        },
+        config = function(_, opts)
             vim.opt.background = "light"
             vim.g.material_style = "lighter"
-            require("material").setup({
-                plugins = {
-                    "gitsigns",
-                    "illuminate",
-                    "indent-blankline",
-                    "mini",
-                    "nvim-cmp",
-                    "nvim-tree",
-                    "nvim-web-devicons",
-                    "telescope",
-                },
-                disable = { colored_cursor = true },
-                high_visibility = { lighter = true },
-            })
+            require("material").setup(opts)
             vim.cmd([[colorscheme material]])
+
+            set_background_transparent()
         end,
     },
 
     {
         "nyoom-engineering/oxocarbon.nvim",
-        enabled = false,
+        enabled = enable_theme("oxocarbon"),
+        priority = 1000,
         config = function()
+            vim.opt.background = "dark"
             vim.cmd([[colorscheme oxocarbon]])
             vim.api.nvim_set_hl(0, "@keyword", { fg = "#ee5396" })
             vim.api.nvim_set_hl(0, "@include", { fg = "#82cfff" })

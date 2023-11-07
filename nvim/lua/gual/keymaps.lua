@@ -20,8 +20,8 @@ Utils.map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear
 Utils.map("v", "<leader>c", '"+y', { desc = "Copy to clipboard" })
 
 Utils.map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
-Utils.map({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-Utils.map({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+-- Utils.map({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+-- Utils.map({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
 Utils.map("n", "<leader>wt", "<cmd>resize +8<CR>") -- resize window TALLER
 Utils.map("n", "<leader>ws", "<cmd>resize -8<CR>") -- resize window SHORTER
