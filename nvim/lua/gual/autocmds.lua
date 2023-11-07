@@ -41,6 +41,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = { "*.conf" },
+    command = "set filetype=conf",
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
     group = Utils.augroup("set_indentation"),
     pattern = {
         "*.json",

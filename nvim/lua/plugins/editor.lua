@@ -1,5 +1,6 @@
 local Utils = require("gual.utils")
 
+---@type LazyPluginSpec[]
 return {
     {
         "nvim-tree/nvim-web-devicons",
@@ -19,7 +20,7 @@ return {
     },
 
     {
-        "gualcasas/ghost-text.nvim",
+        "wallpants/ghost-text.nvim",
         dev = true,
         opts = {
             autostart = true,
@@ -30,13 +31,14 @@ return {
     },
 
     {
-        "gualcasas/github-preview.nvim",
+        "wallpants/github-preview.nvim",
         dev = true,
+        keys = { { "<leader>mp", "<cmd>GithubPreviewToggle<cr>" } },
+        cmd = { "GithubPreviewStart", "GithubPreviewToggle" },
+        ---@type github_preview_config
         opts = {
             log_level = "debug",
         },
-        keys = { { "<leader>mp", "<cmd>GithubPreviewToggle<cr>" } },
-        cmd = { "GithubPreviewStart", "GithubPreviewStop", "GithubPreviewToggle" },
     },
 
     {
@@ -51,7 +53,6 @@ return {
 
     {
         "nvim-tree/nvim-tree.lua",
-        version = false,
         dependencies = {},
         keys = {
             { "<leader>e", "<cmd>NvimTreeToggle<CR>", noremap = true, desc = "NvimTree Toggle" },
@@ -190,7 +191,6 @@ return {
 
     {
         "echasnovski/mini.indentscope",
-        version = false, -- wait till new 0.7.0 release to put it back on semver
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             -- symbol = "▏",
@@ -212,6 +212,7 @@ return {
                     "lazyterm",
                 },
                 callback = function()
+                    ---@diagnostic disable-next-line: inject-field
                     vim.b.miniindentscope_disable = true
                 end,
             })

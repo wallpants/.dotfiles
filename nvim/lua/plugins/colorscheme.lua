@@ -4,24 +4,6 @@ local function set_background_transparent()
         "NormalNC",
         "LineNr",
         "SignColumn",
-        -- "Comment",
-        -- "Constant",
-        -- "Special",
-        -- "Identifier",
-        -- "Statement",
-        -- "PreProc",
-        -- "Type",
-        -- "Underlined",
-        -- "Todo",
-        -- "String",
-        -- "Function",
-        -- "Conditional",
-        -- "Repeat",
-        -- "Operator",
-        -- "Structure",
-        -- "NonText",
-        -- "CursorLineNr",
-        -- "EndOfBuffer",
     }
 
     for _, hl_group in ipairs(hl_groups) do
@@ -29,14 +11,17 @@ local function set_background_transparent()
     end
 end
 
-vim.opt.background = "light"
+-- vim.api.nvim_set_hl(0, "NormalFloat", {
+--     link = "Normal",
+-- })
 
 return {
     {
         "marko-cerovac/material.nvim",
-        lazy = true,
-        priority = 1000,
+        -- enabled = false,
+        event = { "BufRead" },
         config = function()
+            vim.opt.background = "light"
             vim.g.material_style = "lighter"
             require("material").setup({
                 plugins = {
@@ -57,21 +42,9 @@ return {
     },
 
     {
-        "folke/tokyonight.nvim",
-        lazy = true,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme tokyonight-day]])
-            -- set_background_transparent()
-        end,
-    },
-
-    {
         "nyoom-engineering/oxocarbon.nvim",
-        lazy = true,
-        priority = 1000,
+        enabled = false,
         config = function()
-            vim.opt.background = "light"
             vim.cmd([[colorscheme oxocarbon]])
             vim.api.nvim_set_hl(0, "@keyword", { fg = "#ee5396" })
             vim.api.nvim_set_hl(0, "@include", { fg = "#82cfff" })
@@ -83,33 +56,9 @@ return {
             vim.api.nvim_set_hl(0, "DiagnosticsBorder", { fg = "#FF6F00" }) -- diagnostics
             vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#82cfff" })
             vim.api.nvim_set_hl(0, "StatusLine", { fg = "#FAFAFA", bg = "#691a82", bold = true })
-            -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#30233d" })
-
-            -- disable semantic highlighting
-            -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-            --     vim.api.nvim_set_hl(0, group, {})
-            -- end
+            vim.api.nvim_set_hl(0, "CursorLine", { bg = "#30233d" })
 
             set_background_transparent()
         end,
     },
 }
-
--- "#FFF01F"
--- "#3ddbd9"
--- "#ee5396"
--- "#33b1ff"
--- "#ff7eb6"
--- "#be95ff"
--- "#82cfff"
--- "#131313"
--- "#37474F"
--- "#90A4AE"
--- "#525252"
--- "#08bdba"
--- "#FF6F00"
--- "#0f62fe"
--- "#673AB7"
--- "#42be65"
--- "#FFAB91"
--- "#FAFAFA"

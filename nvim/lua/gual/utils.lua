@@ -37,6 +37,7 @@ M.ensure_mason_install = function(tool)
     end
 end
 
+-- TODO: I think this is unnecessary
 M.augroup = function(name)
     return vim.api.nvim_create_augroup("gual_" .. name, { clear = true })
 end
