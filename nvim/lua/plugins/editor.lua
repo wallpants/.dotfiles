@@ -15,9 +15,9 @@ return {
         },
     },
 
-    {
-        "iamcco/markdown-preview.nvim",
-    },
+    -- {
+    --     "iamcco/markdown-preview.nvim",
+    -- },
 
     {
         "wallpants/ghost-text.nvim",
@@ -159,28 +159,28 @@ return {
         },
     },
 
-    {
-        "RRethy/vim-illuminate",
-        event = { "BufReadPost", "BufNewFile" },
-        opts = {
-            delay = 200,
-            large_file_cutoff = 2000,
-            large_file_overrides = {
-                providers = { "lsp" },
-            },
-        },
-        config = function(_, opts)
-            local illuminate = require("illuminate")
-            illuminate.configure(opts)
-            Utils.map("n", "<leader>rn", illuminate.goto_next_reference)
-            Utils.map("n", "<leader>rp", illuminate.goto_prev_reference)
-        end,
-        init = function()
-            vim.api.nvim_set_hl(0, "IlluminatedWordText", { underline = true, italic = true })
-            vim.api.nvim_set_hl(0, "IlluminatedWordRead", { underline = true, italic = true })
-            vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { underline = true, italic = true })
-        end,
-    },
+    -- {
+    --     "RRethy/vim-illuminate",
+    --     event = { "BufReadPost", "BufNewFile" },
+    --     opts = {
+    --         delay = 200,
+    --         large_file_cutoff = 2000,
+    --         large_file_overrides = {
+    --             providers = { "lsp" },
+    --         },
+    --     },
+    --     config = function(_, opts)
+    --         local illuminate = require("illuminate")
+    --         illuminate.configure(opts)
+    --         Utils.map("n", "<leader>rn", illuminate.goto_next_reference)
+    --         Utils.map("n", "<leader>rp", illuminate.goto_prev_reference)
+    --     end,
+    --     init = function()
+    --         vim.api.nvim_set_hl(0, "IlluminatedWordText", { underline = true, italic = true })
+    --         vim.api.nvim_set_hl(0, "IlluminatedWordRead", { underline = true, italic = true })
+    --         vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { underline = true, italic = true })
+    --     end,
+    -- },
 
     {
         "echasnovski/mini.bufremove",
