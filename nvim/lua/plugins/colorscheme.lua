@@ -30,7 +30,7 @@ end
 return {
     {
         "marko-cerovac/material.nvim",
-        enabled = enable_theme("material"),
+        cond = enable_theme("material"),
         priority = 1000,
         event = { "BufReadPost" }, -- BufReadPost or welcome message goes away
         opts = {
@@ -59,7 +59,7 @@ return {
 
     {
         "nyoom-engineering/oxocarbon.nvim",
-        enabled = enable_theme("oxocarbon"),
+        cond = enable_theme("oxocarbon"),
         priority = 1000,
         config = function()
             vim.opt.background = "dark"
