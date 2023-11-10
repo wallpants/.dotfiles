@@ -36,7 +36,11 @@ return {
         cmd = { "GithubPreviewToggle" },
         keys = { "<leader>mpt" },
         ---@type github_preview_config
-        opts = {},
+        opts = {
+            theme = {
+                high_contrast = true,
+            },
+        },
         config = function(_, opts)
             local gpreview = require("github-preview")
             gpreview.setup(opts)
