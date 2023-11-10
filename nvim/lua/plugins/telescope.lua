@@ -4,7 +4,7 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
-            { "gbprod/yanky.nvim", lazy = true, config = true },
+            { "gbprod/yanky.nvim", lazy = true, opts = { ring = { history_length = 500 } } },
         },
         version = false,
         opts = {
