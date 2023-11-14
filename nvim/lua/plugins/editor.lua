@@ -37,6 +37,7 @@ return {
         keys = { "<leader>mpt" },
         ---@type github_preview_config
         opts = {
+            log_level = "debug",
             theme = {
                 high_contrast = true,
             },
