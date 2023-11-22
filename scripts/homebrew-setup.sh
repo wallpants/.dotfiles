@@ -23,6 +23,8 @@ if ! command -v brew &>/dev/null; then
 fi
 
 brew_ensure_installed "go"
+brew_ensure_installed "pipenv"
+brew_ensure_installed "pyenv"
 brew_ensure_installed "viu"
 brew_ensure_installed "lazygit"
 brew_ensure_installed "nvim" "brew install neovim"
