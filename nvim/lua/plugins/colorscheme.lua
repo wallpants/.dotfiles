@@ -13,6 +13,8 @@ local function enable_theme(theme)
     return true
 end
 
+vim.cmd([[colorscheme murphy]])
+
 ---@type LazyPluginSpec[]
 return {
     {
