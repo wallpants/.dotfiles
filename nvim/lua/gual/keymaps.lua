@@ -31,7 +31,6 @@ Utils.map("n", "<leader>wn", "<cmd>vertical resize -15<CR>") -- resize window NA
 Utils.map("n", "<leader>mc", Fn.insert_markdown_code_block)
 Utils.map("n", "<leader>hg", Fn.get_highlight_group_under_cursor, { silent = true })
 Utils.map("n", "<LeftMouse>", Fn.mouse_click_focus)
-Utils.map("n", "<leader>sc", Fn.copy_socket_to_clipboard_reg)
 
 Utils.map("n", "<leader>csi", Fn.cspell_ignore)
 Utils.map("n", "<leader>dnl", Fn.disable_next_line)

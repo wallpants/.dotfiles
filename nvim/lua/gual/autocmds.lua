@@ -2,7 +2,6 @@ local Utils = require("gual.utils")
 
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
-    group = Utils.augroup("last_loc"),
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
         local line_count = vim.api.nvim_buf_line_count(0)
@@ -14,7 +13,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
-    group = Utils.augroup("close_with_q"),
     pattern = {
         "PlenaryTestPopup",
         "help",
@@ -35,7 +33,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Set filetype of .env* files to bash
 vim.api.nvim_create_autocmd("BufEnter", {
-    group = Utils.augroup("set_dotenv_filetype"),
     pattern = { ".env*" },
     command = "set filetype=sh",
 })
@@ -46,7 +43,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-    group = Utils.augroup("set_indentation"),
     pattern = {
         "*.json",
         "*.md",
@@ -54,5 +50,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
         vim.bo.shiftwidth = 2
         vim.bo.tabstop = 2
+    end,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+        Utils.set_background_transparent()
     end,
 })

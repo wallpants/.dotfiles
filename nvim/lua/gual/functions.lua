@@ -27,13 +27,6 @@ M.mouse_click_focus = function()
     end
 end
 
-M.copy_socket_to_clipboard_reg = function()
-    ---@type string
-    local nvim_socket = vim.fn.serverlist()[1]
-    vim.fn.setreg("+", nvim_socket)
-    print("copied socket to clipboard reg")
-end
-
 M.cspell_ignore = function()
     local keys = vim.api.nvim_replace_termcodes("Ocspell:ignore <esc>gccA", true, true, true)
     vim.fn.feedkeys(keys)

@@ -61,6 +61,7 @@ return {
             Utils.map("n", "<leader>sw", builtin.grep_string, { desc = "Search word" })
             Utils.map("n", "<leader>sa", builtin.autocommands, { desc = "Search autocommands" })
             Utils.map("n", "<leader>sk", builtin.keymaps, { desc = "Search keymaps" })
+            Utils.map("n", "<leader>sc", function () builtin.colorscheme({ enable_preview = true }) end, { desc = "Search colorschemes" })
             Utils.map("n", "<leader>aco", builtin.lsp_outgoing_calls, { desc = "Lsp outgoing calls"})
             Utils.map("n", "<leader>aci", builtin.lsp_incoming_calls, { desc = "Lsp incoming calls"})
             Utils.map("n", "<leader>ag", builtin.lsp_definitions, { desc = "Lsp definitions"})

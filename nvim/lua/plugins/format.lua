@@ -14,7 +14,7 @@ return {
 
             if format_on_save then
                 vim.api.nvim_create_autocmd("BufWritePost", {
-                    group = Utils.augroup("format"),
+                    group = vim.api.nvim_create_augroup("gual_format", {}),
                     pattern = { "*" },
                     command = "FormatWrite",
                 })

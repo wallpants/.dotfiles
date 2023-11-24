@@ -37,9 +37,17 @@ M.ensure_mason_install = function(tool)
     end
 end
 
--- TODO: I think this is unnecessary
-M.augroup = function(name)
-    return vim.api.nvim_create_augroup("gual_" .. name, { clear = true })
+M.set_background_transparent = function()
+    local hl_groups = {
+        "Normal",
+        "NormalNC",
+        "LineNr",
+        "SignColumn",
+    }
+
+    for _, hl_group in ipairs(hl_groups) do
+        vim.api.nvim_set_hl(0, hl_group, { bg = "none" })
+    end
 end
 
 return M
