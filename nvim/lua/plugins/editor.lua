@@ -22,6 +22,7 @@ return {
     {
         "wallpants/ghost-text.nvim",
         dev = true,
+        ---@type ghost_text_config
         opts = {
             filetype_domains = {
                 markdown = { "*.openai.com*", "*.github.com*", "*.reddit.com*" },
