@@ -2,6 +2,10 @@ alias open="xdg-open"
 
 export DOCKER_HOST="unix:///home/gualcasas/.docker/desktop/docker.sock"
 
+export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:/usr/share/pkgconfig"
+
+export ANDROID_HOME="/home/gualcasas/Android/Sdk"
+
 export BREW_PREFIX="/home/linuxbrew/.linuxbrew"
 eval "$($BREW_PREFIX/bin/brew shellenv)"               # load brew
 FPATH="$BREW_PREFIX/share/zsh/site-functions:${FPATH}" # load brew completions
