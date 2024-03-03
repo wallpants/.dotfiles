@@ -9,6 +9,12 @@ cmd("command W w")
 cmd("command Q q")
 cmd("command Bd bd")
 
+-- Disable arrow keys in insert mode
+Utils.map("i", "<Up>", "<Nop>")
+Utils.map("i", "<Down>", "<Nop>")
+Utils.map("i", "<Left>", "<Nop>")
+Utils.map("i", "<Right>", "<Nop>")
+
 -- Move to window using the <ctrl> hjkl keys
 Utils.map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
 Utils.map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
