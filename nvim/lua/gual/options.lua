@@ -9,6 +9,7 @@ vim.g.loaded_netrwPlugin = 1
 local opt = vim.opt
 
 vim.g.sql_type_default = "sqlanywhere"
+opt.foldmethod = "manual"
 opt.background = "light"
 opt.guicursor = "n-c-sm:block,i-ci:ver25,r-cr-o-v-ve:hor20"
 opt.autowrite = true -- Enable auto write
