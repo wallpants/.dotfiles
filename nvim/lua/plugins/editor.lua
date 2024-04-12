@@ -83,6 +83,9 @@ return {
             { "<leader>fF", "<cmd>NvimTreeFindFile!<CR>", noremap = true, desc = "NvimTree FindFile change root (!)" },
         },
         opts = {
+            view = {
+                adaptive_size = true,
+            },
             filters = {
                 dotfiles = true,
             },
