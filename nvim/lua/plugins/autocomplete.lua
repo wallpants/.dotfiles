@@ -69,7 +69,7 @@ return {
                     ["<C-d>"] = cmp.mapping.scroll_docs(4),
                     ["<CR>"] = cmp.mapping.confirm({
                         select = true,
-                        behavior = cmp.ConfirmBehavior.Replace,
+                        -- behavior = cmp.ConfirmBehavior.Replace,
                     }),
                 }),
                 sources = cmp.config.sources({
