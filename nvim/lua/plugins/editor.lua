@@ -40,6 +40,7 @@ return {
             theme = {
                 high_contrast = true,
             },
+            -- log_level = "debug",
         },
         config = function(_, opts)
             local gpreview = require("github-preview")
