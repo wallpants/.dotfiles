@@ -15,10 +15,6 @@ return {
         },
     },
 
-    -- {
-    --     "iamcco/markdown-preview.nvim",
-    -- },
-
     {
         "wallpants/ghost-text.nvim",
         dev = true,
@@ -191,29 +187,6 @@ return {
       { "<leader>Q", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
     },
     },
-
-    -- {
-    --   "lukas-reineke/indent-blankline.nvim",
-    --   event = { "BufReadPost", "BufNewFile" },
-    --   opts = {
-    --     char = "▏",
-    --     -- char = "│",
-    --     filetype_exclude = {
-    --       "help",
-    --       "alpha",
-    --       "dashboard",
-    --       "neo-tree",
-    --       "Trouble",
-    --       "lazy",
-    --       "mason",
-    --       "notify",
-    --       "toggleterm",
-    --       "lazyterm",
-    --     },
-    --     show_trailing_blankline_indent = false,
-    --     show_current_context = false,
-    --   },
-    -- },
 
     {
         "echasnovski/mini.indentscope",
