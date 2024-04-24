@@ -104,6 +104,7 @@ return {
             Utils.map("n", "K", vim.lsp.buf.hover)
             Utils.map("n", "<leader>ap", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
             Utils.map("n", "<leader>an", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+            Utils.map("n", "<leader>rr", ":LspRestart<cr>", { desc = "LspRestart" })
             Utils.map("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Signature help" })
             Utils.map("n", "<leader>rb", vim.lsp.buf.rename, { desc = "Replace in buffer" })
         end,
