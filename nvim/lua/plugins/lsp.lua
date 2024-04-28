@@ -4,28 +4,27 @@ local Utils = require("gual.utils")
 local async_formatting = function(bufnr)
     bufnr = bufnr or vim.api.nvim_get_current_buf()
 
-    vim.lsp.buf_request(bufnr, "textDocument/formatting", vim.lsp.util.make_formatting_params({}),
-        function(err, res, ctx)
-            if err then
-                local err_msg = type(err) == "string" and err or err.message
-                -- you can modify the log message / level (or ignore it completely)
-                vim.notify("formatting: " .. err_msg, vim.log.levels.WARN)
-                return
-            end
+    vim.lsp.buf_request(bufnr, "textDocument/formatting", vim.lsp.util.make_formatting_params({}), function(err, res, ctx)
+        if err then
+            local err_msg = type(err) == "string" and err or err.message
+            -- you can modify the log message / level (or ignore it completely)
+            vim.notify("formatting: " .. err_msg, vim.log.levels.WARN)
+            return
+        end
 
-            -- don't apply results if buffer is unloaded or has been modified
-            if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, "modified") then
-                return
-            end
+        -- don't apply results if buffer is unloaded or has been modified
+        if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, "modified") then
+            return
+        end
 
-            if res then
-                local client = vim.lsp.get_client_by_id(ctx.client_id)
-                vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
-                vim.api.nvim_buf_call(bufnr, function()
-                    vim.cmd("silent noautocmd update")
-                end)
-            end
-        end)
+        if res then
+            local client = vim.lsp.get_client_by_id(ctx.client_id)
+            vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
+            vim.api.nvim_buf_call(bufnr, function()
+                vim.cmd("silent noautocmd update")
+            end)
+        end
+    end)
 end
 
 return {
@@ -48,8 +47,6 @@ return {
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-
-
             lspconfig.util.default_config = vim.tbl_deep_extend("force", lspconfig.util.default_config, {
                 capabilities = capabilities,
             })
@@ -71,14 +68,14 @@ return {
             lspconfig.lua_ls.setup({})
 
             Utils.ensure_mason_install("json-lsp")
-            lspconfig.jsonls.setup {
+            lspconfig.jsonls.setup({
                 settings = {
                     json = {
-                        schemas = require('schemastore').json.schemas(),
+                        schemas = require("schemastore").json.schemas(),
                         validate = { enable = true },
                     },
                 },
-            }
+            })
 
             -- visuals
             vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -128,6 +125,7 @@ return {
         config = function()
             local Utils = require("gual.utils")
             Utils.ensure_mason_install("selene")
+            Utils.ensure_mason_install("markdownlint")
 
             local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
             local null_ls = require("null-ls")
