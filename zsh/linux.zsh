@@ -1,5 +1,9 @@
 alias open="xdg-open"
 
+# I'm not sure why it's not automatically set in fedora, but if we don't set it
+# bun uses a wrong timezone
+export TZ="America/Monterrey"
+
 export DOCKER_HOST="unix:///home/gualcasas/.docker/desktop/docker.sock"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:/usr/share/pkgconfig"
