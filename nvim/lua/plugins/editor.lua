@@ -138,7 +138,6 @@ return {
                     require("mini.bufremove").delete(n, false)
                 end,
                 diagnostics = "nvim_lsp",
-                always_show_bufferline = false,
             },
         },
     },
@@ -181,11 +180,11 @@ return {
 
     {
         "echasnovski/mini.bufremove",
-    -- stylua: ignore
-    keys = {
-      { "<leader>q", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
-      { "<leader>Q", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
-    },
+        -- stylua: ignore
+        keys = {
+            { "<leader>q", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
+            { "<leader>Q", function() require("mini.bufremove").delete(0, true) end,  desc = "Delete Buffer (Force)" },
+        },
     },
 
     {
@@ -224,7 +223,7 @@ return {
         opts = { open_cmd = "noswapfile vnew" },
         -- stylua: ignore
         keys = {
-        { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+            { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
         },
     },
 }
