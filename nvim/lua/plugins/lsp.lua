@@ -127,6 +127,7 @@ return {
                             buffer = bufnr,
                             callback = function()
                                 vim.lsp.buf.format({
+                                    async = false,
                                     bufnr = bufnr,
                                     filter = function(_client)
                                         return _client.name == "null-ls"
