@@ -86,7 +86,10 @@ return {
             "nvim-lua/plenary.nvim",
             "neovim/nvim-lspconfig",
         },
-        opts = {},
+        opts = {
+            -- spawn additional tsserver instance to calculate diagnostics on it
+            separate_diagnostic_server = false,
+        },
     },
 
     {
