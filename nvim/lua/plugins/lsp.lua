@@ -101,6 +101,10 @@ return {
         config = function()
             Utils.ensure_mason_install("selene")
             Utils.ensure_mason_install("markdownlint")
+            Utils.ensure_mason_install("prettierd")
+            Utils.ensure_mason_install("eslint_d")
+            Utils.ensure_mason_install("stylua")
+            Utils.ensure_mason_install("commitlint")
 
             local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
             local null_ls = require("null-ls")
