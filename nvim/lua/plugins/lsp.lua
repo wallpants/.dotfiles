@@ -105,6 +105,7 @@ return {
             Utils.ensure_mason_install("eslint_d")
             Utils.ensure_mason_install("stylua")
             Utils.ensure_mason_install("commitlint")
+            Utils.ensure_mason_install("yamllint")
 
             local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
             local null_ls = require("null-ls")

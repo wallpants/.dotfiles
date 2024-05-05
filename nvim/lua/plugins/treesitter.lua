@@ -22,6 +22,7 @@ return {
                 "luadoc",
                 "luap",
                 "markdown",
+                "sql",
                 "markdown_inline",
                 "python",
                 "query",
