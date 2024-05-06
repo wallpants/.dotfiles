@@ -29,8 +29,8 @@ Utils.map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 -- Utils.map({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
 -- Utils.map({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
-Utils.map("n", "<leader>wt", "<cmd>resize +8<CR>")           -- resize window TALLER
-Utils.map("n", "<leader>ws", "<cmd>resize -8<CR>")           -- resize window SHORTER
+Utils.map("n", "<leader>wt", "<cmd>resize +8<CR>") -- resize window TALLER
+Utils.map("n", "<leader>ws", "<cmd>resize -8<CR>") -- resize window SHORTER
 Utils.map("n", "<leader>ww", "<cmd>vertical resize +15<CR>") -- resize window WIDER
 Utils.map("n", "<leader>wn", "<cmd>vertical resize -15<CR>") -- resize window NARROWER
 
@@ -45,4 +45,9 @@ Utils.map("n", "<leader>o", function()
     -- call twice to enter diagnostic's floating window
     vim.diagnostic.open_float()
     vim.diagnostic.open_float()
+end)
+
+Utils.map("n", "<leader>df", function()
+    vim.cmd("autocmd! LspFormatting")
+    vim.print("format-on-save disabled")
 end)
