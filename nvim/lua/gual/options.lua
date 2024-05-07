@@ -8,7 +8,9 @@ vim.g.loaded_netrwPlugin = 1
 
 local opt = vim.opt
 
-vim.g.sql_type_default = "sqlanywhere"
+-- opt.textwidth = 80
+-- opt.wrap = true
+-- opt.linebreak = true
 opt.foldmethod = "manual"
 opt.background = "light"
 opt.guicursor = "n-c-sm:block,i-ci:ver25,r-cr-o-v-ve:hor20"
@@ -52,3 +54,5 @@ opt.splitkeep = "screen"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+vim.g.sql_type_default = "sqlanywhere"
