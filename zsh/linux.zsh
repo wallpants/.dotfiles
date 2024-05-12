@@ -4,11 +4,11 @@ alias open="xdg-open"
 # bun uses a wrong timezone
 export TZ="America/Monterrey"
 
-export DOCKER_HOST="unix:///home/gualcasas/.docker/desktop/docker.sock"
+export DOCKER_HOST="unix://$HOME/.docker/desktop/docker.sock"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:/usr/share/pkgconfig"
 
-export ANDROID_HOME="/home/gualcasas/Android/Sdk"
+export ANDROID_HOME="$HOME/Android/Sdk"
 
 export BREW_PREFIX="/home/linuxbrew/.linuxbrew"
 eval "$($BREW_PREFIX/bin/brew shellenv)"               # load brew
@@ -21,3 +21,6 @@ export NVM_DIR="$HOME/.nvm"
 # load terraform autocomplete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/linuxbrew/.linuxbrew/Cellar/terraform/1.6.4/bin/terraform terraform
+
+# required for pylint to work
+export PYTHONPATH=$HOME/.local/lib/python3.12/site-packages

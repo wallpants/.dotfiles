@@ -37,6 +37,9 @@ return {
             Utils.ensure_mason_install("tailwindcss-language-server")
             lspconfig.tailwindcss.setup({})
 
+            Utils.ensure_mason_install("pyright")
+            lspconfig.pyright.setup({})
+
             Utils.ensure_mason_install("lua-language-server")
             lspconfig.lua_ls.setup({})
 
@@ -106,6 +109,8 @@ return {
             Utils.ensure_mason_install("stylua")
             Utils.ensure_mason_install("commitlint")
             Utils.ensure_mason_install("yamllint")
+            Utils.ensure_mason_install("pylint")
+            Utils.ensure_mason_install("black")
 
             local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
             local null_ls = require("null-ls")
@@ -126,6 +131,7 @@ return {
                     null_ls.builtins.diagnostics.dotenv_linter,
                     null_ls.builtins.diagnostics.markdownlint,
                     null_ls.builtins.diagnostics.commitlint,
+                    null_ls.builtins.diagnostics.pylint,
                 },
                 on_attach = function(client, bufnr)
                     if client.supports_method("textDocument/formatting") then
