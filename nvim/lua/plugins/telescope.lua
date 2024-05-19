@@ -55,6 +55,7 @@ return {
             Utils.map("n", "<C-b>", function() builtin.buffers({ ignore_current_buffer = true, }) end, { desc = "Switch buffers" })
             Utils.map("n", "<C-p>", function() builtin.find_files({ hidden = true }) end, { desc = "Search cwd files" })
             -- map("n", "<leader>ff", builtin.git_files, { desc = "Search git files" })
+            Utils.map("n", "<leader>ll", function() builtin.diagnostics() end, { desc = "List diagnostic issues" })
             Utils.map("n", "<leader>fr", function() builtin.oldfiles({ only_cwd = true, }) end, { desc = "Search recent files" })
             Utils.map("n", "<leader>sg", builtin.live_grep, { desc = "Live grep" })
             Utils.map("n", "<leader>sr", builtin.resume, { desc = "Resume search" })
