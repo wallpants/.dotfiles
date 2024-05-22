@@ -126,7 +126,11 @@ return {
                     null_ls.builtins.formatting.prettierd,
 
                     require("none-ls.diagnostics.yamllint"),
-                    require("none-ls.diagnostics.eslint_d"),
+                    require("none-ls.diagnostics.eslint_d").with({
+                        condition = function(utils)
+                            return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" })
+                        end,
+                    }),
                     null_ls.builtins.diagnostics.selene,
                     null_ls.builtins.diagnostics.dotenv_linter,
                     null_ls.builtins.diagnostics.markdownlint,
