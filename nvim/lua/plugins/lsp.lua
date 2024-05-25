@@ -103,7 +103,7 @@ return {
         },
         config = function()
             Utils.ensure_mason_install("selene")
-            Utils.ensure_mason_install("markdownlint")
+            -- Utils.ensure_mason_install("markdownlint")
             Utils.ensure_mason_install("prettierd")
             Utils.ensure_mason_install("eslint_d")
             Utils.ensure_mason_install("stylua")
@@ -122,7 +122,7 @@ return {
                     require("none-ls.formatting.eslint_d"),
                     null_ls.builtins.formatting.stylua,
                     null_ls.builtins.formatting.black,
-                    null_ls.builtins.formatting.markdownlint,
+                    -- null_ls.builtins.formatting.markdownlint,
                     null_ls.builtins.formatting.prettierd,
 
                     require("none-ls.diagnostics.yamllint"),
@@ -133,7 +133,7 @@ return {
                     }),
                     null_ls.builtins.diagnostics.selene,
                     null_ls.builtins.diagnostics.dotenv_linter,
-                    null_ls.builtins.diagnostics.markdownlint,
+                    -- null_ls.builtins.diagnostics.markdownlint,
                     null_ls.builtins.diagnostics.commitlint,
                     null_ls.builtins.diagnostics.pylint,
                 },
