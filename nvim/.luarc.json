@@ -30,6 +30,7 @@
     "~/.local/share/nvim/lazy/tailwindcss-colorizer-cmp.nvim/lua",
     "~/.local/share/nvim/lazy/cmp-path/lua",
     "~/Projects/nvim-plugins/github-preview.nvim/lua",
+    "~/Projects/nvim-plugins/napoleon.nvim/lua",
     "~/.local/share/nvim/lazy/nvim-treesitter/lua",
     "~/.local/share/nvim/lazy/cmp_luasnip/lua",
     "~/.local/share/nvim/lazy/nvim-colorizer.lua/lua",
