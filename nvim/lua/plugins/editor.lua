@@ -22,10 +22,9 @@ return {
         keys = { "<leader>ns" },
         ---@type napoleon_config
         opts = {
-            model = "llama3:latest",
-            -- model = "llama3:70b",
+            model = "llama3:70b",
+            -- model = "llama3:latest",
             temperature = 0.3,
-            log_level = "debug",
         },
         config = function(_, opts)
             local napoleon = require("napoleon")
