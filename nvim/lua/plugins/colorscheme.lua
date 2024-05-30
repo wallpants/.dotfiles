@@ -45,6 +45,16 @@ return {
     },
 
     {
+        "miikanissi/modus-themes.nvim",
+        cond = enable_theme("modus"),
+        priority = 1000,
+        config = function()
+            vim.opt.background = "dark"
+            vim.cmd([[colorscheme modus]])
+        end,
+    },
+
+    {
         "nyoom-engineering/oxocarbon.nvim",
         cond = enable_theme("oxocarbon"),
         priority = 1000,
