@@ -22,13 +22,8 @@ return {
         keys = { "<leader>ns" },
         ---@type napoleon_config
         opts = {
-            -- model = "llama3:70b",
-            model = "llama3:latest",
+            model = "phi3:medium",
             temperature = 0.3,
-            initial_message = {
-                role = "system",
-                message = "You're an assistant embedded in a code editor. When formatting code blocks, please make sure to include the language specification",
-            },
             log_level = "debug",
         },
         config = function(_, opts)
