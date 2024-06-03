@@ -23,6 +23,7 @@ return {
         ---@type napoleon_config
         opts = {
             model = "phi3:medium",
+            -- model = "llama3:70b",
             temperature = 0.3,
             log_level = "debug",
         },
