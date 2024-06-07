@@ -24,6 +24,7 @@ return {
                 "markdown",
                 "sql",
                 "markdown_inline",
+                "prisma",
                 "python",
                 "query",
                 "regex",

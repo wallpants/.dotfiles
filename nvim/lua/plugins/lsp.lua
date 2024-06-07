@@ -37,6 +37,9 @@ return {
             Utils.ensure_mason_install("tailwindcss-language-server")
             lspconfig.tailwindcss.setup({})
 
+            Utils.ensure_mason_install("prisma-language-server")
+            lspconfig.prismals.setup({})
+
             Utils.ensure_mason_install("pyright")
             lspconfig.pyright.setup({})
 
