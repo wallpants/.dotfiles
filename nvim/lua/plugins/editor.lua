@@ -22,9 +22,10 @@ return {
         keys = { "<leader>ns" },
         ---@type napoleon_config
         opts = {
-            model = "phi3:medium",
-            -- model = "llama3:70b",
-            temperature = 0.3,
+            -- model = "phi3:medium",
+            autoscroll = false,
+            model = "qwen2:72b",
+            temperature = 1,
             log_level = "debug",
         },
         config = function(_, opts)
