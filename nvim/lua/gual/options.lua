@@ -9,10 +9,15 @@ vim.g.loaded_netrwPlugin = 1
 local opt = vim.opt
 
 opt.linebreak = true
--- opt.wrap = false
 opt.shiftwidth = 3 -- Size of an indent
 opt.tabstop = 3 -- Number of spaces tabs count for
-opt.foldmethod = "manual"
+
+-- za fold
+vim.opt.fillchars = { fold = " " }
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+
 opt.background = "light"
 opt.guicursor = "n-c-sm:block,i-ci:ver25,r-cr-o-v-ve:hor20"
 opt.autowrite = true -- Enable auto write
