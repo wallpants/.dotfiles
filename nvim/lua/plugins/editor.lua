@@ -26,6 +26,13 @@ return {
             autoscroll = false,
             model = "qwen2:72b",
             temperature = 1,
+            initial_message = {
+                role = "system",
+                message = {
+                    "You're an assistant embedded in a code editor called Neovim.",
+                    "If you provide any code examples and are not asked for a specific language, please provide code samples using typescript.",
+                },
+            },
             log_level = "debug",
         },
         config = function(_, opts)
