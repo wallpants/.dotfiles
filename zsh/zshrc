@@ -16,6 +16,9 @@ export PATH="$GOPATH/bin:$PATH"
 export BUN_INSTALL=$HOME/.bun
 export PATH=$BUN_INSTALL/bin:$PATH
 
+# pipx
+export PATH=/Users/wallpants/.local/bin:$PATH
+
 # vim keymaps
 set -o vi
 
@@ -50,3 +53,6 @@ echo "   (C)Copyright Microsoft Corp 1981-1996."
 echo ""
 
 source ~/.dotfiles/zsh/os_specific.zsh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/wallpants/.lmstudio/bin"
