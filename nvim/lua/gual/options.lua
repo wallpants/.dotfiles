@@ -54,6 +54,7 @@ opt.updatetime = 200
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.splitkeep = "screen"
+opt.winborder = "single" -- single, rounded
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0

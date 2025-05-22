@@ -57,17 +57,8 @@ return {
             })
 
             -- visuals
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-                border = Utils.setup_border("rounded", "FloatBorder"),
-            })
-            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-                border = Utils.setup_border("rounded", "FloatBorder"),
-            })
             vim.diagnostic.config({
                 severity_sort = true,
-                -- virtual_text = {
-                --     source = "if_many",
-                -- },
                 float = {
                     border = Utils.setup_border("single", "DiagnosticsBorder"),
                     severity_sort = true,

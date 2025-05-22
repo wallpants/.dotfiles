@@ -9,6 +9,7 @@ return {
         version = false,
         opts = {
             defaults = {
+                border = false,
                 file_ignore_patterns = { ".git/", "dist", "pnpm-lock.yaml", "**/*.min.js" },
                 vimgrep_arguments = {
                     "rg",
