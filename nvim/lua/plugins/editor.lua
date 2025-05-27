@@ -52,7 +52,7 @@ return {
             filetype_domains = {
                 markdown = { "*.openai.com*", "*.github.com*", "*.reddit.com*" },
             },
-            log_level = "debug",
+            -- log_level = "debug",
         },
     },
 
