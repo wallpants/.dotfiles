@@ -7,7 +7,7 @@ eval_if_os "macos" "source ~/.dotfiles/zsh/mac.zsh"
 # Ensure brew & zsh are installed
 if ! command -v brew &>/dev/null; then
     eval_if_os "fedora" "sudo dnf update"
-    eval_if_os "fedora" "sudo dnf groupinstall 'Development Tools' -y"
+    eval_if_os "fedora" "sudo dnf group install development-tools -y"
     eval_if_os "fedora" "sudo dnf install zsh -y"
 
     eval_if_os "ubuntu" "sudo apt update"
