@@ -43,4 +43,4 @@ brew_ensure_installed "nvm"
 # source .zsh files again to load nvm
 eval_if_os "linux" "source ~/.dotfiles/zsh/linux.zsh"
 eval_if_os "macos" "source ~/.dotfiles/zsh/mac.zsh"
-brew_ensure_installed "node" "nvm install 18"
+brew_ensure_installed "node" "nvm install 22"
