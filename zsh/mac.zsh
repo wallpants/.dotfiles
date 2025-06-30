@@ -15,3 +15,5 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/wallpants/.lmstudio/bin"
+
+alias caddyfile="vi /opt/homebrew/etc/Caddyfile"
