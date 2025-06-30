@@ -17,3 +17,4 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="$PATH:/Users/wallpants/.lmstudio/bin"
 
 alias caddyfile="vi /opt/homebrew/etc/Caddyfile"
+alias caddycert="cd /opt/homebrew/var/lib/caddy/pki/authorities/local"
