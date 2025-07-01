@@ -60,3 +60,26 @@ opt.winborder = "single" -- single, rounded
 vim.g.markdown_recommended_style = 0
 
 vim.g.sql_type_default = "sqlanywhere"
+--
+-- This clipboard stuff is required to get rid of the error messages
+-- when ssh'ing to a machine
+vim.o.clipboard = "unnamedplus"
+
+local function paste()
+    return {
+        vim.fn.split(vim.fn.getreg(""), "\n"),
+        vim.fn.getregtype(""),
+    }
+end
+
+vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+        ["+"] = paste,
+        ["*"] = paste,
+    },
+}
