@@ -90,15 +90,15 @@ return {
         },
     },
 
-    {
-        "stevearc/oil.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {},
-        config = function(_, opts)
-            require("oil").setup(opts)
-            vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
-        end,
-    },
+    -- {
+    --     "stevearc/oil.nvim",
+    --     dependencies = { "nvim-tree/nvim-web-devicons" },
+    --     opts = {},
+    --     config = function(_, opts)
+    --         require("oil").setup(opts)
+    --         vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
+    --     end,
+    -- },
 
     {
         "nvim-tree/nvim-tree.lua",
