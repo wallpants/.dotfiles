@@ -23,4 +23,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/linuxbrew/.linuxbrew/Cellar/terraform/1.6.4/bin/terraform terraform
 
 # required for pylint to work
-export PYTHONPATH=$HOME/.local/lib/python3.12/site-packages
+# export PYTHONPATH=$HOME/.local/lib/python3.11/site-packages

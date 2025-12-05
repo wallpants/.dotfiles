@@ -26,28 +26,45 @@ return {
 
             -- languages
             Utils.ensure_mason_install("bash-language-server")
-            lspconfig.bashls.setup({})
+            -- lspconfig.bashls.setup({})
+            -- vim.lsp.config("bashls")
+            vim.lsp.enable({ "bashls" })
 
             Utils.ensure_mason_install("css-lsp")
-            lspconfig.cssls.setup({})
+            -- lspconfig.cssls.setup({})
+            vim.lsp.enable({ "cssls" })
 
             Utils.ensure_mason_install("html-lsp")
-            lspconfig.html.setup({})
+            -- lspconfig.html.setup({})
+            vim.lsp.enable({ "html" })
 
             Utils.ensure_mason_install("tailwindcss-language-server")
-            lspconfig.tailwindcss.setup({})
+            -- lspconfig.tailwindcss.setup({})
+            vim.lsp.enable({ "tailwindcss" })
 
             Utils.ensure_mason_install("prisma-language-server")
-            lspconfig.prismals.setup({})
+            -- lspconfig.prismals.setup({})
+            vim.lsp.enable({ "prismals" })
 
-            Utils.ensure_mason_install("pyright")
-            lspconfig.pyright.setup({})
+            -- install with homebrew insted
+            -- Utils.ensure_mason_install("pyright")
+            -- lspconfig.pyright.setup({})
+            vim.lsp.enable({ "pyright" })
 
             Utils.ensure_mason_install("lua-language-server")
-            lspconfig.lua_ls.setup({})
+            -- lspconfig.lua_ls.setup({})
+            vim.lsp.enable({ "lua_ls" })
 
             Utils.ensure_mason_install("json-lsp")
-            lspconfig.jsonls.setup({
+            -- lspconfig.jsonls.setup({
+            --     settings = {
+            --         json = {
+            --             schemas = require("schemastore").json.schemas(),
+            --             validate = { enable = true },
+            --         },
+            --     },
+            -- })
+            vim.lsp.config("jsonls", {
                 settings = {
                     json = {
                         schemas = require("schemastore").json.schemas(),
@@ -55,6 +72,7 @@ return {
                     },
                 },
             })
+            vim.lsp.enable({ "jsonls" })
 
             -- visuals
             vim.diagnostic.config({
@@ -103,7 +121,8 @@ return {
             Utils.ensure_mason_install("stylua")
             Utils.ensure_mason_install("commitlint")
             Utils.ensure_mason_install("yamllint")
-            Utils.ensure_mason_install("pylint")
+            -- install with homebrew instead
+            -- Utils.ensure_mason_install("pylint")
             Utils.ensure_mason_install("black")
 
             local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -126,7 +145,7 @@ return {
                         end,
                     }),
                     null_ls.builtins.diagnostics.selene,
-                    null_ls.builtins.diagnostics.dotenv_linter,
+                    -- null_ls.builtins.diagnostics.dotenv_linter,
                     -- null_ls.builtins.diagnostics.markdownlint,
                     null_ls.builtins.diagnostics.commitlint,
                     null_ls.builtins.diagnostics.pylint,

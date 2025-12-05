@@ -23,7 +23,7 @@ export PATH=/Users/wallpants/.local/bin:$PATH
 set -o vi
 
 # ALIAS
-alias python="python3"
+# alias python="python3.11"
 alias vi="nvim"
 alias vim="vim"
 alias lzg="lazygit"
@@ -34,6 +34,7 @@ alias public="cat ~/.ssh/id_ed25519.pub"
 alias ssh="nohup lemonade server > /dev/null 2>&1 &! kitty +kitten ssh -R 2489:127.0.0.1:2489"
 alias l="ls -1"
 alias la="ls -oAh"
+alias condainit='conda init "$(basename "${SHELL}")"'
 
 # remap Ctrl+L to both scroll the current screen contents into the scrollback buffer
 # and clear the screen, instead of just clearing the screen
@@ -53,3 +54,23 @@ echo "   (C)Copyright Microsoft Corp 1981-1996."
 echo ""
 
 source ~/.dotfiles/zsh/os_specific.zsh
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+#         . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/wallpants/.lmstudio/bin"
+# End of LM Studio CLI section
+
