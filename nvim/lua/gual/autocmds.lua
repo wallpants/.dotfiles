@@ -58,3 +58,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         Utils.set_background_transparent()
     end,
 })
+
+-- Enable treesitter highlighting for buffers (required for Neovim 0.12+ with tree-sitter-manager)
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+    end,
+})
