@@ -4,7 +4,7 @@ alias open="xdg-open"
 # bun uses a wrong timezone
 export TZ="America/Monterrey"
 
-export DOCKER_HOST="unix://$HOME/.docker/desktop/docker.sock"
+# export DOCKER_HOST="unix://$HOME/.docker/desktop/docker.sock"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:/usr/share/pkgconfig"
 
