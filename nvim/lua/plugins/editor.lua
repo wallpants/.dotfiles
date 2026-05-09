@@ -44,21 +44,21 @@ return {
     --    end,
     --},
 
-    {
-        "wallpants/ghost-text.nvim",
-        dev = true,
-        ---@type ghost_text_config
-        opts = {
-            filetype_domains = {
-                markdown = { "*.openai.com*", "*.github.com*", "*.reddit.com*" },
-            },
-            -- log_level = "debug",
-        },
-    },
+    -- {
+    --     "wallpants/ghost-text.nvim",
+    --     dev = true,
+    --     ---@type ghost_text_config
+    --     opts = {
+    --         filetype_domains = {
+    --             markdown = { "*.openai.com*", "*.github.com*", "*.reddit.com*" },
+    --         },
+    --         -- log_level = "debug",
+    --     },
+    -- },
 
     {
         "wallpants/github-preview.nvim",
-        dev = true,
+        -- dev = true,
         cmd = { "GithubPreviewToggle" },
         keys = { "<leader>mpt" },
         ---@type github_preview_config
