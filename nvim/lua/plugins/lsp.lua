@@ -138,7 +138,12 @@ return {
                     -- null_ls.builtins.formatting.markdownlint,
                     null_ls.builtins.formatting.prettierd,
 
-                    require("none-ls.diagnostics.yamllint"),
+                    require("none-ls.diagnostics.yamllint").with({
+                        extra_args = {
+                            "-d",
+                            "{extends: default, rules: {line-length: disable, comments: disable, document-start: disable, comments-indentation: disable}}",
+                        },
+                    }),
                     require("none-ls.diagnostics.eslint_d").with({
                         condition = function(utils)
                             return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs", "eslint.config.js" })
