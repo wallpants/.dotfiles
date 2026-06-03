@@ -27,34 +27,47 @@ return {
                 lsp_format = "fallback",
             },
             -- Set up format-on-save
-            format_on_save = { timeout_ms = 500 },
+            -- format_on_save = { timeout_ms = 500 },
         },
         init = function()
             -- If you want the formatexpr, here is the place to set it
             vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
         end,
-        -- config = function(_, opts)
-        --     local conform = require("conform")
-        --     conform.setup(opts)
-        --
-        --     vim.api.nvim_create_autocmd("BufWritePre", {
-        --         desc = "Format before save",
-        --         pattern = "*",
-        --         group = vim.api.nvim_create_augroup("FormatConfig", { clear = true }),
-        --         callback = function(ev)
-        --             local conform_opts = { bufnr = ev.buf, lsp_format = "fallback", timeout_ms = 2000 }
-        --             local client = vim.lsp.get_clients({ name = "oxlint", bufnr = ev.buf })[1]
-        --
-        --             if not client then
-        --                 conform.format(conform_opts)
-        --                 return
-        --             end
-        --
-        --             vim.cmd("LspOxlintFixAll")
-        --
-        --             conform.format(conform_opts)
-        --         end,
-        --     })
-        -- end,
+        config = function(_, opts)
+            local conform = require("conform")
+            conform.setup(opts)
+
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                desc = "Format before save",
+                pattern = "*",
+                group = vim.api.nvim_create_augroup("FormatConfig", { clear = true }),
+                callback = function(ev)
+                    local conform_opts = { bufnr = ev.buf, lsp_format = "fallback", timeout_ms = 2000 }
+                    local client = vim.lsp.get_clients({ name = "ts_ls", bufnr = ev.buf })[1]
+                    -- local client = vim.lsp.get_clients({ name = "oxlint", bufnr = ev.buf })[1]
+                    -- local client = vim.lsp.get_clients({ name = "eslint", bufnr = ev.buf })[1]
+
+                    if not client then
+                        conform.format(conform_opts)
+                        return
+                    end
+
+                    -- vim.cmd("LspOxlintFixAll")
+                    -- vim.cmd("LspEslintFixAll")
+
+                    local request_result = client:request_sync("workspace/executeCommand", {
+                        command = "_typescript.organizeImports",
+                        arguments = { vim.api.nvim_buf_get_name(ev.buf) },
+                    })
+
+                    if request_result and request_result.err then
+                        vim.notify(request_result.err.message, vim.log.levels.ERROR)
+                        return
+                    end
+
+                    conform.format(conform_opts)
+                end,
+            })
+        end,
     },
 }
