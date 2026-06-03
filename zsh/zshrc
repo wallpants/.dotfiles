@@ -73,3 +73,6 @@ source ~/.dotfiles/zsh/os_specific.zsh
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
+
+# some brew packages depend on node, but we manage node with nvm
+export HOMEBREW_FORBIDDEN_FORMULAE="node"

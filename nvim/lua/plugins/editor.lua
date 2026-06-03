@@ -66,7 +66,7 @@ return {
             theme = {
                 high_contrast = true,
             },
-            log_level = "debug",
+            -- log_level = "info",
         },
         config = function(_, opts)
             local gpreview = require("github-preview")
