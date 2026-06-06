@@ -75,12 +75,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- local bufnr = args.buf
 
         Utils.map("n", "K", vim.lsp.buf.hover)
-        Utils.map("n", "<leader>ap", vim.diagnostic.goto_prev, {
-            desc = "Go to previous diagnostic",
-        })
-        Utils.map("n", "<leader>an", vim.diagnostic.goto_next, {
-            desc = "Go to next diagnostic",
-        })
+        Utils.map("n", "<leader>ap", function()
+            vim.diagnostic.jump({ count = -1, float = true })
+        end, { desc = "Go to previous diagnostic" })
+        Utils.map("n", "<leader>an", function()
+            vim.diagnostic.jump({ count = 1, float = true })
+        end, { desc = "Go to next diagnostic" })
         Utils.map("i", "<c-k>", vim.lsp.buf.signature_help, {
             desc = "Signature help",
         })
