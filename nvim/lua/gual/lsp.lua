@@ -2,6 +2,43 @@ local Utils = require("gual.utils")
 
 vim.lsp.enable("gdscript")
 
+-- This is a fucking mess, but oxlint is extremely slow and shows stale diagnostics
+-- if I type quickly and immediately leave insert mode. I can't find another way
+-- to configure it to run better.
+vim.lsp.config("oxlint", {
+    capabilities = { textDocument = { diagnostic = vim.NIL } },
+    settings = { run = "onSave" },
+})
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufReadPost", "TextChanged" }, {
+    callback = function(args)
+        for _, client in ipairs(vim.lsp.get_clients({ bufnr = args.buf, name = "oxlint" })) do
+            local params = {
+                textDocument = vim.lsp.util.make_text_document_params(args.buf),
+            }
+            client:request("textDocument/diagnostic", params, function(err, result)
+                if err or not result then
+                    return
+                end
+                local items = result.items or {}
+                local ns = vim.lsp.diagnostic.get_namespace(client.id)
+                local diagnostics = vim.tbl_map(function(item)
+                    return {
+                        lnum = item.range.start.line,
+                        col = item.range.start.character,
+                        end_lnum = item.range["end"].line,
+                        end_col = item.range["end"].character,
+                        severity = item.severity,
+                        message = item.message,
+                        source = item.source or "oxlint",
+                        code = item.code,
+                    }
+                end, items)
+                vim.diagnostic.set(ns, args.buf, diagnostics)
+            end, args.buf)
+        end
+    end,
+})
+
 vim.lsp.config("tailwindcss", {
     settings = {
         tailwindCSS = {
