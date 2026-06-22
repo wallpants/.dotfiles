@@ -33,6 +33,8 @@ return {
                 "prisma-language-server",
                 "lua_ls",
                 "json-lsp",
+                "pyright",
+                "pylint",
                 "oxfmt",
                 "oxlint",
                 -- "eslint-lsp",

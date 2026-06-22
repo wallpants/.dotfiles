@@ -48,6 +48,8 @@ return {
                     -- local client = vim.lsp.get_clients({ name = "eslint", bufnr = ev.buf })[1]
 
                     if not client then
+                        -- Join format changes with previous edit so they undo together
+                        pcall(vim.cmd, "undojoin")
                         conform.format(conform_opts)
                         return
                     end
@@ -55,6 +57,8 @@ return {
                     -- vim.cmd("LspOxlintFixAll")
                     -- vim.cmd("LspEslintFixAll")
 
+                    -- Join format changes with previous edit so they undo together
+                    pcall(vim.cmd, "undojoin")
                     local request_result = client:request_sync("workspace/executeCommand", {
                         command = "_typescript.organizeImports",
                         arguments = { vim.api.nvim_buf_get_name(ev.buf) },
@@ -65,6 +69,8 @@ return {
                         return
                     end
 
+                    -- Join format changes with previous edit so they undo together
+                    pcall(vim.cmd, "undojoin")
                     conform.format(conform_opts)
                 end,
             })
