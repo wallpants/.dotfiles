@@ -121,6 +121,11 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("ts_ls", {
+    init_options = {
+        preferences = {
+            importModuleSpecifierPreference = "non-relative",
+        },
+    },
     settings = {
         typescript = {
             inlayHints = {

@@ -65,3 +65,13 @@ Utils.map("n", "<leader>df", function()
     vim.cmd("autocmd! LspFormatting")
     vim.print("format-on-save disabled")
 end)
+
+Utils.map("n", "<leader>cp", function()
+    vim.cmd("let @+ = expand('%:~:.')")
+    vim.print("relative path copied")
+end)
+
+-- delete all buffers except current
+Utils.map("n", "<leader>bd", function()
+    vim.cmd("%bd|e#|bd#")
+end)
