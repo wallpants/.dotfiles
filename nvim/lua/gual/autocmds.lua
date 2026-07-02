@@ -37,10 +37,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
     command = "set filetype=sh",
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = { "*.conf" },
-    command = "set filetype=conf",
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--     pattern = { "*.conf" },
+--     command = "set filetype=conf",
+-- })
 
 vim.api.nvim_create_autocmd("BufEnter", {
     pattern = {

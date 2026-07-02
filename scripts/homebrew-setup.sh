@@ -23,6 +23,10 @@ if ! command -v brew &>/dev/null; then
 fi
 
 brew_ensure_installed "go"
+brew_ensure_installed "lsd"
+brew_ensure_installed "tree"
+brew_ensure_installed "zsh-syntax-highlighting"
+brew_ensure_installed "zsh-autosuggestions"
 brew_ensure_installed "pipenv"
 brew_ensure_installed "pyenv"
 brew_ensure_installed "viu"
@@ -38,10 +42,10 @@ brew_ensure_installed "fd"
 brew_ensure_installed "terraform" "brew tap hashicorp/tap && brew install hashicorp/tap/terraform"
 brew_ensure_installed "rg" "brew install ripgrep"
 eval_if_os "macos" "brew_ensure_installed 'gsed' 'brew install gnu-sed'"
-brew_ensure_installed "supabase" "brew install supabase/tap/supabase"
+# brew_ensure_installed "supabase" "brew install supabase/tap/supabase"
 
 brew_ensure_installed "nvm"
 # source .zsh files again to load nvm
 eval_if_os "linux" "source ~/.dotfiles/zsh/linux.zsh"
 eval_if_os "macos" "source ~/.dotfiles/zsh/mac.zsh"
-brew_ensure_installed "node" "nvm install 22"
+# brew_ensure_installed "node" "nvm install 22"

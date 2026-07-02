@@ -120,14 +120,12 @@ vim.lsp.config("lua_ls", {
     },
 })
 
-vim.lsp.config("ts_ls", {
-    init_options = {
-        preferences = {
-            importModuleSpecifierPreference = "non-relative",
-        },
-    },
+vim.lsp.config("tsgo", {
     settings = {
         typescript = {
+            preferences = {
+                importModuleSpecifier = "non-relative",
+            },
             inlayHints = {
                 includeInlayParameterNameHints = "all",
                 includeInlayFunctionParameterTypeHints = true,
@@ -143,6 +141,30 @@ vim.lsp.config("ts_ls", {
         },
     },
 })
+
+-- vim.lsp.config("ts_ls", {
+--     init_options = {
+--         preferences = {
+--             importModuleSpecifierPreference = "non-relative",
+--         },
+--     },
+--     settings = {
+--         typescript = {
+--             inlayHints = {
+--                 includeInlayParameterNameHints = "all",
+--                 includeInlayFunctionParameterTypeHints = true,
+--                 includeInlayVariableTypeHints = true,
+--             },
+--         },
+--         javascript = {
+--             inlayHints = {
+--                 includeInlayParameterNameHints = "all",
+--                 includeInlayFunctionParameterTypeHints = true,
+--                 includeInlayVariableTypeHints = true,
+--             },
+--         },
+--     },
+-- })
 
 vim.diagnostic.config({
     severity_sort = true,

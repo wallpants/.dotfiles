@@ -25,7 +25,8 @@ return {
         dependencies = { "mason-org/mason.nvim" },
         opts = {
             ensure_installed = {
-                "ts_ls",
+                "tsgo",
+                -- "ts_ls",
                 "bash-language-server",
                 "css-lsp",
                 "html-lsp",
