@@ -42,7 +42,7 @@ alias ssh="nohup lemonade server > /dev/null 2>&1 &! kitty +kitten ssh -R 2489:1
 # alias l="ls -1"
 # alias la="ls -oAh"
 
-alias l='lsd -A --group-directories-first'
+alias l='lsd -A --group-directories-first --oneline'
 # alias la='lsd -l --group-directories-first'
 alias la='lsd -lA --group-directories-first'
 

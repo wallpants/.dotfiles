@@ -40,7 +40,17 @@ return {
             vim.opt.background = "light"
             vim.g.material_style = "lighter"
             require("material").setup(opts)
-            vim.cmd([[colorscheme material]])
+            -- vim.cmd([[colorscheme material]])
+            vim.cmd.colorscheme("material")
+        end,
+    },
+
+    {
+        "kbraggins/duskhaven.nvim",
+        cond = enable_theme("duskhaven"),
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme("duskhaven")
         end,
     },
 
@@ -50,7 +60,8 @@ return {
         priority = 1000,
         config = function()
             vim.opt.background = "dark"
-            vim.cmd([[colorscheme modus]])
+            -- vim.cmd([[colorscheme modus]])
+            vim.cmd.colorscheme("modus")
         end,
     },
 
