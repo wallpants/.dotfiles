@@ -179,15 +179,18 @@ return {
             on_attach = function(buffer_id)
                 local api = require("nvim-tree.api")
                 -- default mappings
-                api.config.mappings.default_on_attach(buffer_id)
+                -- api.config.mappings.default_on_attach(buffer_id)
+                api.map.on_attach.default(buffer_id)
                 local opts = { buffer = buffer_id, silent = true, nowait = true }
                 -- custom mappings
-                Utils.map("n", ".", api.tree.toggle_hidden_filter, opts)
+                -- Utils.map("n", ".", api.tree.toggle_hidden_filter, opts)
+                Utils.map("n", ".", api.filter.dotfiles.toggle, opts)
                 Utils.map("n", "i", api.node.open.horizontal, opts)
                 Utils.map("n", "o", api.node.run.system, opts)
                 Utils.map("n", "s", api.node.open.vertical, opts)
                 Utils.map("n", "y", api.fs.copy.node, opts)
-                Utils.map("n", "G", api.tree.toggle_git_clean_filter, opts)
+                -- Utils.map("n", "G", api.tree.toggle_git_clean_filter, opts)
+                Utils.map("n", "G", api.filter.git.clean.toggle, opts)
                 Utils.map("n", "<C-j>", api.tree.change_root_to_node, opts)
                 Utils.map("n", "<C-k>", api.tree.change_root_to_parent, opts)
             end,
@@ -224,6 +227,12 @@ return {
             },
         },
     },
+
+    -- {
+    --     "folke/ts-comments.nvim",
+    --     opts = {},
+    --     event = "VeryLazy",
+    -- },
 
     {
         "lewis6991/gitsigns.nvim",
@@ -300,13 +309,13 @@ return {
         end,
     },
 
-    {
-        "nvim-pack/nvim-spectre",
-        cmd = "Spectre",
-        opts = { open_cmd = "noswapfile vnew" },
-        -- stylua: ignore
-        keys = {
-            { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-        },
-    },
+    -- {
+    --     "nvim-pack/nvim-spectre",
+    --     cmd = "Spectre",
+    --     opts = { open_cmd = "noswapfile vnew" },
+    --     -- stylua: ignore
+    --     keys = {
+    --         { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+    --     },
+    -- },
 }

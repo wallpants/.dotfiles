@@ -48,6 +48,7 @@ return {
     {
         "wallpants/vaporgual.nvim",
         cond = enable_theme("vaporgual"),
+        -- dev = true,
         priority = 1000,
         config = function()
             vim.cmd.colorscheme("vaporgual")
