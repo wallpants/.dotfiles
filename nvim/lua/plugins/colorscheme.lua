@@ -46,6 +46,15 @@ return {
     },
 
     {
+        "wallpants/vaporgual.nvim",
+        cond = enable_theme("vaporgual"),
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme("vaporgual")
+        end,
+    },
+
+    {
         "kbraggins/duskhaven.nvim",
         cond = enable_theme("duskhaven"),
         priority = 1000,

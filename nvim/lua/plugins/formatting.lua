@@ -59,8 +59,10 @@ return {
                     if result and result.result and result.result[1] then
                         local action = result.result[1]
                         if action.edit then
+                            pcall(vim.cmd, "undojoin")
                             vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
                         elseif action.command then
+                            pcall(vim.cmd, "undojoin")
                             client:exec_cmd(action.command)
                         end
                     end

@@ -94,3 +94,5 @@ export NODE_OPTIONS="--max-old-space_size=8192"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ -n "$ZSH_UNKNOWN_TOKEN_STYLE" ]] && ZSH_HIGHLIGHT_STYLES[unknown-token]=$ZSH_UNKNOWN_TOKEN_STYLE
