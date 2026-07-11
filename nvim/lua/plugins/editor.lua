@@ -318,4 +318,7 @@ return {
     --         { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
     --     },
     -- },
+    {
+        "sindrets/diffview.nvim",
+    },
 }
