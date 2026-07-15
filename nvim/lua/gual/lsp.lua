@@ -126,6 +126,11 @@ vim.lsp.config("tsgo", {
             preferences = {
                 importModuleSpecifier = "non-relative",
             },
+            format = {
+                indentSize = 3,
+                tabSize = 3,
+                convertTabsToSpaces = true,
+            },
             inlayHints = {
                 includeInlayParameterNameHints = "all",
                 includeInlayFunctionParameterTypeHints = true,
@@ -133,6 +138,11 @@ vim.lsp.config("tsgo", {
             },
         },
         javascript = {
+            format = {
+                indentSize = 3,
+                tabSize = 3,
+                convertTabsToSpaces = true,
+            },
             inlayHints = {
                 includeInlayParameterNameHints = "all",
                 includeInlayFunctionParameterTypeHints = true,
