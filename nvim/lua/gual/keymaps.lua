@@ -62,7 +62,8 @@ Utils.map("n", "<leader>o", function()
 end)
 
 Utils.map("n", "<leader>df", function()
-    vim.cmd("autocmd! LspFormatting")
+    -- format-on-save autocmd lives in the FormatConfig group (plugins/formatting.lua)
+    pcall(vim.api.nvim_del_augroup_by_name, "FormatConfig")
     vim.print("format-on-save disabled")
 end)
 

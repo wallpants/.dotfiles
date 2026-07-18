@@ -18,8 +18,8 @@ if ! command -v brew &>/dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     # source .zsh files again to load brew if newly installed
-    eval_if_os "linux" "source zsh/linux.zsh"
-    eval_if_os "macos" "source zsh/mac.zsh"
+    eval_if_os "linux" "source ~/.dotfiles/zsh/linux.zsh"
+    eval_if_os "macos" "source ~/.dotfiles/zsh/mac.zsh"
 fi
 
 brew_ensure_installed "go"

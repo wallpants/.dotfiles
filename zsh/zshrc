@@ -36,7 +36,8 @@ set -o vi
 # ALIAS
 # alias python="python3.11"
 alias vi="nvim"
-alias vim="vim"
+# plugin-free-ish nvim: core options/keymaps + allowlist in nvim/minimal.lua
+alias vim="nvim -u ~/.dotfiles/nvim/minimal.lua"
 alias lzg="lazygit"
 alias :q="exit"
 alias :Q="exit"
@@ -96,7 +97,7 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # some brew packages depend on node, but we manage node with nvm
 export HOMEBREW_FORBIDDEN_FORMULAE="node"
 
-export NODE_OPTIONS="--max-old-space_size=8192"
+export NODE_OPTIONS="--max-old-space-size=8192"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

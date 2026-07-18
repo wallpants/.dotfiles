@@ -114,6 +114,9 @@ vim.lsp.config("lua_ls", {
                 checkThirdParty = false,
                 library = {
                     vim.env.VIMRUNTIME,
+                    -- all installed plugins, so .luarc.json doesn't need
+                    -- a hardcoded list that goes stale
+                    vim.fn.stdpath("data") .. "/lazy",
                 },
             },
         },
@@ -213,8 +216,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         Utils.map("i", "<c-k>", vim.lsp.buf.signature_help, {
             desc = "Signature help",
         })
-        Utils.map("n", "<leader>rn", vim.lsp.buf.rename, {
-            desc = "Replace in buffer",
+        -- <leader>rn/<leader>rp belong to vim-illuminate reference navigation
+        Utils.map("n", "<leader>rb", vim.lsp.buf.rename, {
+            desc = "Rename symbol (replace in buffer)",
         })
         Utils.map("n", "<leader>ca", vim.lsp.buf.code_action, {
             desc = "Code action",

@@ -55,7 +55,9 @@ brew_ensure_installed() {
   local package=$1
   local custom_install_cmd=$2
   # check if the package is installed
-  if ! command -v "$package" &>/dev/null; then
+  # (some packages, e.g. zsh-syntax-highlighting, don't provide a command,
+  # so also check brew's own records to keep re-runs idempotent)
+  if ! command -v "$package" &>/dev/null && ! brew list "$package" &>/dev/null; then
     echo "$package is not installed. Installing..."
     # use custom install cmd if specified
     if [[ -n $custom_install_cmd ]]; then

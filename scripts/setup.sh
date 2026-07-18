@@ -3,7 +3,7 @@
 # create ~/.config dir if missing
 if [ ! -d ~/.config ]; then mkdir ~/.config; fi
 
-# clone repo it missing
+# clone repo if missing
 if [ ! -d ~/.dotfiles ]; then
   git clone https://github.com/gualcasas/.dotfiles.git ~/.dotfiles
 fi

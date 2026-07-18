@@ -18,7 +18,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # load terraform autocomplete
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /home/linuxbrew/.linuxbrew/Cellar/terraform/1.6.4/bin/terraform terraform
+complete -o nospace -C "$BREW_PREFIX/bin/terraform" terraform
 
 # required for pylint to work
 # export PYTHONPATH=$HOME/.local/lib/python3.11/site-packages
