@@ -16,6 +16,7 @@ return {
             automatic_enable = {
                 exclude = {
                     "oxfmt",
+                    "ts_ls", -- installed for claude-code, nvim uses tsgo
                 },
             },
         },
@@ -26,7 +27,7 @@ return {
         opts = {
             ensure_installed = {
                 "tsgo",
-                -- "ts_ls",
+                "ts_ls", -- used by claude-code's typescript-lsp plugin, not nvim
                 "bash-language-server",
                 "css-lsp",
                 "html-lsp",

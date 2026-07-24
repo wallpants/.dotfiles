@@ -26,6 +26,9 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# mason-installed language servers & tools
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+
 # vim keymaps
 set -o vi
 

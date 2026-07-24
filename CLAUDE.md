@@ -6,6 +6,7 @@ Personal dotfiles for macOS/Linux development environment.
 
 ```
 .dotfiles/
+├── claude/          # Claude Code user configuration
 ├── fonts/           # Custom fonts
 ├── kitty/           # Kitty terminal configuration
 ├── nvim/            # Neovim configuration
@@ -44,6 +45,17 @@ Personal dotfiles for macOS/Linux development environment.
 - `themes/` - Color themes (active theme included at the bottom of `kitty.conf`)
 - `wallpapers/` - Background images
 
+## Claude Code (`claude/`)
+
+User-level Claude Code config, symlinked into `~/.claude/` by `claude-setup.sh` (individual files/dirs are linked, not the whole directory — `~/.claude` also holds runtime state and credentials that must stay out of git):
+
+- `CLAUDE.md` - Global instructions for all projects
+- `settings.json` - Theme, vim mode, enabled plugins
+- `keybindings.json` - Custom keybindings
+- `agents/`, `skills/`, `commands/` - User-level agents/skills/commands (empty placeholders for now)
+
+Enabled plugins (`typescript-lsp`, `pyright-lsp`) are installed per-machine by `claude-setup.sh`; their language servers (`typescript-language-server`, `pyright-langserver`) come from Mason (`ts_ls` is in mason-tool-installer's list but excluded from nvim's `automatic_enable` — nvim uses `tsgo` instead). Mason's bin dir (`~/.local/share/nvim/mason/bin`) is added to PATH in `zshrc`.
+
 ## Zsh (`zsh/`)
 
 - `zshrc` - Main zsh configuration (oh-my-zsh)
@@ -61,6 +73,7 @@ Setup scripts for fresh installs (`setup.sh` sources the others):
 - `neovim-setup.sh` - Neovim config symlink
 - `kitty-setup.sh` - Kitty config symlink
 - `zsh-setup.sh` - Zsh/oh-my-zsh setup
+- `claude-setup.sh` - Claude Code config symlinks + plugin installs
 - `create-user.sh` - Standalone: create user on a fresh server (run before `setup.sh`)
 - `wsl-install-gui-apps.sh` - Standalone: GUI apps for WSL
 
