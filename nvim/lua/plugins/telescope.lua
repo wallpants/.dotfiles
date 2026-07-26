@@ -77,6 +77,10 @@ return {
             Utils.map("n", "<leader>sG", function()
                 builtin.live_grep({ additional_args = { "--case-sensitive" } })
             end, { desc = "Live grep case sensitive" })
+            Utils.map("n", "<leader>sx", function()
+                -- Overrides the global --fixed-strings. Add --pcre2 for lookarounds/backreferences.
+                builtin.live_grep({ additional_args = { "--no-fixed-strings" } })
+            end, { desc = "Live grep regex" })
             Utils.map("n", "<leader>sr", builtin.resume, { desc = "Resume search" })
             Utils.map("n", "<leader>sw", builtin.grep_string, { desc = "Search word" })
             Utils.map("n", "<leader>sa", builtin.autocommands, { desc = "Search autocommands" })

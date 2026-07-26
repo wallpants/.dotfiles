@@ -11,10 +11,10 @@
   "permissions": {
     "defaultMode": "default"
   },
-  "model": "fable",
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true
+    "pyright-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
   },
   "theme": "dark-daltonized",
   "editorMode": "vim",
