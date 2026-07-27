@@ -23,6 +23,7 @@ if ! command -v brew &>/dev/null; then
 fi
 
 brew_ensure_installed "go"
+brew_ensure_installed "delta" "brew install git-delta"
 brew_ensure_installed "lsd"
 brew_ensure_installed "tree"
 brew_ensure_installed "zsh-syntax-highlighting"

@@ -29,6 +29,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # mason-installed language servers & tools
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
+# lazygit config tracked in dotfiles (state.yml stays in lazygit's default config dir)
+export LG_CONFIG_FILE="$HOME/.dotfiles/lazygit/config.yml"
+
 # vim keymaps
 set -o vi
 
