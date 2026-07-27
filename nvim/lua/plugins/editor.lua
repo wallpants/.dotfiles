@@ -181,18 +181,20 @@ return {
                 -- default mappings
                 -- api.config.mappings.default_on_attach(buffer_id)
                 api.map.on_attach.default(buffer_id)
-                local opts = { buffer = buffer_id, silent = true, nowait = true }
+                local function opts(desc)
+                    return { buffer = buffer_id, silent = true, nowait = true, desc = desc }
+                end
                 -- custom mappings
                 -- Utils.map("n", ".", api.tree.toggle_hidden_filter, opts)
-                Utils.map("n", ".", api.filter.dotfiles.toggle, opts)
-                Utils.map("n", "i", api.node.open.horizontal, opts)
-                Utils.map("n", "o", api.node.run.system, opts)
-                Utils.map("n", "s", api.node.open.vertical, opts)
-                Utils.map("n", "y", api.fs.copy.node, opts)
+                Utils.map("n", ".", api.filter.dotfiles.toggle, opts("Toggle dotfiles filter"))
+                Utils.map("n", "i", api.node.open.horizontal, opts("Open in horizontal split"))
+                Utils.map("n", "o", api.node.run.system, opts("Open with system application"))
+                Utils.map("n", "s", api.node.open.vertical, opts("Open in vertical split"))
+                Utils.map("n", "y", api.fs.copy.node, opts("Copy node"))
                 -- Utils.map("n", "G", api.tree.toggle_git_clean_filter, opts)
-                Utils.map("n", "G", api.filter.git.clean.toggle, opts)
-                Utils.map("n", "<C-j>", api.tree.change_root_to_node, opts)
-                Utils.map("n", "<C-k>", api.tree.change_root_to_parent, opts)
+                Utils.map("n", "G", api.filter.git.clean.toggle, opts("Toggle git-clean filter"))
+                Utils.map("n", "<C-j>", api.tree.change_root_to_node, opts("Change root to node"))
+                Utils.map("n", "<C-k>", api.tree.change_root_to_parent, opts("Change root to parent"))
             end,
         },
     },
@@ -260,8 +262,8 @@ return {
         config = function(_, opts)
             local illuminate = require("illuminate")
             illuminate.configure(opts)
-            Utils.map("n", "<leader>rn", illuminate.goto_next_reference)
-            Utils.map("n", "<leader>rp", illuminate.goto_prev_reference)
+            Utils.map("n", "<leader>rn", illuminate.goto_next_reference, { desc = "Go to next reference" })
+            Utils.map("n", "<leader>rp", illuminate.goto_prev_reference, { desc = "Go to previous reference" })
         end,
         init = function()
             vim.api.nvim_set_hl(0, "IlluminatedWordText", { underline = true, italic = true })

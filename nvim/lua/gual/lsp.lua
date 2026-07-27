@@ -206,7 +206,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         -- local bufnr = args.buf
 
-        Utils.map("n", "K", vim.lsp.buf.hover)
+        Utils.map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
         Utils.map("n", "<leader>ap", function()
             vim.diagnostic.jump({ count = -1, float = true })
         end, { desc = "Go to previous diagnostic" })
@@ -220,9 +220,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         Utils.map("n", "<leader>rb", vim.lsp.buf.rename, {
             desc = "Rename symbol (replace in buffer)",
         })
-        Utils.map("n", "<leader>ca", vim.lsp.buf.code_action, {
-            desc = "Code action",
-        })
+        -- never used; <leader>ca now copies the absolute path (gual/keymaps.lua)
+        -- Utils.map("n", "<leader>ca", vim.lsp.buf.code_action, {
+        --     desc = "Code action",
+        -- })
 
         -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
         --
