@@ -24,6 +24,8 @@ local plugins = {
     { "echasnovski/mini.pairs", config = true },
     from_main_config("plugins.editor", "nvim-tree/nvim-web-devicons"),
     from_main_config("plugins.editor", "nvim-tree/nvim-tree.lua"),
+    from_main_config("plugins.editor", "echasnovski/mini.bufremove"),
+    from_main_config("plugins.editor", "akinsho/bufferline.nvim"),
     from_main_config("plugins.telescope", "nvim-telescope/telescope.nvim"),
 }
 
