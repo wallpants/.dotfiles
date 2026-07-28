@@ -41,6 +41,8 @@ Personal dotfiles for macOS/Linux development environment.
 ## Kitty (`kitty/`)
 
 - `kitty.conf` - Main configuration
+- `open-actions.conf` / `launch-actions.conf` - What kitty does when asked to open a path: clicked `file://` hyperlinks go through open-actions, OS-initiated opens (Finder "Open With", Dock drops, `open -a kitty`) through launch-actions. Both open files in nvim in a new tab, directories in a new tab shell
+- `nvim_hints.py` - Custom hints-kitten processing for `cmd+p`: hints every path on screen (with or without `:linenum`) and opens the pick in nvim in a new tab, jumping to the line if present
 - `os_specific.conf` - Symlink to `mac.conf` or `linux.conf`
 - `ssh.conf` - Overrides applied when using the `ssh` kitten (sets `NVIM_THEME=material`)
 - `themes/` - Color themes (active theme included at the bottom of `kitty.conf`)
