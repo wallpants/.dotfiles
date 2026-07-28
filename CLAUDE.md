@@ -9,6 +9,7 @@ Personal dotfiles for macOS/Linux development environment.
 ├── claude/          # Claude Code user configuration
 ├── fonts/           # Custom fonts
 ├── kitty/           # Kitty terminal configuration
+├── lazygit/         # Lazygit configuration
 ├── nvim/            # Neovim configuration
 ├── scripts/         # Setup and installation scripts
 └── zsh/             # Zsh shell configuration
@@ -55,6 +56,10 @@ User-level Claude Code config, symlinked into `~/.claude/` by `claude-setup.sh` 
 - `agents/`, `skills/`, `commands/` - User-level agents/skills/commands (empty placeholders for now)
 
 Enabled plugins (`typescript-lsp`, `pyright-lsp`) are installed per-machine by `claude-setup.sh`; their language servers (`typescript-language-server`, `pyright-langserver`) come from Mason (`ts_ls` is in mason-tool-installer's list but excluded from nvim's `automatic_enable` — nvim uses `tsgo` instead). Mason's bin dir (`~/.local/share/nvim/mason/bin`) is added to PATH in `zshrc`.
+
+## Lazygit (`lazygit/`)
+
+- `config.yml` - Lazygit configuration, picked up via `LG_CONFIG_FILE` exported in `zsh/zshrc` (no symlink; `state.yml` stays in lazygit's default config dir)
 
 ## Zsh (`zsh/`)
 
