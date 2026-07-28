@@ -9,6 +9,7 @@
 # grep -n / compiler output is matched in full.
 import os
 import re
+import shlex
 
 FILE_EXTENSION = r'\.(?:[a-zA-Z0-9]{2,7}|[ahcmo])(?:\b|[^.])'
 PATTERN = re.compile(
@@ -57,6 +58,8 @@ def handle_result(args, data, target_window_id, boss, extra_cli_args, *a):
         if g['line']:
             cmd.append('+' + g['line'])
         cmd.extend(('--', os.path.expanduser(g['path'])))
-        # same call kitty's --linenum-action=tab uses: new tab inheriting the
-        # window's cwd, so relative paths from grep output resolve correctly
-        boss.new_tab_with_cwd(*cmd)
+        # new tab inheriting the window's cwd, so relative paths from grep
+        # output resolve correctly; via login+interactive zsh because kitty's
+        # own env has the bare launchd PATH: .zprofile provides brew (nvim
+        # itself), .zshrc provides nvm's node for nvim's LSP servers
+        boss.new_tab_with_cwd('zsh', '-lic', shlex.join(cmd))
