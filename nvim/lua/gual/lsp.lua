@@ -123,36 +123,27 @@ vim.lsp.config("lua_ls", {
     },
 })
 
+local ts_js_settings = {
+    preferences = {
+        displayPartsForJSDoc = true,
+        includePackageJsonAutoImports = "on",
+    },
+    format = {
+        indentSize = 3,
+        tabSize = 3,
+        convertTabsToSpaces = true,
+    },
+}
+
 vim.lsp.config("tsgo", {
     settings = {
-        typescript = {
+        typescript = vim.tbl_deep_extend("force", ts_js_settings, {
             preferences = {
                 importModuleSpecifier = "non-relative",
                 preferTypeOnlyAutoImports = true,
             },
-            format = {
-                indentSize = 3,
-                tabSize = 3,
-                convertTabsToSpaces = true,
-            },
-            inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-            },
-        },
-        javascript = {
-            format = {
-                indentSize = 3,
-                tabSize = 3,
-                convertTabsToSpaces = true,
-            },
-            inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-            },
-        },
+        }),
+        javascript = ts_js_settings,
     },
 })
 
@@ -181,8 +172,6 @@ vim.diagnostic.config({
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
-        -- local bufnr = args.buf
-
         Utils.map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
         Utils.map("n", "<leader>ap", function()
             vim.diagnostic.jump({ count = -1, float = true })
