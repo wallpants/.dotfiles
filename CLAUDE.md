@@ -53,9 +53,10 @@ Personal dotfiles for macOS/Linux development environment.
 User-level Claude Code config, symlinked into `~/.claude/` by `claude-setup.sh` (individual files/dirs are linked, not the whole directory — `~/.claude` also holds runtime state and credentials that must stay out of git):
 
 - `CLAUDE.md` - Global instructions for all projects
-- `settings.json` - Theme, vim mode, enabled plugins
+- `settings.json` - Theme, vim mode, enabled plugins, hooks
 - `keybindings.json` - Custom keybindings
 - `agents/`, `skills/`, `commands/` - User-level agents/skills/commands (empty placeholders for now)
+- `hooks/` - Hook scripts referenced from `settings.json` by absolute `~/.dotfiles` path (no symlink). `organize-ts-imports.cjs` (PostToolUse on Edit|Write) sorts imports in TS files Claude edits, matching nvim's organizeImports-on-save; uses the project's `typescript` when it has the JS API, else the TS 6 vendored in `hooks/node_modules` (installed by `claude-setup.sh` via `bun install` from `hooks/package.json`)
 
 Enabled plugins (`typescript-lsp`, `pyright-lsp`) are installed per-machine by `claude-setup.sh`; their language servers (`typescript-language-server`, `pyright-langserver`) come from Mason (`ts_ls` is in mason-tool-installer's list but excluded from nvim's `automatic_enable` — nvim uses `tsgo` instead). Mason's bin dir (`~/.local/share/nvim/mason/bin`) is added to PATH in `zshrc`.
 

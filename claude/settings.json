@@ -7,6 +7,21 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v node >/dev/null && node \"$HOME/.dotfiles/claude/hooks/organize-ts-imports.cjs\" 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": "Sorting TS imports"
+          }
+        ]
+      }
+    ]
+  },
   "model": "claude-fable-5",
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,

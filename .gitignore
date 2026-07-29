@@ -1,4 +1,5 @@
 .DS_Store
 os_specific*
 lazygit/state.yml
+claude/hooks/node_modules/
 __pycache__/
