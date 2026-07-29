@@ -128,6 +128,7 @@ vim.lsp.config("tsgo", {
         typescript = {
             preferences = {
                 importModuleSpecifier = "non-relative",
+                preferTypeOnlyAutoImports = true,
             },
             format = {
                 indentSize = 3,
@@ -154,30 +155,6 @@ vim.lsp.config("tsgo", {
         },
     },
 })
-
--- vim.lsp.config("ts_ls", {
---     init_options = {
---         preferences = {
---             importModuleSpecifierPreference = "non-relative",
---         },
---     },
---     settings = {
---         typescript = {
---             inlayHints = {
---                 includeInlayParameterNameHints = "all",
---                 includeInlayFunctionParameterTypeHints = true,
---                 includeInlayVariableTypeHints = true,
---             },
---         },
---         javascript = {
---             inlayHints = {
---                 includeInlayParameterNameHints = "all",
---                 includeInlayFunctionParameterTypeHints = true,
---                 includeInlayVariableTypeHints = true,
---             },
---         },
---     },
--- })
 
 vim.diagnostic.config({
     severity_sort = true,
