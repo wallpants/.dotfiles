@@ -3,9 +3,16 @@
 # create ~/.config dir if missing
 if [ ! -d ~/.config ]; then mkdir ~/.config; fi
 
-# clone repo if missing
+# clone repo if missing, otherwise update it
 if [ ! -d ~/.dotfiles ]; then
   git clone https://github.com/wallpants/.dotfiles.git ~/.dotfiles
+else
+  echo "~/.dotfiles already exists, updating..."
+  if ! git -C ~/.dotfiles pull --ff-only; then
+    echo "Could not fast-forward ~/.dotfiles (local changes or diverged branch)."
+    echo "Resolve manually, then re-run."
+    exit 1
+  fi
 fi
 
 source ~/.dotfiles/scripts/utils.sh

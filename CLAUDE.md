@@ -73,7 +73,7 @@ Enabled plugins (`typescript-lsp`, `pyright-lsp`) are installed per-machine by `
 ## Scripts (`scripts/`)
 
 Setup scripts for fresh installs (`setup.sh` sources the others):
-- `setup.sh` - Main entry point: clones repo, runs the scripts below
+- `setup.sh` - Main entry point: clones repo (or ff-only pulls if present, aborting if that fails), runs the scripts below
 - `utils.sh` - Helpers: `get_current_os`, `eval_if_os`, `brew_ensure_installed`
 - `github-setup.sh` - Git identity + ssh key generation
 - `install-fonts.sh` - Font install (linux: symlink + fc-cache, macos: copy to ~/Library/Fonts)

@@ -12,7 +12,7 @@ bash -c "$(curl -L https://raw.githubusercontent.com/wallpants/.dotfiles/main/sc
 
 ### Clone & setup
 
-Full machine setup, safe to re-run. Clones this repo to `~/.dotfiles` (if missing) and then:
+Full machine setup, safe to re-run. Clones this repo to `~/.dotfiles` (or updates it with a fast-forward pull if already present — aborting if local changes prevent that) and then:
 
 - sets git identity and generates an ssh key for GitHub (printed at the end so you can add it to your account)
 - installs fonts
