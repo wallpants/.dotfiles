@@ -79,7 +79,7 @@ Setup scripts for fresh installs (`setup.sh` sources the others):
 - `install-fonts.sh` - Font install (linux: symlink + fc-cache, macos: copy to ~/Library/Fonts)
 - `homebrew-setup.sh` - Homebrew + package installation
 - `neovim-setup.sh` - Neovim config symlink
-- `kitty-setup.sh` - Kitty config symlink
+- `kitty-setup.sh` - Kitty install (macOS: brew cask, linux: official binary bundle) + config symlink
 - `zsh-setup.sh` - Zsh/oh-my-zsh setup
 - `claude-setup.sh` - Claude Code config symlinks + plugin installs
 - `create-user.sh` - Standalone: create user on a fresh server (run before `setup.sh`)
