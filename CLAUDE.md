@@ -20,23 +20,23 @@ Personal dotfiles for macOS/Linux development environment.
 **Version**: Neovim 0.12+
 
 ### Structure
-- `init.lua` - Entry point, loads `gual` module
+- `init.lua` - Entry point, loads `wallpants` module
 - `minimal.lua` - Minimal config used by the `vim` shell alias (`nvim -u`): core options/keymaps + a small plugin allowlist, reusing specs from the main config
-- `lua/gual/` - Core config (options, keymaps, autocmds, lazy.nvim setup, LSP server config in `lsp.lua`, helpers in `utils.lua`)
+- `lua/wallpants/` - Core config (options, keymaps, autocmds, lazy.nvim setup, LSP server config in `lsp.lua`, helpers in `utils.lua`)
 - `lua/plugins/` - Plugin specs in lazy.nvim format
 
 ### Key Details
 - **Plugin manager**: lazy.nvim
 - **Treesitter**: Uses `tree-sitter-manager.nvim` (requires system tree-sitter CLI). Highlighting enabled via autocommand calling `vim.treesitter.start()`
-- **LSP**: nvim-lspconfig + mason.nvim (servers/tools installed via mason-tool-installer). TypeScript uses `tsgo`; linting via `oxlint` (custom pull-diagnostics workaround in `gual/lsp.lua`). Server settings configured with `vim.lsp.config()` in `gual/lsp.lua`
+- **LSP**: nvim-lspconfig + mason.nvim (servers/tools installed via mason-tool-installer). TypeScript uses `tsgo`; linting via `oxlint` (custom pull-diagnostics workaround in `wallpants/lsp.lua`). Server settings configured with `vim.lsp.config()` in `wallpants/lsp.lua`
 - **Formatting**: conform.nvim (`oxfmt` for JS/TS/JSON/CSS/etc, stylua for Lua, black for Python), format-on-save with TS import organizing in `lua/plugins/formatting.lua`
 - **Completion**: nvim-cmp + LuaSnip
 - **Colorscheme**: Defaults to "murphy", env-based switching via `NVIM_THEME`
 
 ### Common Tasks
 - **Add plugin**: Create/edit file in `lua/plugins/`, return lazy.nvim spec table
-- **Add keymaps**: Use `Utils.map()` or edit `gual/keymaps.lua`
-- **Add autocommands**: Edit `gual/autocmds.lua`
+- **Add keymaps**: Use `Utils.map()` or edit `wallpants/keymaps.lua`
+- **Add autocommands**: Edit `wallpants/autocmds.lua`
 
 ## Kitty (`kitty/`)
 
@@ -87,7 +87,7 @@ Setup scripts for fresh installs (`setup.sh` sources the others):
 
 ## Platform Support
 
-Machines in use: macOS laptop, a kubuntu desktop, and a DigitalOcean droplet running Ubuntu. All three run the full `setup.sh`.
+Machines in use: macOS laptop, a kubuntu desktop, and an Ubuntu server. All three run the full `setup.sh`.
 
 Uses symlinks for OS-specific configs (created by setup scripts, gitignored):
 - `kitty/os_specific.conf` -> `mac.conf` or `linux.conf`

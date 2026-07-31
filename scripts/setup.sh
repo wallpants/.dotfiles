@@ -5,7 +5,7 @@ if [ ! -d ~/.config ]; then mkdir ~/.config; fi
 
 # clone repo if missing
 if [ ! -d ~/.dotfiles ]; then
-  git clone https://github.com/gualcasas/.dotfiles.git ~/.dotfiles
+  git clone https://github.com/wallpants/.dotfiles.git ~/.dotfiles
 fi
 
 source ~/.dotfiles/scripts/utils.sh

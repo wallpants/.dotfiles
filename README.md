@@ -1,11 +1,11 @@
 ### Create User
 
 ```bash
-curl -L https://raw.githubusercontent.com/gualcasas/.dotfiles/main/scripts/create-user.sh | bash
+bash -c "$(curl -L https://raw.githubusercontent.com/wallpants/.dotfiles/main/scripts/create-user.sh)"
 ```
 
 ### Clone & setup
 
 ```bash
-curl -L https://raw.githubusercontent.com/gualcasas/.dotfiles/main/scripts/setup.sh | bash
+bash -c "$(curl -L https://raw.githubusercontent.com/wallpants/.dotfiles/main/scripts/setup.sh)"
 ```
