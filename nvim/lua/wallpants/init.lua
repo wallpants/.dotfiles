@@ -1,0 +1,6 @@
+require("wallpants.options")
+require("wallpants.autocmds")
+require("wallpants.keymaps")
+require("wallpants.lazy")
+require("wallpants.bunvim")
+require("wallpants.lsp")

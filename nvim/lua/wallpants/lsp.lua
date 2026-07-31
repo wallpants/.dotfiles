@@ -1,4 +1,4 @@
-local Utils = require("gual.utils")
+local Utils = require("wallpants.utils")
 
 vim.lsp.enable("gdscript")
 
@@ -186,7 +186,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         Utils.map("n", "<leader>rb", vim.lsp.buf.rename, {
             desc = "Rename symbol (replace in buffer)",
         })
-        -- never used; <leader>ca now copies the absolute path (gual/keymaps.lua)
+        -- never used; <leader>ca now copies the absolute path (wallpants/keymaps.lua)
         -- Utils.map("n", "<leader>ca", vim.lsp.buf.code_action, {
         --     desc = "Code action",
         -- })

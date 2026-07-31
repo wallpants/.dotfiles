@@ -1,4 +1,4 @@
-local Utils = require("gual.utils")
+local Utils = require("wallpants.utils")
 
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {

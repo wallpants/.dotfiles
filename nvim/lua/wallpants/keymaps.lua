@@ -1,4 +1,4 @@
-local Utils = require("gual.utils")
+local Utils = require("wallpants.utils")
 
 local cmd = vim.cmd
 cmd("command Vs vs")

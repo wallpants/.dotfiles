@@ -1,9 +1,9 @@
 -- Minimal config loaded by the `vim` alias: `nvim -u ~/.dotfiles/nvim/minimal.lua`
 -- Core options & keymaps, but only the plugins allowlisted below.
 
-require("gual.options")
-require("gual.keymaps")
-require("gual.autocmds")
+require("wallpants.options")
+require("wallpants.keymaps")
+require("wallpants.autocmds")
 
 ---grab a plugin spec from the main config so minimal mode
 ---reuses the same opts/keymaps instead of duplicating them

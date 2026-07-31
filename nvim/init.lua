@@ -1,1 +1,1 @@
-require("gual")
+require("wallpants")

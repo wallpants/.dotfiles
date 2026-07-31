@@ -1,4 +1,4 @@
-local Utils = require("gual.utils")
+local Utils = require("wallpants.utils")
 
 local function func1()
     vim.print("starting")

@@ -1,4 +1,4 @@
-local Utils = require("gual.utils")
+local Utils = require("wallpants.utils")
 
 return {
     {

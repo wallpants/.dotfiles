@@ -1,6 +1,0 @@
-require("gual.options")
-require("gual.autocmds")
-require("gual.keymaps")
-require("gual.lazy")
-require("gual.bunvim")
-require("gual.lsp")
