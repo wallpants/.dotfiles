@@ -82,6 +82,7 @@ Setup scripts for fresh installs (`setup.sh` sources the others):
 - `kitty-setup.sh` - Kitty install (macOS: brew cask, linux: official binary bundle) + config symlink
 - `zsh-setup.sh` - Zsh/oh-my-zsh setup
 - `claude-setup.sh` - Claude Code config symlinks + plugin installs
+- `nvim-sync.sh` - Headless `Lazy! restore` (plugins to lazy-lock.json) + `MasonUpdate`/`MasonToolsUpdateSync` (no mason lockfile, so install missing + update all); runs last since mason/plugin builds need brew packages
 - `create-user.sh` - Standalone: create user on a fresh server (run before `setup.sh`)
 - `wsl-install-gui-apps.sh` - Standalone: GUI apps for WSL
 

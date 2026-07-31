@@ -23,3 +23,4 @@ source ~/.dotfiles/scripts/neovim-setup.sh
 source ~/.dotfiles/scripts/kitty-setup.sh
 source ~/.dotfiles/scripts/zsh-setup.sh
 source ~/.dotfiles/scripts/claude-setup.sh
+source ~/.dotfiles/scripts/nvim-sync.sh

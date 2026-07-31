@@ -37,6 +37,7 @@ brew_ensure_installed "unzip"
 brew_ensure_installed "bun" "brew tap oven-sh/bun && brew install bun"
 brew_ensure_installed "fd"
 brew_ensure_installed "rg" "brew install ripgrep"
+brew_ensure_installed "tree-sitter"
 eval_if_os "macos" "brew_ensure_installed 'gsed' 'brew install gnu-sed'"
 # brew_ensure_installed "supabase" "brew install supabase/tap/supabase"
 
@@ -44,4 +45,5 @@ brew_ensure_installed "nvm"
 # source .zsh files again to load nvm
 eval_if_os "linux" "source ~/.dotfiles/zsh/linux.zsh"
 eval_if_os "macos" "source ~/.dotfiles/zsh/mac.zsh"
-# brew_ensure_installed "node" "nvm install 22"
+# node is needed by the npm-based mason packages installed in nvim-sync.sh
+brew_ensure_installed "node" "nvm install 24"

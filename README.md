@@ -20,6 +20,7 @@ Full machine setup, safe to re-run. Clones this repo to `~/.dotfiles` (or update
 - installs kitty (macOS: brew cask, linux: official binary bundle) and symlinks nvim/kitty configs into `~/.config`
 - installs oh-my-zsh, makes zsh the default shell, and symlinks the zsh config
 - symlinks Claude Code config into `~/.claude` and installs its plugins
+- syncs nvim: installs plugins pinned in `lazy-lock.json`, installs/updates mason tools (LSP servers, formatters, linters)
 
 ```bash
 bash -c "$(curl -L https://raw.githubusercontent.com/wallpants/.dotfiles/main/scripts/setup.sh)"

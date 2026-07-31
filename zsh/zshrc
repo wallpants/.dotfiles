@@ -44,6 +44,7 @@ alias lzg="lazygit"
 alias :q="exit"
 alias :Q="exit"
 alias dotfiles="cd ~/.dotfiles"
+alias dotfiles-sync='bash -c "$(curl -L https://raw.githubusercontent.com/wallpants/.dotfiles/main/scripts/setup.sh)"'
 alias public="cat ~/.ssh/id_ed25519.pub"
 alias ssh="nohup lemonade server > /dev/null 2>&1 &! kitty +kitten ssh -R 2489:127.0.0.1:2489"
 
