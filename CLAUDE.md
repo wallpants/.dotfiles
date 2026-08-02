@@ -20,12 +20,14 @@ Personal dotfiles for macOS/Linux development environment.
 **Version**: Neovim 0.12+
 
 ### Structure
+
 - `init.lua` - Entry point, loads `wallpants` module
 - `minimal.lua` - Minimal config used by the `vim` shell alias (`nvim -u`): core options/keymaps + a small plugin allowlist, reusing specs from the main config
 - `lua/wallpants/` - Core config (options, keymaps, autocmds, lazy.nvim setup, LSP server config in `lsp.lua`, helpers in `utils.lua`)
 - `lua/plugins/` - Plugin specs in lazy.nvim format
 
 ### Key Details
+
 - **Plugin manager**: lazy.nvim
 - **Treesitter**: Uses `tree-sitter-manager.nvim` (requires system tree-sitter CLI). Highlighting enabled via autocommand calling `vim.treesitter.start()`
 - **LSP**: nvim-lspconfig + mason.nvim (servers/tools installed via mason-tool-installer). TypeScript uses `tsgo`; linting via `oxlint` (custom pull-diagnostics workaround in `wallpants/lsp.lua`). Server settings configured with `vim.lsp.config()` in `wallpants/lsp.lua`
@@ -34,6 +36,7 @@ Personal dotfiles for macOS/Linux development environment.
 - **Colorscheme**: Defaults to "murphy", env-based switching via `NVIM_THEME`
 
 ### Common Tasks
+
 - **Add plugin**: Create/edit file in `lua/plugins/`, return lazy.nvim spec table
 - **Add keymaps**: Use `Utils.map()` or edit `wallpants/keymaps.lua`
 - **Add autocommands**: Edit `wallpants/autocmds.lua`
@@ -56,7 +59,7 @@ User-level Claude Code config, symlinked into `~/.claude/` by `claude-setup.sh` 
 - `settings.json` - Theme, vim mode, enabled plugins, hooks
 - `keybindings.json` - Custom keybindings
 - `agents/`, `skills/`, `commands/` - User-level agents/skills/commands (empty placeholders for now)
-- `hooks/` - Hook scripts referenced from `settings.json` by absolute `~/.dotfiles` path (no symlink). `organize-ts-imports.cjs` (PostToolUse on Edit|Write) sorts imports in TS files Claude edits, matching nvim's organizeImports-on-save; uses the project's `typescript` when it has the JS API, else the TS 6 vendored in `hooks/node_modules` (installed by `claude-setup.sh` via `bun install` from `hooks/package.json`)
+- `hooks/` - TypeScript hook scripts run via `bun`, referenced from `settings.json` by absolute `~/.dotfiles` path (no symlink). Both run sequentially in one PostToolUse (Edit|Write) command — parallel hooks writing the same file would race. `organize-ts-imports.ts` sorts imports in TS files Claude edits, matching nvim's organizeImports-on-save; uses the project's `typescript` when it has the JS API, else the TS 6 vendored in `hooks/node_modules` (installed by `claude-setup.sh` via `bun install` from `hooks/package.json`). `format-on-edit.ts` then runs the conform.nvim-matching formatter (oxfmt/stylua/black, resolved from Mason's bin dir) on the edited file; formatters read their own project config, so ignore rules like `.oxfmtrc.json` `ignorePatterns` are respected
 
 Enabled plugins (`typescript-lsp`, `pyright-lsp`) are installed per-machine by `claude-setup.sh`; their language servers (`typescript-language-server`, `pyright-langserver`) come from Mason (`ts_ls` is in mason-tool-installer's list but excluded from nvim's `automatic_enable` — nvim uses `tsgo` instead). Mason's bin dir (`~/.local/share/nvim/mason/bin`) is added to PATH in `zshrc`.
 
@@ -73,6 +76,7 @@ Enabled plugins (`typescript-lsp`, `pyright-lsp`) are installed per-machine by `
 ## Scripts (`scripts/`)
 
 Setup scripts for fresh installs (`setup.sh` sources the others):
+
 - `setup.sh` - Main entry point: clones repo (or ff-only pulls if present, aborting if that fails), runs the scripts below
 - `utils.sh` - Helpers: `get_current_os`, `eval_if_os`, `brew_ensure_installed`
 - `github-setup.sh` - Git identity + ssh key generation
@@ -91,5 +95,6 @@ Setup scripts for fresh installs (`setup.sh` sources the others):
 Machines in use: macOS laptop, a kubuntu desktop, and an Ubuntu server. All three run the full `setup.sh`.
 
 Uses symlinks for OS-specific configs (created by setup scripts, gitignored):
+
 - `kitty/os_specific.conf` -> `mac.conf` or `linux.conf`
 - `zsh/os_specific.zsh` -> `mac.zsh` or `linux.zsh`

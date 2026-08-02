@@ -15,9 +15,9 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v node >/dev/null && node \"$HOME/.dotfiles/claude/hooks/organize-ts-imports.cjs\" 2>/dev/null || true",
+            "command": "command -v bun >/dev/null || PATH=\"$PATH:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin\"; command -v bun >/dev/null || exit 0; in=$(cat); printf '%s' \"$in\" | bun \"$HOME/.dotfiles/claude/hooks/organize-ts-imports.ts\" 2>/dev/null; printf '%s' \"$in\" | bun \"$HOME/.dotfiles/claude/hooks/format-on-edit.ts\" 2>/dev/null; exit 0",
             "timeout": 30,
-            "statusMessage": "Sorting TS imports"
+            "statusMessage": "Organizing imports & formatting"
           }
         ]
       }

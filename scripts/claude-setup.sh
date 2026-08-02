@@ -12,7 +12,7 @@ ln -s ~/.dotfiles/claude/agents ~/.claude/agents
 ln -s ~/.dotfiles/claude/skills ~/.claude/skills
 ln -s ~/.dotfiles/claude/commands ~/.claude/commands
 
-# TS 6 vendored for hooks/organize-ts-imports.cjs (typescript >= 7 dropped the JS API)
+# TS 6 vendored for hooks/organize-ts-imports.ts (typescript >= 7 dropped the JS API)
 # bun is installed by homebrew-setup.sh, which runs before this script
 bun install --cwd ~/.dotfiles/claude/hooks
 
