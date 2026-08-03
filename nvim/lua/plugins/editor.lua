@@ -192,7 +192,7 @@ return {
                 Utils.map("n", "s", api.node.open.vertical, opts("Open in vertical split"))
                 Utils.map("n", "y", api.fs.copy.node, opts("Copy node"))
                 -- Utils.map("n", "G", api.tree.toggle_git_clean_filter, opts)
-                Utils.map("n", "G", api.filter.git.clean.toggle, opts("Toggle git-clean filter"))
+                -- Utils.map("n", "G", api.filter.git.clean.toggle, opts("Toggle git-clean filter"))
                 Utils.map("n", "<C-j>", api.tree.change_root_to_node, opts("Change root to node"))
                 Utils.map("n", "<C-k>", api.tree.change_root_to_parent, opts("Change root to parent"))
             end,
@@ -322,5 +322,12 @@ return {
     -- },
     {
         "sindrets/diffview.nvim",
+    },
+
+    {
+        "CoreyKaylor/diffbandit.nvim",
+        config = function()
+            require("diffbandit").setup()
+        end,
     },
 }
