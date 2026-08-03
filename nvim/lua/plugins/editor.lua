@@ -108,6 +108,24 @@ return {
     --         -- log_level = "debug",
     --     },
     -- },
+    {
+        "wallpants/differente.nvim",
+        dependencies = { "nvim-tree/nvim-tree.lua" },
+        cmd = { "Differente" },
+        keys = {
+            {
+                "<leader>gd",
+                function()
+                    require("differente").toggle()
+                end,
+                desc = "Toggle differente",
+            },
+        },
+        ---@type differente_config
+        opts = {
+            open_tree = true,
+        },
+    },
 
     {
         "wallpants/github-preview.nvim",
@@ -321,14 +339,4 @@ return {
     --         { "<leader>ra", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
     --     },
     -- },
-    {
-        "sindrets/diffview.nvim",
-    },
-
-    {
-        "CoreyKaylor/diffbandit.nvim",
-        config = function()
-            require("diffbandit").setup()
-        end,
-    },
 }
