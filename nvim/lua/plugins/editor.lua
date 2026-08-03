@@ -116,6 +116,7 @@ return {
         keys = { "<leader>mpt" },
         ---@type github_preview_config
         opts = {
+            allow_multiple_instances = true,
             theme = {
                 high_contrast = true,
             },
