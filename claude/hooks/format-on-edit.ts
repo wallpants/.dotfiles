@@ -40,8 +40,9 @@ const FORMATTERS = [
   {
     bin: "stylua",
     exts: ["lua"],
-    // stylua formats explicitly-passed files even when ignored unless told not to
-    args: (file: string) => ["--respect-ignores", file],
+    // stylua formats explicitly-passed files even when ignored unless told not to;
+    // without --search-parent-directories it only checks the cwd for stylua.toml
+    args: (file: string) => ["--respect-ignores", "--search-parent-directories", file],
   },
   {
     bin: "black",
