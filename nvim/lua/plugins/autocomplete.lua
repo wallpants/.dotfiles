@@ -1,5 +1,6 @@
 local Utils = require("wallpants.utils")
 
+---@type LazyPluginSpec[]
 return {
     {
         "L3MON4D3/LuaSnip",

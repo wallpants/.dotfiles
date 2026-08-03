@@ -112,12 +112,13 @@ vim.lsp.config("lua_ls", {
             diagnostics = { globals = { "vim" } },
             workspace = {
                 checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME,
-                    -- all installed plugins, so .luarc.json doesn't need
-                    -- a hardcoded list that goes stale
-                    vim.fn.stdpath("data") .. "/lazy",
-                },
+                -- eagerly index every plugin's lua/ dir so all types
+                -- (LazyPluginSpec, plugin config classes, ...) are visible
+                -- without a require. One root per plugin, not the parent lazy
+                -- dir: a parent root breaks .luarc.json's pathStrict require
+                -- resolution for plugins whose repo name ends in .lua
+                -- (nvim-tree.lua). lazydev.nvim adds the vim runtime.
+                library = vim.fn.glob(vim.fn.stdpath("data") .. "/lazy/*/lua", true, true),
             },
         },
     },

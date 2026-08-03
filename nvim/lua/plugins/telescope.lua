@@ -1,5 +1,6 @@
 local Utils = require("wallpants.utils")
 
+---@type LazyPluginSpec[]
 return {
     {
         "nvim-telescope/telescope.nvim",
