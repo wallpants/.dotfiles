@@ -17,7 +17,7 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 }
 
 function Ensure-Installed($id) {
-    winget list -e --id $id 2>$null | Out-Null
+    winget list -e --id $id --accept-source-agreements 2>$null | Out-Null
     if ($LASTEXITCODE -eq 0) {
         Write-Host "$id already installed"
     } else {
