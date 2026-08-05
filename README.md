@@ -25,3 +25,36 @@ Full machine setup, safe to re-run. Clones this repo to `~/.dotfiles` (or update
 ```bash
 bash -c "$(curl -L https://raw.githubusercontent.com/wallpants/.dotfiles/main/scripts/setup.sh)"
 ```
+
+### Windows VM
+
+Partial support: Git Bash with the usual aliases (`windows/bashrc`) and nvim in minimal mode (`nvim/windows-init.lua` — the full config's external tools aren't installed on Windows). No zsh/kitty.
+
+1. Enable **Developer Mode** (Settings → System → For developers) — required for unelevated symlinks.
+2. In PowerShell:
+
+   ```powershell
+   git clone https://github.com/wallpants/.dotfiles.git "$env:USERPROFILE\.dotfiles"
+   powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\.dotfiles\scripts\windows-setup.ps1"
+   ```
+
+   Installs CLI tools via winget (git, neovim, lazygit, ripgrep, lsd), installs the repo fonts per-user, symlinks `~/.bashrc` and `%LOCALAPPDATA%\nvim\init.lua`. Safe to re-run. If git wasn't installed, the clone comes after: run the script first, open a new PowerShell (fresh PATH), clone, run the script again.
+
+3. Windows Terminal → Settings → Open JSON file, add a Git Bash profile to `profiles.list` and make it the default:
+
+   ```json
+   "defaultProfile": "{4f6b6f6d-4d3e-4f2b-9c6a-7a2e0e6b9d21}",
+   ```
+
+   ```json
+   {
+       "guid": "{4f6b6f6d-4d3e-4f2b-9c6a-7a2e0e6b9d21}",
+       "name": "Git Bash",
+       "commandline": "\"C:\\Program Files\\Git\\bin\\bash.exe\" -i -l",
+       "startingDirectory": "%USERPROFILE%",
+       "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+       "hidden": false
+   },
+   ```
+
+4. Windows Terminal → Settings → Profiles → Git Bash → Appearance → set the font to one of the installed nerd fonts (Meslo/Victor/Inconsolata) so devicons and `lsd` glyphs render.
