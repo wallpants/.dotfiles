@@ -43,10 +43,13 @@ M.set_background_transparent = function()
         "NormalNC",
         "LineNr",
         "SignColumn",
+        "EndOfBuffer",
     }
 
     for _, hl_group in ipairs(hl_groups) do
-        vim.api.nvim_set_hl(0, hl_group, { bg = "none" })
+        local hl = vim.api.nvim_get_hl(0, { name = hl_group, link = false })
+        hl.bg = nil
+        vim.api.nvim_set_hl(0, hl_group, hl)
     end
 end
 

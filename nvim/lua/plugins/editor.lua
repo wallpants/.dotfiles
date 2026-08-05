@@ -110,6 +110,7 @@ return {
     -- },
     {
         "wallpants/differente.nvim",
+        -- dev = true,
         dependencies = { "nvim-tree/nvim-tree.lua" },
         cmd = { "Differente" },
         keys = {
@@ -122,15 +123,7 @@ return {
             },
         },
         ---@type differente_config
-        opts = {
-            open_tree = true,
-            alpha = {
-                add = 0.6,
-                change = 0.6,
-                delete = 0.6,
-                text = 0.6,
-            },
-        },
+        opts = {},
     },
 
     {
