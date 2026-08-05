@@ -38,7 +38,7 @@ Partial support: Git Bash with the usual aliases (`windows/bashrc`) and nvim in 
    powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\.dotfiles\scripts\windows-setup.ps1"
    ```
 
-   Installs CLI tools via winget (git, neovim, lazygit, ripgrep, lsd), installs the repo fonts per-user, symlinks `~/.bashrc` and `%LOCALAPPDATA%\nvim\init.lua`. Safe to re-run. If git wasn't installed, the clone comes after: run the script first, open a new PowerShell (fresh PATH), clone, run the script again.
+   Installs CLI tools via winget (git, neovim, lazygit, ripgrep, lsd), installs the repo fonts per-user, symlinks `~/.bashrc` and `%LOCALAPPDATA%\nvim\init.lua`. Safe to re-run. If git isn't installed yet, first run `winget install -e --id Git.Git`, then open a new PowerShell (fresh PATH) and continue with the clone.
 
 3. Windows Terminal → Settings → Open JSON file, add a Git Bash profile to `profiles.list` and make it the default:
 
