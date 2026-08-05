@@ -44,5 +44,6 @@ documentation is there to record current state.
 ├── lazygit/         # Lazygit configuration
 ├── nvim/            # Neovim configuration
 ├── scripts/         # Setup and installation scripts
+├── windows/         # Git Bash config for the Windows VM
 └── zsh/             # Zsh shell configuration
 ```

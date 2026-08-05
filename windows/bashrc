@@ -1,0 +1,13 @@
+# Git Bash rc for the Windows VM, symlinked to ~/.bashrc by scripts/windows-setup.ps1
+
+export EDITOR=nvim
+
+alias vi="nvim"
+alias vim="nvim -u ~/.dotfiles/nvim/minimal.lua"
+alias lzg="lazygit"
+alias :q="exit"
+alias :Q="exit"
+alias dotfiles="cd ~/.dotfiles"
+
+alias l='lsd -A --group-directories-first --oneline'
+alias la='lsd -lA --group-directories-first'
