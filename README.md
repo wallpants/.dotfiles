@@ -30,17 +30,23 @@ bash -c "$(curl -L https://raw.githubusercontent.com/wallpants/.dotfiles/main/sc
 
 Partial support: Git Bash with the usual aliases (`windows/bashrc`) and nvim in minimal mode (`nvim/windows-init.lua` — the full config's external tools aren't installed on Windows). No zsh/kitty.
 
-1. Enable **Developer Mode** (Settings → System → For developers) — required for unelevated symlinks.
-2. In PowerShell:
+1. If git isn't installed yet, in PowerShell (then open a new PowerShell so git is on PATH):
+
+   ```powershell
+   winget install -e --id Git.Git
+   ```
+
+2. Enable **Developer Mode** (Settings → System → For developers) — required for unelevated symlinks.
+3. In PowerShell:
 
    ```powershell
    git clone https://github.com/wallpants/.dotfiles.git "$env:USERPROFILE\.dotfiles"
    powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\.dotfiles\scripts\windows-setup.ps1"
    ```
 
-   Installs CLI tools via winget (git, neovim, lazygit, ripgrep, lsd), installs the repo fonts per-user, symlinks `~/.bashrc` and `%LOCALAPPDATA%\nvim\init.lua`. Safe to re-run. If git isn't installed yet, first run `winget install -e --id Git.Git`, then open a new PowerShell (fresh PATH) and continue with the clone.
+   Installs CLI tools via winget (neovim, lazygit, ripgrep, lsd), installs the repo fonts per-user, symlinks `~/.bashrc` and `%LOCALAPPDATA%\nvim\init.lua`. Safe to re-run.
 
-3. Windows Terminal → Settings → Open JSON file, add a Git Bash profile to `profiles.list` and make it the default:
+4. Windows Terminal → Settings → Open JSON file, add a Git Bash profile to `profiles.list` and make it the default:
 
    ```json
    "defaultProfile": "{4f6b6f6d-4d3e-4f2b-9c6a-7a2e0e6b9d21}",
@@ -57,4 +63,4 @@ Partial support: Git Bash with the usual aliases (`windows/bashrc`) and nvim in 
    },
    ```
 
-4. Windows Terminal → Settings → Profiles → Git Bash → Appearance → set the font to one of the installed nerd fonts (Meslo/Victor/Inconsolata) so devicons and `lsd` glyphs render.
+5. Windows Terminal → Settings → Profiles → Git Bash → Appearance → set the font to one of the installed nerd fonts (Meslo/Victor/Inconsolata) so devicons and `lsd` glyphs render.
