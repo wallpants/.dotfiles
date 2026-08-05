@@ -8,7 +8,7 @@
   "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
   "differente.nvim": { "branch": "main", "commit": "e89543b3fc73b3298fcef5a032fe9ed5e38b5eed" },
   "duskhaven.nvim": { "branch": "main", "commit": "1e32b1ea255f027eebe937383c166c2882340091" },
-  "github-preview.nvim": { "branch": "main", "commit": "c4f20377f007fae1e6a56a243727b303409e6cfa" },
+  "github-preview.nvim": { "branch": "main", "commit": "7aa2a295c79793553449566b88fbf81fc848feb3" },
   "gitsigns.nvim": { "branch": "main", "commit": "31d6fb2d618bca1482b9f274751ead5f03461408" },
   "image.nvim": { "branch": "master", "commit": "88351f1f7d9dbae286e671ce3690a49660dd8a5c" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
