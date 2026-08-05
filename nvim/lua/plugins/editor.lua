@@ -68,35 +68,6 @@ return {
         },
     },
 
-    --{
-    --    "wallpants/napoleon.nvim",
-    --    dev = true,
-    --    cmd = { "NapoleonSend" },
-    --    keys = { "<leader>ns" },
-    --    ---@type napoleon_config
-    --    opts = {
-    --        -- model = "phi3:medium",
-    --        autoscroll = false,
-    --        model = "qwen2:72b",
-    --        temperature = 1,
-    --        initial_message = {
-    --            role = "system",
-    --            message = {
-    --                "You're an assistant embedded in a code editor called Neovim.",
-    --                "If you provide any code examples and are not asked for a specific language, please provide code samples using typescript.",
-    --            },
-    --        },
-    --        log_level = "debug",
-    --    },
-    --    config = function(_, opts)
-    --        local napoleon = require("napoleon")
-    --        napoleon.setup(opts)
-
-    --        local fns = napoleon.fns
-    --        vim.keymap.set("n", "<leader>ns", fns.send)
-    --    end,
-    --},
-
     -- {
     --     "wallpants/ghost-text.nvim",
     --     dev = true,
@@ -108,6 +79,7 @@ return {
     --         -- log_level = "debug",
     --     },
     -- },
+
     {
         "wallpants/differente.nvim",
         -- dev = true,
@@ -124,6 +96,14 @@ return {
         },
         ---@type differente_config
         opts = {},
+    },
+
+    {
+        "nvzone/showkeys",
+        cmd = { "ShowkeysToggle" },
+        opts = {
+            position = "top-right",
+        },
     },
 
     {

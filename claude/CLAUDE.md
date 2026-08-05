@@ -31,3 +31,18 @@ there's no need to update the line to say now it's just a regular component. Jus
 
 This is just an example, but keep this example in mind when updating documentation/memories. Commits are there to record history,
 documentation is there to record current state.
+
+## Dotfiles
+
+~/.dotfiles
+
+```
+.dotfiles/
+├── claude/          # Claude Code user configuration
+├── fonts/           # Custom fonts
+├── kitty/           # Kitty terminal configuration
+├── lazygit/         # Lazygit configuration
+├── nvim/            # Neovim configuration
+├── scripts/         # Setup and installation scripts
+└── zsh/             # Zsh shell configuration
+```
