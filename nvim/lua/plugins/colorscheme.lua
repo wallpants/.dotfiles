@@ -76,6 +76,24 @@ return {
     },
 
     {
+        "wtfox/luna.nvim",
+        cond = enable_theme("luna"),
+        priority = 1000,
+        opts = {
+            -- transparent = false,
+            -- accent = 1.0, -- 0-1, blends syntax accents toward grey_light; 1 = full color
+            -- plugins = {
+            --     all = true, -- enable every plugin integration unconditionally
+            --     auto = true, -- when plugins.all is false, autodetect via lazy.nvim
+            -- },
+        },
+        config = function(_, opts)
+            require("luna").setup(opts)
+            vim.cmd.colorscheme("luna")
+        end,
+    },
+
+    {
         "nyoom-engineering/oxocarbon.nvim",
         cond = enable_theme("oxocarbon"),
         priority = 1000,
