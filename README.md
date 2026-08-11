@@ -17,6 +17,7 @@ Full machine setup, safe to re-run. Clones this repo to `~/.dotfiles` (or update
 - sets git identity and generates an ssh key for GitHub (printed at the end so you can add it to your account)
 - installs fonts
 - installs Homebrew and CLI packages (nvim, lazygit, bun, ripgrep, fd, nvm, ...)
+- installs Docker Engine + the compose plugin and adds the user to the `docker` group (linux only)
 - installs kitty (macOS: brew cask, linux: official binary bundle) and symlinks nvim/kitty configs into `~/.config`
 - installs oh-my-zsh, makes zsh the default shell, and symlinks the zsh config
 - symlinks Claude Code config into `~/.claude` and installs its plugins
