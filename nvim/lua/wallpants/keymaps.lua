@@ -74,6 +74,16 @@ Utils.map("n", "<leader>ca", function()
     vim.print("absolute path copied")
 end, { desc = "Copy absolute path to clipboard" })
 
+Utils.map("n", "<leader>clp", function()
+    vim.fn.setreg("+", vim.fn.expand("%:~:.") .. ":" .. vim.fn.line("."))
+    vim.print("relative path with line copied")
+end, { desc = "Copy relative path with line to clipboard" })
+
+Utils.map("n", "<leader>cla", function()
+    vim.fn.setreg("+", vim.fn.expand("%:p") .. ":" .. vim.fn.line("."))
+    vim.print("absolute path with line copied")
+end, { desc = "Copy absolute path with line to clipboard" })
+
 Utils.map("n", "<leader>bd", function()
     vim.cmd("%bd|e#|bd#")
 end, { desc = "Delete all buffers except current" })
