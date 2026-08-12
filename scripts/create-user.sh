@@ -10,3 +10,13 @@ if getent group sudo >/dev/null; then
 else
   sudo usermod -aG wheel "$USERNAME"
 fi
+
+# cloud providers (e.g. DigitalOcean) only seed root's authorized_keys, so
+# copy them over to make the new user reachable over ssh directly
+if sudo test -f /root/.ssh/authorized_keys; then
+  sudo mkdir -p "/home/$USERNAME/.ssh"
+  sudo cp /root/.ssh/authorized_keys "/home/$USERNAME/.ssh/authorized_keys"
+  sudo chown -R "$USERNAME:$USERNAME" "/home/$USERNAME/.ssh"
+  sudo chmod 700 "/home/$USERNAME/.ssh"
+  sudo chmod 600 "/home/$USERNAME/.ssh/authorized_keys"
+fi
