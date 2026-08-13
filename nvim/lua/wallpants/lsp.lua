@@ -124,29 +124,30 @@ vim.lsp.config("lua_ls", {
     },
 })
 
-local ts_js_settings = {
-    preferences = {
-        displayPartsForJSDoc = true,
-        includePackageJsonAutoImports = "on",
-    },
-    format = {
-        indentSize = 3,
-        tabSize = 3,
-        convertTabsToSpaces = true,
-    },
-}
-
-vim.lsp.config("tsgo", {
+-- nvim-lspconfig renamed the "tsgo" config to "tsc" (TS7 ships the native
+-- compiler as tsc). The default cmd resolves the project's node_modules/.bin/tsc
+-- first, then tsc/tsgo on PATH — keep global installs off PATH so only the
+-- project binary can match.
+vim.lsp.config("tsc", {
     settings = {
-        typescript = vim.tbl_deep_extend("force", ts_js_settings, {
+        typescript = {
             preferences = {
                 importModuleSpecifier = "non-relative",
                 preferTypeOnlyAutoImports = true,
             },
-        }),
-        javascript = ts_js_settings,
+            inlayHints = {
+                parameterNames = { enabled = false },
+                parameterTypes = { enabled = false },
+                variableTypes = { enabled = false },
+                propertyDeclarationTypes = { enabled = false },
+                functionLikeReturnTypes = { enabled = false },
+                enumMemberValues = { enabled = false },
+            },
+        },
     },
 })
+
+vim.lsp.enable("tsc")
 
 vim.diagnostic.config({
     severity_sort = true,

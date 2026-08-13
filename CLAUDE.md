@@ -32,7 +32,7 @@ Personal dotfiles for macOS/Linux development environment.
 
 - **Plugin manager**: lazy.nvim
 - **Treesitter**: Uses `tree-sitter-manager.nvim` (requires system tree-sitter CLI). Highlighting enabled via autocommand calling `vim.treesitter.start()`
-- **LSP**: nvim-lspconfig + mason.nvim (servers/tools installed via mason-tool-installer). TypeScript uses `tsgo`; linting via `oxlint` (custom pull-diagnostics workaround in `wallpants/lsp.lua`). Server settings configured with `vim.lsp.config()` in `wallpants/lsp.lua`
+- **LSP**: nvim-lspconfig + mason.nvim (servers/tools installed via mason-tool-installer). TypeScript uses lspconfig's `tsc` config, which resolves the project's `node_modules/.bin/tsc` (projects are on TS7+, whose tsc is the native compiler with `--lsp`) before falling back to tsc/tsgo on PATH — keep global TS installs off PATH; `tsc` is enabled manually in `wallpants/lsp.lua`, with `ts_ls` excluded from automatic_enable. Linting via `oxlint` (custom pull-diagnostics workaround in `wallpants/lsp.lua`). Server settings configured with `vim.lsp.config()` in `wallpants/lsp.lua`
 - **Formatting**: conform.nvim (`oxfmt` for JS/TS/JSON/CSS/etc, stylua for Lua, black for Python), format-on-save with TS import organizing in `lua/plugins/formatting.lua`
 - **Completion**: nvim-cmp + LuaSnip
 - **Colorscheme**: Defaults to "murphy", env-based switching via `NVIM_THEME`

@@ -39,7 +39,7 @@ return {
                 callback = function(ev)
                     local conform_opts = { bufnr = ev.buf, lsp_format = "fallback", timeout_ms = 2000 }
 
-                    local client = vim.lsp.get_clients({ name = "tsgo", bufnr = ev.buf })[1]
+                    local client = vim.lsp.get_clients({ name = "tsc", bufnr = ev.buf })[1]
 
                     if not client then
                         pcall(vim.cmd, "undojoin")
@@ -47,7 +47,7 @@ return {
                         return
                     end
 
-                    -- Use standard LSP code action for organizing imports (works with tsgo)
+                    -- Use standard LSP code action for organizing imports (works with tsc)
                     local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
                     params.context = {
                         only = { "source.organizeImports" },
