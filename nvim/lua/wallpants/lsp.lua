@@ -132,7 +132,7 @@ vim.lsp.config("tsc", {
     settings = {
         typescript = {
             preferences = {
-                importModuleSpecifier = "non-relative",
+                importModuleSpecifier = "shortest",
                 preferTypeOnlyAutoImports = true,
             },
             inlayHints = {
