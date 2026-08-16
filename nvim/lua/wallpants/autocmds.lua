@@ -59,6 +59,22 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end,
 })
 
+-- Reload buffers edited externally without waiting for an app focus switch.
+-- checktime is not allowed while the cmdline is busy, so guard for it.
+local function checktime()
+    if vim.fn.getcmdwintype() ~= "" or vim.fn.mode() == "c" then
+        return
+    end
+    vim.cmd("checktime")
+end
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+    callback = checktime,
+})
+
+-- CursorHold only fires once per pause; poll so idle buffers update too
+vim.uv.new_timer():start(1000, 1000, vim.schedule_wrap(checktime))
+
 -- Enable treesitter highlighting for buffers (required for Neovim 0.12+ with tree-sitter-manager)
 vim.api.nvim_create_autocmd("FileType", {
     callback = function(args)
