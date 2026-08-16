@@ -188,6 +188,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         Utils.map("n", "<leader>rb", vim.lsp.buf.rename, {
             desc = "Rename symbol (replace in buffer)",
         })
+        Utils.map("n", "<leader>rr", function()
+            vim.cmd("lsp restart")
+        end, { desc = "Restart LSP clients" })
         -- never used; <leader>ca now copies the absolute path (wallpants/keymaps.lua)
         -- Utils.map("n", "<leader>ca", vim.lsp.buf.code_action, {
         --     desc = "Code action",
