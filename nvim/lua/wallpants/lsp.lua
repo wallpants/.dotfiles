@@ -128,6 +128,14 @@ vim.lsp.config("lua_ls", {
 -- compiler as tsc). The default cmd resolves the project's node_modules/.bin/tsc
 -- first, then tsc/tsgo on PATH — keep global installs off PATH so only the
 -- project binary can match.
+-- keep server-emitted edits (organize imports) matching oxfmt's tabWidth,
+-- so they don't get re-indented by conform right after
+local ts_js_format = {
+    indentSize = 3,
+    tabSize = 3,
+    convertTabsToSpaces = true,
+}
+
 vim.lsp.config("tsc", {
     settings = {
         typescript = {
@@ -135,6 +143,7 @@ vim.lsp.config("tsc", {
                 importModuleSpecifier = "shortest",
                 preferTypeOnlyAutoImports = true,
             },
+            format = ts_js_format,
             inlayHints = {
                 parameterNames = { enabled = false },
                 parameterTypes = { enabled = false },
@@ -143,6 +152,9 @@ vim.lsp.config("tsc", {
                 functionLikeReturnTypes = { enabled = false },
                 enumMemberValues = { enabled = false },
             },
+        },
+        javascript = {
+            format = ts_js_format,
         },
     },
 })
