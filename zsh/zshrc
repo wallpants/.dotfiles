@@ -55,6 +55,7 @@ alias ssh="nohup lemonade server > /dev/null 2>&1 &! kitty +kitten ssh -R 2489:1
 alias l='lsd -A --group-directories-first --oneline'
 # alias la='lsd -l --group-directories-first'
 alias la='lsd -lA --group-directories-first'
+alias las='lsd -lA --total-size --sizesort'
 
 alias condainit='conda init "$(basename "${SHELL}")"'
 alias qwen="ANTHROPIC_BASE_URL=http://localhost:1234 ANTHROPIC_AUTH_TOKEN=lmstudio claude --model qwen/qwen3.6-27b"
