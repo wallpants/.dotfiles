@@ -58,7 +58,7 @@ alias la='lsd -lA --group-directories-first'
 alias las='lsd -lA --total-size --sizesort'
 
 alias condainit='conda init "$(basename "${SHELL}")"'
-alias qwen="ANTHROPIC_BASE_URL=http://localhost:1234 ANTHROPIC_AUTH_TOKEN=lmstudio claude --model qwen/qwen3.6-27b"
+alias qwen="ANTHROPIC_BASE_URL=http://localhost:1234 ANTHROPIC_AUTH_TOKEN=lmstudio CLAUDE_CODE_MAX_CONTEXT_TOKENS=262144 CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1 CLAUDE_EFFORT=xhigh CLAUDE_CODE_EFFORT_LEVEL=xhigh claude --model qwen/qwen3.8-27b"
 
 # remap Ctrl+L to both scroll the current screen contents into the scrollback buffer
 # and clear the screen, instead of just clearing the screen
