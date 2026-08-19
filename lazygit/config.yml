@@ -7,8 +7,8 @@ git:
       command: delta --dark --paging=never
 customCommands:
   - key: "C"
-    command: "git cz c"
-    description: "commit with commitizen"
+    command: "czg"
+    description: "commit with czg"
     context: "files"
-    loadingText: "opening commitizen commit tool"
+    loadingText: "opening czg commit tool"
     output: terminal
