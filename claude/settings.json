@@ -33,5 +33,6 @@
   "tui": "fullscreen",
   "theme": "dark-daltonized",
   "editorMode": "vim",
+  "verbose": false,
   "useAutoModeDuringPlan": true
 }
