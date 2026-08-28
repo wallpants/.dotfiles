@@ -1,5 +1,6 @@
 ---@type LazyPluginSpec[]
 return {
+    { "mrjones2014/codesettings.nvim" },
     {
         "folke/lazydev.nvim",
         ft = "lua",
