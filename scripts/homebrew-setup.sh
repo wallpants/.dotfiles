@@ -39,7 +39,7 @@ brew_ensure_installed "unzip"
 brew_ensure_installed "bun" "brew tap oven-sh/bun && brew trust oven-sh/bun && brew install bun"
 brew_ensure_installed "fd"
 brew_ensure_installed "rg" "brew install ripgrep"
-brew_ensure_installed "tree-sitter"
+brew_ensure_installed "tree-sitter" "brew install tree-sitter-cli"
 # czg's brew formula depends on brew's node, which HOMEBREW_FORBIDDEN_FORMULAE forbids (nvm manages node), so install it with bun
 [ -x "$HOME/.bun/bin/czg" ] || bun install -g czg
 eval_if_os "macos" "brew_ensure_installed 'gsed' 'brew install gnu-sed'"
