@@ -4,7 +4,7 @@ Personal dotfiles for macOS/Linux (nvim, kitty, zsh, lazygit, Claude Code).
 
 ### Create User
 
-Only needed on a fresh server where you'd otherwise be running as root. Prompts for a username, creates the user with a home directory and password, and adds it to the admin group (`sudo` on ubuntu/debian, `wheel` on fedora). Log in as that user before running the setup below.
+Only needed on a fresh server where you'd otherwise be running as root. Prompts for a username, creates the user with a home directory and password, and adds it to the admin group (`sudo` on ubuntu/debian, `wheel` on fedora). If root has an `authorized_keys` file (cloud providers like DigitalOcean only seed root's), it is copied to the new user so you can ssh in as that user directly. Log in as that user before running the setup below.
 
 ```bash
 bash -c "$(curl -L https://raw.githubusercontent.com/wallpants/.dotfiles/main/scripts/create-user.sh)"
