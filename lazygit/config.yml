@@ -1,5 +1,8 @@
 gui:
   nerdFontsVersion: "3"
+  theme:
+    selectedLineBgColor:
+      - "#370063"
 git:
   diffContextSize: 6
   diffRenderers:
