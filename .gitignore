@@ -3,3 +3,4 @@ os_specific*
 lazygit/state.yml
 claude/hooks/node_modules/
 __pycache__/
+claude/skills/synced/
