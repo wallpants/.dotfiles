@@ -25,15 +25,16 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true
+    "pyright-lsp@claude-plugins-official": false,
+    "lua-lsp@claude-plugins-official": false,
+    "swift-lsp@claude-plugins-official": false
   },
   "effortLevel": "high",
   "tui": "fullscreen",
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "verbose": false,
+  "switchModelsOnFlag": true,
   "agentPushNotifEnabled": true,
   "useAutoModeDuringPlan": true
 }
